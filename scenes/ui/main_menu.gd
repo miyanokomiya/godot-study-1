@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var option_scene = preload("res://scenes/ui/options_menu.tscn")
+var options_scene = preload("res://scenes/ui/options_menu.tscn")
 
 
 func _ready():
@@ -14,7 +14,7 @@ func on_play_pressed():
 
 
 func on_options_pressed():
-	var option_instance = option_scene.instantiate()
+	var option_instance = options_scene.instantiate()
 	self.add_child(option_instance)
 	option_instance.back_pressed.connect(on_options_closed.bind(option_instance))
 
