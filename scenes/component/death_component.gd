@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var animation_player = $AnimationPlayer
 @onready var gpu_particles_2d = $GPUParticles2D
+@onready var hit_random_audio_player_component = $HitRandomAudioPlayerComponent
 
 
 func _ready():
@@ -22,3 +23,4 @@ func on_died():
 	entities.add_child(self)
 	self.global_position = spawn_posiiton
 	animation_player.play("default")
+	hit_random_audio_player_component.play_random()

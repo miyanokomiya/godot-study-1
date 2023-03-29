@@ -29,3 +29,4 @@ func get_time_elapsed():
 func on_timer_timeout():
 	var end_scene_instance = end_scene.instantiate()
 	self.add_child(end_scene_instance)
+	end_scene_instance.play_jingle()

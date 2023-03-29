@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dagvf54qcnoof"]
+[gd_scene load_steps=9 format=3 uid="uid://dagvf54qcnoof"]
 
 [ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_vx4i4"]
+[ext_resource type="PackedScene" uid="uid://bbc8c0lgg7x6u" path="res://scenes/ui/sound_button.tscn" id="2_ej7s8"]
+[ext_resource type="AudioStream" uid="uid://b4ysqb734xnio" path="res://assets/audio/jingles_victory.ogg" id="3_0h3io"]
+[ext_resource type="AudioStream" uid="uid://b7ouxvf7cqm8m" path="res://assets/audio/jingles_defeat.ogg" id="3_5xnrh"]
 
 [sub_resource type="Animation" id="Animation_k1cub"]
 resource_name = "in"
@@ -68,6 +71,16 @@ libraries = {
 "": SubResource("AnimationLibrary_t1kdo")
 }
 
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0h3io")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5xnrh")
+volume_db = -5.0
+bus = &"sfx"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,12 +140,12 @@ text = "You won!"
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_ej7s8")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_ej7s8")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
