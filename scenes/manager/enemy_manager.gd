@@ -4,6 +4,7 @@ const SPAWN_RADIUS = 370
 
 @export var basic_enemy_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene
+@export var bat_enemy_scene: PackedScene
 @export var arena_time_manager: Node
 
 @onready var timer = $Timer
@@ -60,4 +61,6 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 	timer.wait_time = base_spawn_time - time_off
 	
 	if arena_dificulty == 6:
-		enemy_table.add_item(wizard_enemy_scene, 20)
+		enemy_table.add_item(wizard_enemy_scene, 15)
+	elif arena_dificulty == 18:
+		enemy_table.add_item(bat_enemy_scene, 8)
