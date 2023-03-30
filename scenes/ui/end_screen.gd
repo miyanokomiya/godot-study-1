@@ -14,7 +14,7 @@ func _ready():
 	
 	
 	self.get_tree().paused = true
-	$%RestartButton.pressed.connect(on_restart_button_pressed)
+	$%ContinueButton.pressed.connect(on_continue_button_pressed)
 	$%QuitButton.pressed.connect(on_quit_button_pressed)
 
 
@@ -31,12 +31,15 @@ func play_jingle(defeat: bool = false):
 		victory_stream_player.play()
 
 
-func on_restart_button_pressed():
+func on_continue_button_pressed():
 	ScreenTransition.transition()
 	await ScreenTransition.transitioned_halfway
 	self.get_tree().paused = false
-	self.get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	self.get_tree().change_scene_to_file("res://scenes/ui/meta_menu.tscn")
 
 
 func on_quit_button_pressed():
-	self.get_tree().quit()
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
+	self.get_tree().paused = false
+	self.get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
