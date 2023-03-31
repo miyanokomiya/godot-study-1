@@ -2,7 +2,7 @@ extends AbilityController
 
 @export var axe_ability_scene: PackedScene
 
-var dase_damage = 10
+var dase_damage = 9
 var additional_damage_percent = 1
 
 

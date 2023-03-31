@@ -17,13 +17,13 @@ var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
 var upgrade_dagger_rate = preload("res://resources/upgrades/dagger_rate.tres")
 
 func _ready():
-	upgrade_pool.add_item(upgrade_sword, 5)
+	upgrade_pool.add_item(upgrade_sword, 10)
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_dagger, 10)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
 	upgrade_pool.add_item(upgrade_sword_damage, 10)
-	upgrade_pool.add_item(upgrade_player_speed, 5)
+	upgrade_pool.add_item(upgrade_player_speed, 10)
 	
 	experience_manager.level_up.connect(on_level_up)
 

@@ -1,7 +1,7 @@
 extends AbilityController
 
 const BASE_RANGE = 100
-const BASE_DAMAGE = 15
+const BASE_DAMAGE = 14
 
 @export var anvil_ability_scene: PackedScene
 @onready var timer = $Timer
