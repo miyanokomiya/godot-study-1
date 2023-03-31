@@ -16,7 +16,7 @@ func on_died():
 	if experience_gain_upgrade_count > 0:
 		adjusted_drop_percent += 0.1 * experience_gain_upgrade_count
 	
-	if randf() > drop_percent:
+	if randf() > adjusted_drop_percent:
 		return
 	
 	if vial_scene == null:
