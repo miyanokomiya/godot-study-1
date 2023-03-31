@@ -1,4 +1,4 @@
-extends Node
+extends AbilityController
 
 @export var axe_ability_scene: PackedScene
 
@@ -20,10 +20,13 @@ func on_timer_timeout():
 	if foreground == null:
 		return
 	
-	var axe_ability_scene_instance = axe_ability_scene.instantiate() as Node2D
-	foreground.add_child(axe_ability_scene_instance)
-	axe_ability_scene_instance.global_position = player.global_position
-	axe_ability_scene_instance.hitbox_component.damage = dase_damage * additional_damage_percent
+	var base_rotation = Vector2.RIGHT.rotated(randf_range(0, TAU))
+	for i in self.quantity:
+		var axe_ability_scene_instance = axe_ability_scene.instantiate() as Node2D
+		foreground.add_child(axe_ability_scene_instance)
+		axe_ability_scene_instance.base_rotation = base_rotation.rotated(TAU / self.quantity * i)
+		axe_ability_scene_instance.global_position = player.global_position
+		axe_ability_scene_instance.hitbox_component.damage = dase_damage * additional_damage_percent
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):

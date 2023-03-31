@@ -1,4 +1,4 @@
-extends Node
+extends AbilityController
 
 const MAX_RANGE = 150
 

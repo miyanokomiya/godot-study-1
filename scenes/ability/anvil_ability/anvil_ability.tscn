@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://l37tto3fk5s0"]
+[gd_scene load_steps=11 format=3 uid="uid://l37tto3fk5s0"]
 
 [ext_resource type="Texture2D" uid="uid://b72nxitv8lmrq" path="res://scenes/ability/anvil_ability/tile_0074.png" id="1_bh8hx"]
 [ext_resource type="Script" path="res://scenes/ability/anvil_ability/anvil_ability.gd" id="1_nf8oi"]
@@ -90,9 +90,12 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"play_particles"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -103,6 +106,28 @@ _data = {
 "RESET": SubResource("Animation_tvxpk"),
 "default": SubResource("Animation_n4kwt")
 }
+
+[sub_resource type="Curve" id="Curve_woly1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.503731, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.290909), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yfvhr"]
+curve = SubResource("Curve_woly1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xgi12"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -150.0
+linear_accel_max = -150.0
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_yfvhr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yobtq"]
 radius = 32.0
@@ -116,7 +141,43 @@ libraries = {
 "": SubResource("AnimationLibrary_fu614")
 }
 
+[node name="Particles" type="Node2D" parent="."]
+position = Vector2(0, -4)
+rotation = 0.785397
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Particles"]
+rotation = 1.57079
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_xgi12")
+lifetime = 0.4
+one_shot = true
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="Particles"]
+rotation = 3.14159
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_xgi12")
+lifetime = 0.4
+one_shot = true
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="Particles"]
+rotation = -1.5708
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_xgi12")
+lifetime = 0.4
+one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Particles"]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_xgi12")
+lifetime = 0.4
+one_shot = true
+
 [node name="Visuals" type="Node2D" parent="."]
+position = Vector2(0, -0.0262499)
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 position = Vector2(0, -7)
