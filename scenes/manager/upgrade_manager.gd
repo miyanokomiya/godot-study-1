@@ -21,8 +21,6 @@ func _ready():
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_dagger, 10)
-	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 10)
 	
 	experience_manager.level_up.connect(on_level_up)
@@ -52,6 +50,9 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
 	elif chosen_upgrade.id == upgrade_dagger.id:
 		upgrade_pool.add_item(upgrade_dagger_rate, 10)
+	elif chosen_upgrade.id == upgrade_sword.id:
+		upgrade_pool.add_item(upgrade_sword_damage, 10)
+		upgrade_pool.add_item(upgrade_sword_rate, 10)
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:
@@ -64,6 +65,15 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 		chosen_upgrades.append(chosen_upgrade)
 	
 	return chosen_upgrades
+
+
+func pick_initial_weapon():
+	var upgrade_screen_instance = upgrade_screen_scene.instantiate()
+	self.add_child(upgrade_screen_instance)
+	var chosen_upgrades: Array[AbilityUpgrade] = [upgrade_sword, upgrade_axe, upgrade_dagger, upgrade_anvil]
+	chosen_upgrades.shuffle()
+	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades.slice(0, 3))
+	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)
 
 
 func on_upgrade_selected(upgrade: AbilityUpgrade):

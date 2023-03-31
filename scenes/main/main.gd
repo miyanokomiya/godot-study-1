@@ -4,9 +4,12 @@ extends Node
 
 var pause_menu_scene = preload("res://scenes/ui/pose_menu.tscn")
 
+@onready var upgrade_manager = $UpgradeManager
+
 
 func _ready():
 	$%Player.health_component.died.connect(on_player_died)
+	upgrade_manager.pick_initial_weapon()
 
 
 func _unhandled_input(event):

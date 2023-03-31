@@ -7,6 +7,6 @@
 script = ExtResource("2_jv22l")
 ability_controller_scene = ExtResource("1_7033i")
 id = "dagger"
-max_quantity = 5
+max_quantity = 10
 name = "Dagger"
 description = "Throws a dagger to closer enemy."
