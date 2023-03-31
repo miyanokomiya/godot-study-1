@@ -57,7 +57,7 @@ func on_timer_timeout():
 
 func on_arena_dificulty_increased(arena_dificulty: int):
 	var time_off = (0.1 / 12) * arena_dificulty
-	time_off = min(time_off, 0.7)
+	time_off = min(time_off, 0.85)
 	timer.wait_time = base_spawn_time - time_off
 	
 	if arena_dificulty == 6:

@@ -13,6 +13,7 @@ var base_wait_time
 func _ready():
 	base_wait_time = $Timer.wait_time
 	$Timer.timeout.connect(on_timer_timeout)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func on_timer_timeout():
@@ -42,3 +43,10 @@ func on_timer_timeout():
 		dagger_instance.hitbox_component.damage = base_damage * additional_damage_percent
 		var additional_angle = ceil(i / 2.0) * deg_to_rad(15.0) * sign((i % 2) * 2 - 1)
 		dagger_instance.play_throw(player.global_position, enemy_direction.angle() + additional_angle)
+
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id == "dagger_rate":
+		var reduction = pow(0.9, current_upgrades["dagger_rate"]["quantity"])
+		$Timer.wait_time = base_wait_time * reduction
+		$Timer.start()
