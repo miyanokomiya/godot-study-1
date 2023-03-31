@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmvu050j60wbc"]
+
+[ext_resource type="Script" path="res://scenes/ability/dagger_ability/dagger_ability.gd" id="1_d8fsg"]
+[ext_resource type="Texture2D" uid="uid://cnng67l6yk4vg" path="res://scenes/ability/dagger_ability/dagger.png" id="2_ldywg"]
+[ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="3_8parq"]
+
+[sub_resource type="Curve" id="Curve_7qoxi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.641791, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ptm26"]
+curve = SubResource("Curve_7qoxi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ugfm"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -25.0
+linear_accel_max = -25.0
+scale_curve = SubResource("CurveTexture_ptm26")
+color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5d32"]
+radius = 8.0
+
+[node name="DaggerAbility" type="Node2D"]
+script = ExtResource("1_d8fsg")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_2ugfm")
+texture = ExtResource("2_ldywg")
+lifetime = 0.3
+local_coords = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ldywg")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_8parq")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_f5d32")

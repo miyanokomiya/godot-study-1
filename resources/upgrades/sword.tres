@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://cigecnd4b3w4g"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://7xa0v0blyiso"]
 
 [ext_resource type="PackedScene" uid="uid://yb6ph82j3sac" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="1_f24pj"]
 [ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_jv22l"]
@@ -9,4 +9,4 @@ ability_controller_scene = ExtResource("1_f24pj")
 id = "sword"
 max_quantity = 3
 name = "Sword"
-description = "Attack closer enemy by a sword."
+description = "Attacks closer enemy by a sword."
