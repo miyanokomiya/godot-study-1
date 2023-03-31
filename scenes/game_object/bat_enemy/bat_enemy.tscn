@@ -72,23 +72,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 0.174533, -0.174533]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [true],
-"method": &"set_is_moving"
-}, {
-"args": [false],
-"method": &"set_is_moving"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_apcyk"]
 _data = {
@@ -96,7 +79,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmenn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3oa8p"]
 resource_local_to_scene = true
 shader = ExtResource("6_kbf4l")
 shader_parameter/lerp_percent = 0.0
@@ -132,7 +115,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_jn4ow")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_rmenn")
+hit_flash_material = SubResource("ShaderMaterial_3oa8p")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_72qpa")]
 health_component = NodePath("../HealthComponent")

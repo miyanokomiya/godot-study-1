@@ -38,14 +38,16 @@ func on_timer_timeout():
 		var b_distance = b.global_position.distance_squared_to(player.global_position)
 		return a_distance < b_distance
 	)
-	var sword_instance = sword_ability.instantiate() as SwordAbility
-	var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
-	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
-	sword_instance.global_position = enemies[0].global_position
-	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
-	var enemy_direction = enemies[0].global_position - sword_instance.global_position
-	sword_instance.rotation = enemy_direction.angle()
+	
+	for i in min(self.quantity, enemies.size()):
+		var sword_instance = sword_ability.instantiate() as SwordAbility
+		var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
+		foreground_layer.add_child(sword_instance)
+		sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
+		sword_instance.global_position = enemies[i].global_position
+		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
+		var enemy_direction = enemies[i].global_position - sword_instance.global_position
+		sword_instance.rotation = enemy_direction.angle()
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):

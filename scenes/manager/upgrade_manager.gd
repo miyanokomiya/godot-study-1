@@ -6,6 +6,7 @@ extends Node
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
+var upgrade_sword = preload("res://resources/upgrades/sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
@@ -14,6 +15,7 @@ var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 
 func _ready():
+	upgrade_pool.add_item(upgrade_sword, 5)
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
@@ -49,7 +51,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 
 func pick_upgrades() -> Array[AbilityUpgrade]:
 	var chosen_upgrades: Array[AbilityUpgrade] = []
-	for i in 2:
+	for i in 3:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		
