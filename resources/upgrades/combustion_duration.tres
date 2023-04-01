@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://bt61y1otguyop"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_d4fg8"]
+
+[resource]
+script = ExtResource("1_d4fg8")
+id = "combustion_duration"
+max_quantity = 0
+name = "Combustion Duration"
+description = "Increases combustion duration by 0.5 seconds."

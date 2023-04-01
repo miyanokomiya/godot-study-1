@@ -16,13 +16,14 @@ var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
 var upgrade_dagger_rate = preload("res://resources/upgrades/dagger_rate.tres")
 var upgrade_combustion = preload("res://resources/upgrades/combustion.tres")
+var upgrade_combustion_duration = preload("res://resources/upgrades/combustion_duration.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_sword, 10)
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_dagger, 10)
-	upgrade_pool.add_item(upgrade_combustion, 1000)
+	upgrade_pool.add_item(upgrade_combustion, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 10)
 	
 	experience_manager.level_up.connect(on_level_up)
@@ -55,6 +56,8 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	elif chosen_upgrade.id == upgrade_sword.id:
 		upgrade_pool.add_item(upgrade_sword_damage, 10)
 		upgrade_pool.add_item(upgrade_sword_rate, 10)
+	elif chosen_upgrade.id == upgrade_combustion.id:
+		upgrade_pool.add_item(upgrade_combustion_duration, 10)
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:

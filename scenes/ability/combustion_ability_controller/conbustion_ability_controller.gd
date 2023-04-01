@@ -1,13 +1,14 @@
 extends AbilityController
 
 const MAX_RANGE = 150
+const BASE_FIRE_DURATION = 1
 
 @export var ability_scene: PackedScene
 
 var base_damage = 3
 var additional_damage_percent = 1
 var base_wait_time
-var base_lifetime = 1
+var extra_fire_duration = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,8 +43,9 @@ func on_timer_timeout():
 		ability_instance.hitbox_component.damage = base_damage * additional_damage_percent
 		ability_instance.global_position = enemies[i].global_position
 		ability_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
-		ability_instance.set_lifetime(base_lifetime)
+		ability_instance.set_lifetime(BASE_FIRE_DURATION + extra_fire_duration)
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	pass
+	if upgrade.id == "combustion_duration":
+		extra_fire_duration = current_upgrades["combustion_duration"]["quantity"] * 0.5
