@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4ml3ng68n05"]
+
+[ext_resource type="Script" path="res://scenes/ability/dash_ability_controller/dash_ability_controller.gd" id="1_8cv1f"]
+[ext_resource type="PackedScene" uid="uid://dwbeayao0lik6" path="res://scenes/component/dash_component.tscn" id="2_2balv"]
+
+[node name="DashAbilityController" type="Node"]
+script = ExtResource("1_8cv1f")
+
+[node name="DashComponent" parent="." instance=ExtResource("2_2balv")]
+cooldown_time = 3.0

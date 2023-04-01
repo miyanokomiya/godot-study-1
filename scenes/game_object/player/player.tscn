@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfwfiuqjot6d5"]
+[gd_scene load_steps=18 format=3 uid="uid://cfwfiuqjot6d5"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_4o8x7"]
 [ext_resource type="Texture2D" uid="uid://cm8be2xys12w2" path="res://scenes/game_object/player/player.png" id="2_elrmy"]
@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://ca2ujmi648d7e" path="res://assets/audio/impactMining_002.ogg" id="8_00swh"]
 [ext_resource type="AudioStream" uid="uid://bntbt8ivenv3g" path="res://assets/audio/impactMining_003.ogg" id="9_dohr6"]
 [ext_resource type="AudioStream" uid="uid://dsnf7fkr71gr2" path="res://assets/audio/impactMining_004.ogg" id="10_xdyvq"]
-[ext_resource type="PackedScene" uid="uid://dwbeayao0lik6" path="res://scenes/component/dash_component.tscn" id="11_3024r"]
 
 [sub_resource type="Animation" id="Animation_s5a8f"]
 length = 0.001
@@ -132,9 +131,6 @@ acceleration = 25.0
 [node name="HealthComponent" parent="." instance=ExtResource("2_wlcbt")]
 
 [node name="Abilities" type="Node" parent="."]
-
-[node name="DashComponent" parent="." instance=ExtResource("11_3024r")]
-cooldown_time = 3.0
 
 [node name="HitRandomStreamPlayer" parent="." instance=ExtResource("5_b03mj")]
 streams = Array[AudioStream]([ExtResource("6_uk5x3"), ExtResource("7_ydryg"), ExtResource("8_00swh"), ExtResource("9_dohr6"), ExtResource("10_xdyvq")])

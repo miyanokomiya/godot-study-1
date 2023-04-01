@@ -4,6 +4,7 @@ extends Node
 @export var acceleration: float = 5.0
 
 var velocity = Vector2.ZERO
+var is_dashing = false
 
 
 func accelerate_to_player():
@@ -19,12 +20,11 @@ func accelerate_to_player():
 	accelerate_in_direction(direction)
 
 
-func accelerate_in_direction(direction: Vector2, dash: bool = false):
-	var desired_velocity = direction * max_speed
-	if dash:
-		self.velocity = desired_velocity
+func accelerate_in_direction(direction: Vector2):
+	if is_dashing:
+		self.velocity = direction * max_speed * 2
 	else:
-		self.velocity = self.velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+		self.velocity = self.velocity.lerp(direction * max_speed, 1 - exp(-acceleration * get_process_delta_time()))
 
 
 func decelerate():

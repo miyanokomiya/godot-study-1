@@ -10,7 +10,6 @@ extends CharacterBody2D
 @onready var visuals = $Visuals
 @onready var velocity_component = $VelocityComponent
 @onready var hit_random_stream_player = $HitRandomStreamPlayer
-@onready var dash_component = $DashComponent
 @onready var sprite_2d = $Visuals/Sprite2D
 
 var number_colliding_bodies = 0
@@ -29,17 +28,9 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("dash"):
-		dash_component.start_dash(sprite_2d, 0.2)
-	
 	var movement_vector = self.get_movement_vector()
 	var direction = movement_vector.normalized()
-	
-	if dash_component.is_dashing():
-		velocity_component.accelerate_in_direction(direction * 2, true)
-	else:
-		velocity_component.accelerate_in_direction(direction)
-	
+	velocity_component.accelerate_in_direction(direction)
 	velocity_component.move(self)
 	
 	if movement_vector.x != 0 || movement_vector.y != 0:
