@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcrrnupbp6ad"]
+
+[ext_resource type="Script" path="res://scenes/ability/combustion_ability_controller/conbustion_ability_controller.gd" id="1_nt8vy"]
+[ext_resource type="PackedScene" uid="uid://b4h8kg81ybkwc" path="res://scenes/ability/combustion_ability/combustion_ability.tscn" id="2_0r4ih"]
+
+[node name="ConbustionAbilityController" type="Node2D"]
+script = ExtResource("1_nt8vy")
+ability_scene = ExtResource("2_0r4ih")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

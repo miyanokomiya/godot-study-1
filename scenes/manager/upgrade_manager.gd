@@ -15,12 +15,14 @@ var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
 var upgrade_dagger_rate = preload("res://resources/upgrades/dagger_rate.tres")
+var upgrade_combustion = preload("res://resources/upgrades/combustion.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_sword, 10)
 	upgrade_pool.add_item(upgrade_axe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_dagger, 10)
+	upgrade_pool.add_item(upgrade_combustion, 1000)
 	upgrade_pool.add_item(upgrade_player_speed, 10)
 	
 	experience_manager.level_up.connect(on_level_up)
@@ -70,7 +72,8 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 func pick_initial_weapon():
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate()
 	self.add_child(upgrade_screen_instance)
-	var chosen_upgrades: Array[AbilityUpgrade] = [upgrade_sword, upgrade_axe, upgrade_dagger, upgrade_anvil]
+	# var chosen_upgrades: Array[AbilityUpgrade] = [upgrade_sword, upgrade_axe, upgrade_dagger, upgrade_anvil, upgrade_combustion]
+	var chosen_upgrades: Array[AbilityUpgrade] = [upgrade_dagger, upgrade_anvil, upgrade_combustion]
 	chosen_upgrades.shuffle()
 	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades.slice(0, 3))
 	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)

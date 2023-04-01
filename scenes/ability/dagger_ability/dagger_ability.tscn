@@ -42,7 +42,6 @@ local_coords = true
 texture = ExtResource("2_ldywg")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_8parq")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_f5d32")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjh5oaxaq4sul"]
+
+[ext_resource type="Shader" path="res://scenes/vfx/fire/vfx_fire.gdshader" id="1_n231p"]
+[ext_resource type="Texture2D" uid="uid://c1587u2l5ld14" path="res://resources/textures/fire5.png" id="1_xfrjr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5jtt8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ua2vs"]
+seamless = true
+noise = SubResource("FastNoiseLite_5jtt8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g67g2"]
+shader = ExtResource("1_n231p")
+shader_parameter/noise = SubResource("NoiseTexture2D_ua2vs")
+
+[node name="VfxFire" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_g67g2")
+texture = ExtResource("1_xfrjr")
