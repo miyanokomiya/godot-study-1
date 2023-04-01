@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://gaalh2lv6ndo"]
+
+[ext_resource type="Script" path="res://scenes/component/devil_trigger_component.gd" id="1_2yv8e"]
+
+[node name="DevilTriggerComponent" type="Node"]
+script = ExtResource("1_2yv8e")
+
+[node name="TriggerTimer" type="Timer" parent="."]
+one_shot = true
