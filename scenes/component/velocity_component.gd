@@ -19,9 +19,12 @@ func accelerate_to_player():
 	accelerate_in_direction(direction)
 
 
-func accelerate_in_direction(direction: Vector2):
+func accelerate_in_direction(direction: Vector2, dash: bool = false):
 	var desired_velocity = direction * max_speed
-	self.velocity = self.velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	if dash:
+		self.velocity = desired_velocity
+	else:
+		self.velocity = self.velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 
 func decelerate():

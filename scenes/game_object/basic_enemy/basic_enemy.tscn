@@ -79,7 +79,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1h2y3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pq3nj"]
 resource_local_to_scene = true
 shader = ExtResource("6_7hxga")
 shader_parameter/lerp_percent = 0.0
@@ -113,7 +113,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_11lom")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_1h2y3")
+hit_flash_material = SubResource("ShaderMaterial_pq3nj")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_uy76v")]
 velocity_component = NodePath("../VelocityComponent")
