@@ -7,6 +7,6 @@
 script = ExtResource("1_4x117")
 decorator_controller = ExtResource("1_oif33")
 id = "catch_vial"
-max_quantity = 2
+max_quantity = 1
 name = "Catch Vial"
 description = "Catches vials via chosen spell."

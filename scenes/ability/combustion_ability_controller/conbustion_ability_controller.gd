@@ -39,11 +39,11 @@ func on_timer_timeout():
 	for i in min(self.quantity, enemies.size()):
 		var ability_instance = ability_scene.instantiate()
 		foreground_layer.add_child(ability_instance)
-		self.decorate_ability(ability_instance)
 		ability_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 		ability_instance.global_position = enemies[i].global_position
 		ability_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
 		ability_instance.set_lifetime(BASE_FIRE_DURATION + extra_fire_duration)
+		self.decorate_ability(ability_instance)
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):

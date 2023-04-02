@@ -37,12 +37,12 @@ func on_timer_timeout():
 	for i in min(self.quantity, enemies.size()):
 		var sword_instance = ability_scene.instantiate() as SwordAbility
 		foreground_layer.add_child(sword_instance)
-		self.decorate_ability(sword_instance)
 		sword_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 		sword_instance.global_position = enemies[i].global_position
 		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
 		var enemy_direction = enemies[i].global_position - sword_instance.global_position
 		sword_instance.rotation = enemy_direction.angle()
+		self.decorate_ability(sword_instance)
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):

@@ -23,10 +23,10 @@ func on_timer_timeout():
 	for i in self.quantity:
 		var axe_ability_scene_instance = axe_ability_scene.instantiate() as Node2D
 		foreground.add_child(axe_ability_scene_instance)
-		self.decorate_ability(axe_ability_scene_instance)
 		axe_ability_scene_instance.base_rotation = base_rotation.rotated(TAU / self.quantity * i)
 		axe_ability_scene_instance.global_position = player.global_position
 		axe_ability_scene_instance.hitbox_component.damage = self.base_damage + self.additional_damage
+		self.decorate_ability(axe_ability_scene_instance)
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
