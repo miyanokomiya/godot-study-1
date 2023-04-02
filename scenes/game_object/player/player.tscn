@@ -129,6 +129,7 @@ max_speed = 90
 acceleration = 25.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_wlcbt")]
+max_health = 20.0
 
 [node name="Abilities" type="Node" parent="."]
 

@@ -6,7 +6,6 @@ const BASE_FIRE_DURATION = 1
 @export var ability_scene: PackedScene
 
 var base_damage = 3
-var additional_damage_percent = 1
 var base_wait_time
 var extra_fire_duration = 0
 
@@ -40,7 +39,7 @@ func on_timer_timeout():
 	for i in min(self.quantity, enemies.size()):
 		var ability_instance = ability_scene.instantiate()
 		foreground_layer.add_child(ability_instance)
-		ability_instance.hitbox_component.damage = base_damage * additional_damage_percent
+		ability_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 		ability_instance.global_position = enemies[i].global_position
 		ability_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
 		ability_instance.set_lifetime(BASE_FIRE_DURATION + extra_fire_duration)
@@ -49,3 +48,5 @@ func on_timer_timeout():
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "combustion_duration":
 		extra_fire_duration = current_upgrades["combustion_duration"]["quantity"] * 0.5
+	elif upgrade.id == "combustion_damage":
+		self.increase_damage(current_upgrades["combustion_damage"]["quantity"])

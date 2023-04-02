@@ -15,8 +15,10 @@ var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
 var upgrade_dagger_rate = preload("res://resources/upgrades/dagger_rate.tres")
+var upgrade_dagger_damage = preload("res://resources/upgrades/dagger_damage.tres")
 var upgrade_combustion = preload("res://resources/upgrades/combustion.tres")
 var upgrade_combustion_duration = preload("res://resources/upgrades/combustion_duration.tres")
+var upgrade_combustion_damage = preload("res://resources/upgrades/combustion_damage.tres")
 var upgrade_dash = preload("res://resources/upgrades/dash.tres")
 
 func _ready():
@@ -55,11 +57,13 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
 	elif chosen_upgrade.id == upgrade_dagger.id:
 		upgrade_pool.add_item(upgrade_dagger_rate, 10)
+		upgrade_pool.add_item(upgrade_dagger_damage, 10)
 	elif chosen_upgrade.id == upgrade_sword.id:
 		upgrade_pool.add_item(upgrade_sword_damage, 10)
 		upgrade_pool.add_item(upgrade_sword_rate, 10)
 	elif chosen_upgrade.id == upgrade_combustion.id:
 		upgrade_pool.add_item(upgrade_combustion_duration, 10)
+		upgrade_pool.add_item(upgrade_combustion_damage, 10)
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:

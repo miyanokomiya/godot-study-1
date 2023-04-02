@@ -4,13 +4,14 @@ class_name AbilityController
 @export var executable = false
 
 var quantity = 1
+var additional_damage = 1
 
 func increase_quantity(count: int):
 	quantity += count
 
 
-func increase_damage(percent: float):
-	pass
+func increase_damage(damage: float):
+	additional_damage += damage
 
 
 func increase_quickness(percent: float):

@@ -5,18 +5,15 @@ const MAX_RANGE = 150
 @export var sword_ability: PackedScene
 
 var base_damage = 5
-var additional_damage_percent = 1
 var base_wait_time
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	base_wait_time = $Timer.wait_time
 	$Timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -43,7 +40,7 @@ func on_timer_timeout():
 	for i in min(self.quantity, enemies.size()):
 		var sword_instance = sword_ability.instantiate() as SwordAbility
 		foreground_layer.add_child(sword_instance)
-		sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
+		sword_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 		sword_instance.global_position = enemies[i].global_position
 		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU))
 		var enemy_direction = enemies[i].global_position - sword_instance.global_position
@@ -56,4 +53,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		$Timer.wait_time = base_wait_time * reduction
 		$Timer.start()
 	elif upgrade.id == "sword_damage":
-		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.15)
+		self.increase_damage(current_upgrades["sword_damage"]["quantity"])
