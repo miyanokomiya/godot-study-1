@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="1_s0r80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dsfx"]
-size = Vector2(30, 30)
+size = Vector2(21, 30)
 
 [sub_resource type="Animation" id="Animation_aks6t"]
 length = 0.001
@@ -113,7 +113,7 @@ script = ExtResource("1_dbtro")
 [node name="HitboxComponent" parent="." instance=ExtResource("1_s0r80")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(15, 0)
+position = Vector2(10.5, 0)
 shape = SubResource("RectangleShape2D_1dsfx")
 disabled = true
 
@@ -126,3 +126,4 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jt58v")
 offset = Vector2(0, -4)
+flip_h = true

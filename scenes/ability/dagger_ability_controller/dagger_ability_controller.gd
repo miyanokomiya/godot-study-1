@@ -43,10 +43,10 @@ func on_timer_timeout():
 		dagger_instance.play_throw(player.global_position, enemy_direction.angle() + additional_angle)
 
 
-func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
 	if upgrade.id == "dagger_rate":
-		var reduction = pow(0.9, current_upgrades["dagger_rate"]["quantity"])
+		var reduction = pow(0.9, upgrade_manager.get_upgrade_quantity("dagger_rate"))
 		$Timer.wait_time = base_wait_time * reduction
 		$Timer.start()
 	elif upgrade.id == "dagger_damage":
-		self.increase_damage(current_upgrades["dagger_damage"]["quantity"])
+		self.increase_damage(upgrade_manager.get_upgrade_quantity("dagger_damage"))

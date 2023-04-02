@@ -1,4 +1,5 @@
 extends Node
+class_name UpgradeManager
 
 @export var experience_manager: Node
 @export var upgrade_screen_scene: PackedScene
@@ -7,6 +8,7 @@ var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
+var upgrade_great_sword = preload("res://resources/upgrades/great_sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
@@ -49,18 +51,22 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 			upgrade_pool.remove_item(upgrade)
 	
 	update_upgrade_pool(upgrade)
-	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
+	GameEvents.emit_ability_upgrade_added(upgrade, self)
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
+	if get_upgrade_quantity(chosen_upgrade.id) != 1:
+		return
+	
 	if chosen_upgrade.id == upgrade_axe.id:
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
 	elif chosen_upgrade.id == upgrade_dagger.id:
 		upgrade_pool.add_item(upgrade_dagger_rate, 10)
 		upgrade_pool.add_item(upgrade_dagger_damage, 10)
 	elif chosen_upgrade.id == upgrade_sword.id:
-		upgrade_pool.add_item(upgrade_sword_damage, 10)
+		upgrade_pool.add_item(upgrade_sword_damage, 19)
 		upgrade_pool.add_item(upgrade_sword_rate, 10)
+		upgrade_pool.add_item(upgrade_great_sword, 5)
 	elif chosen_upgrade.id == upgrade_combustion.id:
 		upgrade_pool.add_item(upgrade_combustion_duration, 10)
 		upgrade_pool.add_item(upgrade_combustion_damage, 10)
@@ -85,6 +91,13 @@ func pick_initial_weapon():
 	chosen_upgrades.shuffle()
 	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades.slice(0, 3))
 	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)
+
+
+func get_upgrade_quantity(id: String) -> int:
+	if current_upgrades.has(id):
+		return current_upgrades[id]["quantity"]
+	else:
+		return 0
 
 
 func on_upgrade_selected(upgrade: AbilityUpgrade):

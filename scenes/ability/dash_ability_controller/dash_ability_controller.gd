@@ -31,7 +31,7 @@ func get_current_cooldown_time() -> float:
 
 
 
-func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
 	pass
 
 

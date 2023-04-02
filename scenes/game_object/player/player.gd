@@ -83,22 +83,23 @@ func on_health_changed():
 	update_health_display()
 
 
-func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
 	if ability_upgrade is Ability:
 		var ability = ability_upgrade as Ability
 		if abilities.has_node(ability.id):
 			abilities.get_node(ability.id).increase_quantity(1)
 		else:
-			var controller = ability.ability_controller_scene.instantiate() as Node
+			var controller = ability.ability_controller_scene.instantiate() as AbilityController
 			controller.name = ability.id
 			abilities.add_child(controller)
+			controller.apply_current_upgrades(upgrade_manager)
 			
 			if controller.executable:
 				var ability_status_screen = self.get_tree().get_first_node_in_group("ability_status_screen")
 				if ability_status_screen:
 					ability_status_screen.add_status_card(controller)
 	elif ability_upgrade.id == "player_speed":
-		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * 0.1)
+		velocity_component.max_speed = base_speed + (base_speed * upgrade_manager.get_upgrade_quantity("player_speed") * 0.1)
 
 
 func on_arena_dificulty_increased(arena_dificulty: int):

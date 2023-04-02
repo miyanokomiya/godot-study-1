@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://chqqtd5solklw"]
+
+[ext_resource type="PackedScene" uid="uid://u04jkx28cadm" path="res://scenes/ability/great_sword_ability_controller/great_sword_ability_controller.tscn" id="1_4mitw"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_m8voc"]
+
+[resource]
+script = ExtResource("2_m8voc")
+ability_controller_scene = ExtResource("1_4mitw")
+id = "great_sword"
+max_quantity = 2
+name = "G. Sword"
+description = "Attacks foreward by a great sword."

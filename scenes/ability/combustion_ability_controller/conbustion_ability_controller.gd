@@ -45,8 +45,8 @@ func on_timer_timeout():
 		ability_instance.set_lifetime(BASE_FIRE_DURATION + extra_fire_duration)
 
 
-func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
 	if upgrade.id == "combustion_duration":
-		extra_fire_duration = current_upgrades["combustion_duration"]["quantity"] * 0.5
+		extra_fire_duration = upgrade_manager.get_upgrade_quantity("combustion_duration") * 0.5
 	elif upgrade.id == "combustion_damage":
-		self.increase_damage(current_upgrades["combustion_damage"]["quantity"])
+		self.increase_damage(upgrade_manager.get_upgrade_quantity("combustion_damage"))

@@ -2,7 +2,7 @@ extends AbilityController
 
 @export var axe_ability_scene: PackedScene
 
-var dase_damage = 9
+var base_damage = 9
 
 
 func _ready():
@@ -28,6 +28,6 @@ func on_timer_timeout():
 		axe_ability_scene_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 
 
-func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
 	if upgrade.id == "axe_damage":
-		self.increase_damage(current_upgrades["axe_damage"]["quantity"])
+		self.increase_damage(upgrade_manager.get_upgrade_quantity("axe_damage"))
