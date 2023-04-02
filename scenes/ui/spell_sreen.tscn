@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://23fx3iw0c0tu"]
+
+[ext_resource type="PackedScene" uid="uid://3fhg4gnn0lih" path="res://scenes/ui/spell_card.tscn" id="1_rfxgm"]
+[ext_resource type="Script" path="res://scenes/ui/spell_sreen.gd" id="1_ycppi"]
+
+[sub_resource type="Animation" id="Animation_82ya6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k1cub"]
+resource_name = "in"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fj0jo"]
+resource_name = "out"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g365l"]
+_data = {
+"RESET": SubResource("Animation_82ya6"),
+"in": SubResource("Animation_k1cub"),
+"out": SubResource("Animation_fj0jo")
+}
+
+[node name="SpellSreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ycppi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "in"
+libraries = {
+"": SubResource("AnimationLibrary_g365l")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.298039, 0.639216, 0.352941)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 24
+
+[node name="CardContainer" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="SpellCard" parent="ScrollContainer/MarginContainer/CardContainer" instance=ExtResource("1_rfxgm")]
+layout_mode = 2
+
+[node name="SpellCard2" parent="ScrollContainer/MarginContainer/CardContainer" instance=ExtResource("1_rfxgm")]
+layout_mode = 2
+
+[node name="SpellCard3" parent="ScrollContainer/MarginContainer/CardContainer" instance=ExtResource("1_rfxgm")]
+layout_mode = 2
+
+[node name="SpellCard4" parent="ScrollContainer/MarginContainer/CardContainer" instance=ExtResource("1_rfxgm")]
+layout_mode = 2

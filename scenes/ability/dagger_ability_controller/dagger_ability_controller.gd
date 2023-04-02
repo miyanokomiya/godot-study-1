@@ -38,6 +38,7 @@ func on_timer_timeout():
 		var dagger_instance = dagger_ability.instantiate() as Node2D
 		var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(dagger_instance)
+		self.decorate_ability(dagger_instance)
 		dagger_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 		var additional_angle = ceil(i / 2.0) * deg_to_rad(15.0) * sign((i % 2) * 2 - 1)
 		dagger_instance.play_throw(player.global_position, enemy_direction.angle() + additional_angle)

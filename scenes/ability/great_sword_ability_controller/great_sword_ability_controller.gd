@@ -31,6 +31,7 @@ func on_timer_timeout():
 	var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
 	var sword_instance = ability_scene.instantiate() as SwordAbility
 	foreground_layer.add_child(sword_instance)
+	self.decorate_ability(sword_instance)
 	sword_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 	
 	sword_instance.global_position = player.global_position + direction * 30
@@ -41,6 +42,7 @@ func on_timer_timeout():
 		var step_direction = direction * Vector2(-1, 1)
 		var sword_instance2 = ability_scene.instantiate() as SwordAbility
 		foreground_layer.add_child(sword_instance2)
+		self.decorate_ability(sword_instance2)
 		sword_instance2.hitbox_component.damage = self.base_damage + self.additional_damage
 		sword_instance2.global_position = player.global_position + step_direction * 30
 		sword_instance2.scale = Vector2(4, 4)

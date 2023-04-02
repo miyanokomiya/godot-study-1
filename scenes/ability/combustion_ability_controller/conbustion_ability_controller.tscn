@@ -10,3 +10,5 @@ ability_scene = ExtResource("2_0r4ih")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="DecoratorContainer" type="Node" parent="."]

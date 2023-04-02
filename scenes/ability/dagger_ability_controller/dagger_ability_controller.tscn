@@ -10,3 +10,5 @@ dagger_ability = ExtResource("2_h2teu")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="DecoratorContainer" type="Node" parent="."]

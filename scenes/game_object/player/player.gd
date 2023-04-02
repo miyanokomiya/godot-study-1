@@ -98,6 +98,12 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, upgrade_manager: 
 				var ability_status_screen = self.get_tree().get_first_node_in_group("ability_status_screen")
 				if ability_status_screen:
 					ability_status_screen.add_status_card(controller)
+	elif ability_upgrade is AbilityDecorator:
+		var target_ids = upgrade_manager.current_upgrades[ability_upgrade.id]["decorate_targets"].keys()
+		for target_id in target_ids:
+			if abilities.has_node(target_id):
+				var decorator = (ability_upgrade as AbilityDecorator).decorator_controller.instantiate()
+				abilities.get_node(target_id).add_decorator(decorator)
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * upgrade_manager.get_upgrade_quantity("player_speed") * 0.1)
 

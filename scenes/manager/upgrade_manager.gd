@@ -3,6 +3,7 @@ class_name UpgradeManager
 
 @export var experience_manager: Node
 @export var upgrade_screen_scene: PackedScene
+@export var spell_screen_scene: PackedScene
 
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
@@ -23,6 +24,7 @@ var upgrade_combustion = preload("res://resources/upgrades/combustion.tres")
 var upgrade_combustion_duration = preload("res://resources/upgrades/combustion_duration.tres")
 var upgrade_combustion_damage = preload("res://resources/upgrades/combustion_damage.tres")
 var upgrade_dash = preload("res://resources/upgrades/dash.tres")
+var upgrade_catch_vial = preload("res://resources/upgrades/catch_vial.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_sword, 10)
@@ -32,6 +34,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_combustion, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_dash, 5)
+	upgrade_pool.add_item(upgrade_catch_vial, 50000)
 	
 	experience_manager.level_up.connect(on_level_up)
 
@@ -53,6 +56,31 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 	
 	update_upgrade_pool(upgrade)
 	GameEvents.emit_ability_upgrade_added(upgrade, self)
+
+
+func apply_upgrade_decorator(target_ability: Ability, decorator_ability: AbilityDecorator):
+	var has_upgrade = current_upgrades.has(decorator_ability.id)
+	if !has_upgrade:
+		current_upgrades[decorator_ability.id] = {
+			"resource": decorator_ability,
+			"quantity": 1,
+			"decorate_targets": {
+				target_ability.id: {},
+			},
+		}
+	else:
+		current_upgrades[decorator_ability.id]["quantity"] += 1
+		current_upgrades[decorator_ability.id]["decorate_targets"] = {
+			target_ability.id: {},
+		}
+	
+	if decorator_ability.max_quantity > 0:
+		var current_quantity = current_upgrades[decorator_ability.id]["quantity"]
+		if current_quantity == decorator_ability.max_quantity:
+			upgrade_pool.remove_item(decorator_ability)
+	
+	update_upgrade_pool(decorator_ability)
+	GameEvents.emit_ability_upgrade_added(decorator_ability, self)
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
@@ -102,8 +130,26 @@ func get_upgrade_quantity(id: String) -> int:
 		return 0
 
 
+func on_spell_selected(target_ability: Ability, decorator_ability: AbilityDecorator):
+	if !target_ability:
+		return
+	
+	apply_upgrade_decorator(target_ability, decorator_ability)
+
+
 func on_upgrade_selected(upgrade: AbilityUpgrade):
-	apply_upgrade(upgrade)
+	if upgrade is AbilityDecorator:
+		var spell_screen = spell_screen_scene.instantiate()
+		self.add_child(spell_screen)
+		var abilities: Array[Ability] = []
+		abilities.assign(
+			current_upgrades.values()\
+				.map(func(value): return value["resource"])\
+				.filter(func(value): return value is Ability) as Array[Ability])
+		spell_screen.set_spells(abilities)
+		spell_screen.spell_selected.connect(on_spell_selected.bind(upgrade))
+	else:
+		apply_upgrade(upgrade)
 
 
 func on_level_up(current_level: int):
