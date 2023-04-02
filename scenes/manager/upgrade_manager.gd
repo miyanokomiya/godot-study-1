@@ -8,11 +8,12 @@ var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
+var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
+var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
+var upgrade_double_sword = preload("res://resources/upgrades/double_sword.tres")
 var upgrade_great_sword = preload("res://resources/upgrades/great_sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
-var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
-var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
@@ -64,8 +65,9 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_dagger_rate, 10)
 		upgrade_pool.add_item(upgrade_dagger_damage, 10)
 	elif chosen_upgrade.id == upgrade_sword.id:
-		upgrade_pool.add_item(upgrade_sword_damage, 19)
+		upgrade_pool.add_item(upgrade_sword_damage, 10)
 		upgrade_pool.add_item(upgrade_sword_rate, 10)
+		upgrade_pool.add_item(upgrade_double_sword, 5)
 		upgrade_pool.add_item(upgrade_great_sword, 5)
 	elif chosen_upgrade.id == upgrade_combustion.id:
 		upgrade_pool.add_item(upgrade_combustion_duration, 10)

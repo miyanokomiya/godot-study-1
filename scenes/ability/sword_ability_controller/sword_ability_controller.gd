@@ -54,3 +54,5 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeM
 		$Timer.start()
 	elif upgrade.id == "sword_damage":
 		self.increase_damage(upgrade_manager.get_upgrade_quantity("sword_damage"))
+	elif upgrade.id == "double_sword":
+		self.increase_quantity(self.quantity * 2)

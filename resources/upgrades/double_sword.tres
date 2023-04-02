@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://2wpddaw615cc"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_kqmni"]
+
+[resource]
+script = ExtResource("1_kqmni")
+id = "double_sword"
+max_quantity = 2
+name = "Double Sword"
+description = "Doubles current sword quantity."
