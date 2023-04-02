@@ -5,6 +5,7 @@
 
 [node name="DashAbilityController" type="Node"]
 script = ExtResource("1_8cv1f")
+executable = true
 
 [node name="DashComponent" parent="." instance=ExtResource("2_2balv")]
 cooldown_time = 3.0

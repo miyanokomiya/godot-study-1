@@ -63,6 +63,13 @@ func spawn_ghost():
 	ghost.offset = sprite.offset
 
 
+func get_current_cooldown_time() -> float:
+	if dash_flag:
+		return cooldown_time
+	else:
+		return cooldown_timer.time_left
+
+
 func on_duration_timer_timeout():
 	end_dash()
 

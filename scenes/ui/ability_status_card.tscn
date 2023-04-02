@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2n7q563aih3c"]
+
+[ext_resource type="Script" path="res://scenes/ui/ability_status_card.gd" id="1_e45l5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n602w"]
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.545098, 0.607843, 0.705882, 1)
+
+[node name="AbilityStatusCard" type="Control"]
+custom_minimum_size = Vector2(55, 30)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e45l5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.14902, 0.192157, 0.392157)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Name"
+
+[node name="CooldownProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_n602w")
+max_value = 1.0
+value = 0.5
+show_percentage = false

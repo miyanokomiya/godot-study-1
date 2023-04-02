@@ -89,9 +89,14 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		if abilities.has_node(ability.id):
 			abilities.get_node(ability.id).increase_quantity(1)
 		else:
-			var instance = ability.ability_controller_scene.instantiate() as Node
-			instance.name = ability.id
-			abilities.add_child(instance)
+			var controller = ability.ability_controller_scene.instantiate() as Node
+			controller.name = ability.id
+			abilities.add_child(controller)
+			
+			if controller.executable:
+				var ability_status_screen = self.get_tree().get_first_node_in_group("ability_status_screen")
+				if ability_status_screen:
+					ability_status_screen.add_status_card(controller)
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * 0.1)
 

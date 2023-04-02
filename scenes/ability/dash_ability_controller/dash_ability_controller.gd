@@ -18,6 +18,19 @@ func _process(delta):
 		dash_component.start_dash(player, player.sprite_2d, 0.2)
 
 
+func get_ability_name() -> String:
+	return "Dash"
+
+
+func get_cooldown_time() -> float:
+	return dash_component.cooldown_time
+
+
+func get_current_cooldown_time() -> float:
+	return dash_component.get_current_cooldown_time()
+
+
+
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	pass
 
