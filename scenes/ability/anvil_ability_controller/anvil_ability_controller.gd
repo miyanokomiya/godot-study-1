@@ -11,7 +11,7 @@ func _ready():
 	timer.timeout.connect(on_timer_timeout)
 
 
-func on_timer_timeout():
+func proc_ability():
 	var player = self.get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
@@ -30,3 +30,8 @@ func on_timer_timeout():
 		self.decorate_ability(anvil_ability)
 		anvil_ability.global_position = spawn_position
 		anvil_ability.hitbox_component.damage = BASE_DAMAGE
+
+
+func on_timer_timeout():
+	proc_ability()
+	self.decorate_on_timeout()

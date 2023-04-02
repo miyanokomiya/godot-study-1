@@ -14,7 +14,7 @@ func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
-func on_timer_timeout():
+func proc_ability():
 	var player = self.get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
@@ -44,10 +44,15 @@ func on_timer_timeout():
 		self.decorate_ability(dagger_instance)
 
 
+func on_timer_timeout():
+	proc_ability()
+	self.decorate_on_timeout()
+
+
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
 	if upgrade.id == "dagger_rate":
 		var reduction = pow(0.9, upgrade_manager.get_upgrade_quantity("dagger_rate"))
 		$Timer.wait_time = base_wait_time * reduction
 		$Timer.start()
 	elif upgrade.id == "dagger_damage":
-		self.increase_damage(upgrade_manager.get_upgrade_quantity("dagger_damage"))
+		self.increase_damage(1)

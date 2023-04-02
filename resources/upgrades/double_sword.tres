@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_kqmni")
 id = "double_sword"
-max_quantity = 2
+max_quantity = 1
 name = "Double Sword"
 description = "Doubles current sword quantity."

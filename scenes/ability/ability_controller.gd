@@ -35,6 +35,10 @@ func apply_current_upgrades(upgrade_manager: UpgradeManager):
 	pass
 
 
+func proc_ability():
+	pass
+
+
 func add_decorator(decorator: Node):
 	if !self.has_node("DecoratorContainer"):
 		return
@@ -49,3 +53,12 @@ func decorate_ability(ability: Node2D):
 	var decorator_container = self.get_node("DecoratorContainer")
 	for child in decorator_container.get_children():
 		child.decorate_ability(ability)
+
+
+func decorate_on_timeout():
+	if !self.has_node("DecoratorContainer"):
+		return
+	
+	var decorator_container = self.get_node("DecoratorContainer")
+	for child in decorator_container.get_children():
+		child.decorate_on_timeout(self)

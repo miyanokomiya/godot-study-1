@@ -26,6 +26,8 @@ var upgrade_combustion_damage = preload("res://resources/upgrades/combustion_dam
 var upgrade_dash = preload("res://resources/upgrades/dash.tres")
 var upgrade_catch_vial = preload("res://resources/upgrades/catch_vial.tres")
 var upgrade_boost_damage = preload("res://resources/upgrades/boost_damage.tres")
+var upgrade_double_tap = preload("res://resources/upgrades/double_tap.tres")
+
 
 func _ready():
 	upgrade_pool.add_item(upgrade_sword, 10)
@@ -37,6 +39,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_dash, 5)
 	upgrade_pool.add_item(upgrade_catch_vial, 5)
 	upgrade_pool.add_item(upgrade_boost_damage, 5)
+	upgrade_pool.add_item(upgrade_double_tap, 5)
 	
 	experience_manager.level_up.connect(on_level_up)
 
