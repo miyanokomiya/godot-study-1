@@ -5,49 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="2_coi17"]
 [ext_resource type="Shader" path="res://scenes/vfx/fire/vfx_fire_2.gdshader" id="3_ikc2u"]
 
-[sub_resource type="Animation" id="Animation_pllgt"]
-resource_name = "fade_out"
-length = 0.4
-step = 0.05
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HitboxComponent/CollisionShape2D:shape:radius")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(2.21914, 1),
-"update": 0,
-"values": [16.0, 0.01]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(2.14355, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_a7pxe"]
 length = 0.001
 tracks/0/type = "value"
@@ -121,6 +78,49 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [16.0]
+}
+
+[sub_resource type="Animation" id="Animation_pllgt"]
+resource_name = "fade_out"
+length = 0.4
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitboxComponent/CollisionShape2D:shape:radius")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(2.21914, 1),
+"update": 0,
+"values": [16.0, 0.01]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.14355, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_amphu"]
@@ -201,7 +201,7 @@ _data = {
 seamless = true
 noise = SubResource("FastNoiseLite_afyxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1xg1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1s1ea"]
 resource_local_to_scene = true
 shader = ExtResource("3_ikc2u")
 shader_parameter/radius = 0.45
@@ -226,7 +226,7 @@ libraries = {
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="VfxFire2" parent="Visuals" instance=ExtResource("1_hiax1")]
-material = SubResource("ShaderMaterial_o1xg1")
+material = SubResource("ShaderMaterial_1s1ea")
 offset_top = -50.0
 offset_bottom = 14.0
 scale = Vector2(0.6, 0.6)

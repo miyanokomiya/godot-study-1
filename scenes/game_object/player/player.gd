@@ -94,10 +94,10 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, upgrade_manager: 
 			abilities.add_child(controller)
 			controller.apply_current_upgrades(upgrade_manager)
 			
-			if controller.executable:
-				var ability_status_screen = self.get_tree().get_first_node_in_group("ability_status_screen")
-				if ability_status_screen:
-					ability_status_screen.add_status_card(controller)
+			# if controller.executable:
+			var ability_status_screen = self.get_tree().get_first_node_in_group("ability_status_screen")
+			if ability_status_screen:
+				ability_status_screen.add_status_card(controller)
 	elif ability_upgrade is AbilityDecorator:
 		var target_ids = upgrade_manager.current_upgrades[ability_upgrade.id]["decorate_targets"].keys()
 		for target_id in target_ids:

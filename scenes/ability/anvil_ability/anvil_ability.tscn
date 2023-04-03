@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://l37tto3fk5s0"]
+[gd_scene load_steps=11 format=3]
 
-[ext_resource type="Texture2D" uid="uid://b72nxitv8lmrq" path="res://scenes/ability/anvil_ability/tile_0074.png" id="1_bh8hx"]
+[ext_resource type="Texture2D" uid="uid://b72nxitv8lmrq" path="res://scenes/ability/anvil_ability/anvil.png" id="1_bh8hx"]
 [ext_resource type="Script" path="res://scenes/ability/anvil_ability/anvil_ability.gd" id="1_nf8oi"]
 [ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="2_0t6eb"]
 

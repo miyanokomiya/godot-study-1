@@ -1,18 +1,23 @@
 extends Node
 class_name AbilityController
 
+signal upgraded
+
 @export var executable = false
 @export var item_pickable = false
+@export var icon: Texture
 
 var quantity = 1
 var additional_damage = 0
 
 func increase_quantity(count: int):
 	quantity += count
+	upgraded.emit()
 
 
 func increase_damage(damage: float):
 	additional_damage += damage
+	upgraded.emit()
 
 
 func increase_quickness(percent: float):

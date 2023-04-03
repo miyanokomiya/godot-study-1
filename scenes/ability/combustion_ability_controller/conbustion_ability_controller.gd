@@ -17,6 +17,10 @@ func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
+func get_ability_name() -> String:
+	return "Conbust."
+
+
 func proc_ability():
 	var player = self.get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:

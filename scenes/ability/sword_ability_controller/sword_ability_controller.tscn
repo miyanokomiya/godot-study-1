@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://yb6ph82j3sac"]
+[gd_scene load_steps=4 format=3 uid="uid://yb6ph82j3sac"]
 
 [ext_resource type="Script" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.gd" id="1_tfy1y"]
 [ext_resource type="PackedScene" uid="uid://bp24tmqi8ytfb" path="res://scenes/ability/sword_ability/sword_ability.tscn" id="2_jkf2f"]
+[ext_resource type="Texture2D" uid="uid://blkdll8pan7xj" path="res://scenes/ability/sword_ability/sword.png" id="3_15rtb"]
 
 [node name="SwordAbilityController" type="Node"]
 script = ExtResource("1_tfy1y")
 ability_scene = ExtResource("2_jkf2f")
+icon = ExtResource("3_15rtb")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5

@@ -12,6 +12,10 @@ func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
+func get_ability_name() -> String:
+	return "G. Sword"
+
+
 func apply_current_upgrades(upgrade_manager: UpgradeManager):
 	var reduction = pow(0.9, upgrade_manager.get_upgrade_quantity("sword_rate"))
 	$Timer.wait_time = base_wait_time * reduction

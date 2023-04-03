@@ -7,6 +7,6 @@
 script = ExtResource("2_1qwn3")
 ability_controller_scene = ExtResource("1_6pp21")
 id = "combustion"
-max_quantity = 10
+max_quantity = 0
 name = "Combustion"
 description = "Spawns small fire at closer enemy."

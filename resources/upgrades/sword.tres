@@ -7,6 +7,6 @@
 script = ExtResource("2_jv22l")
 ability_controller_scene = ExtResource("1_f24pj")
 id = "sword"
-max_quantity = 10
+max_quantity = 0
 name = "Sword"
 description = "Attacks closer enemy by a sword."
