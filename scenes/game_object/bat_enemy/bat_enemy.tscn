@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dd21gkjeo7erh"]
+[gd_scene load_steps=24 format=3 uid="uid://dd21gkjeo7erh"]
 
 [ext_resource type="Script" path="res://scenes/game_object/bat_enemy/bat_enemy.gd" id="1_om20a"]
 [ext_resource type="PackedScene" uid="uid://b107ymbechs3d" path="res://scenes/component/health_component.tscn" id="2_tqjh8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://gaalh2lv6ndo" path="res://scenes/component/devil_trigger_component.tscn" id="7_0o3p4"]
 [ext_resource type="PackedScene" uid="uid://cfhadqn07yn62" path="res://scenes/component/death_component.tscn" id="7_72qpa"]
 [ext_resource type="Texture2D" uid="uid://cvmgmnvsicc2i" path="res://scenes/game_object/bat_enemy/bat.png" id="8_eui02"]
+[ext_resource type="PackedScene" uid="uid://ca5bd24uu40af" path="res://scenes/component/stagger_component.tscn" id="8_gbp2c"]
 [ext_resource type="PackedScene" uid="uid://d32oj4so0hfj6" path="res://scenes/component/hurtbox_component.tscn" id="9_g6ees"]
 [ext_resource type="PackedScene" uid="uid://bb11gm0umuuvj" path="res://scenes/component/random_audio_stream_player_2d_component.tscn" id="10_pdcur"]
 [ext_resource type="AudioStream" uid="uid://daqsipcptp7fe" path="res://assets/audio/footstep_carpet_000.ogg" id="11_0lv5q"]
@@ -80,7 +81,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2dv8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnalx"]
 resource_local_to_scene = true
 shader = ExtResource("6_hyesv")
 shader_parameter/whiten = true
@@ -119,10 +120,13 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_jn4ow")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_s2dv8")
+hit_flash_material = SubResource("ShaderMaterial_nnalx")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_0o3p4")]
 velocity_component = NodePath("../VelocityComponent")
+
+[node name="StaggerComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_gbp2c")]
+health_component = NodePath("../HealthComponent")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_72qpa")]
 health_component = NodePath("../HealthComponent")

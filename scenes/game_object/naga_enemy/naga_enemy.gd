@@ -10,6 +10,9 @@ extends CharacterBody2D
 
 
 func _ready():
+	if stagger_component.is_staggering:
+		return
+	
 	hurtbox_component.hit.connect(on_hit)
 	health_component.died.connect(on_died)
 

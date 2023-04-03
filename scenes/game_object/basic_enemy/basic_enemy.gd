@@ -12,6 +12,9 @@ func _ready():
 
 
 func _process(delta):
+	if stagger_component.is_staggering:
+		return
+	
 	velocity_component.accelerate_to_player()
 	velocity_component.move(self)
 

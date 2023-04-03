@@ -2,7 +2,7 @@ extends Node
 
 @onready var trigger_timer = $TriggerTimer
 
-@export var trigger_timeout: int = 30
+@export var trigger_timeout: int = 60
 @export var velocity_component: Node
 
 func _ready():
