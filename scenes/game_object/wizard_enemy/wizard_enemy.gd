@@ -19,15 +19,11 @@ func _process(delta):
 		velocity_component.decelerate()
 	
 	velocity_component.move(self)
-	
-	var move_sign = sign(self.velocity.x)
-	if move_sign != 0:
-		visuals.scale = Vector2(move_sign, 1)
 
 
 func set_is_moving(moving: bool):
 	is_moving = moving
 
 
-func on_hit():
+func on_hit(hitbox: HitboxComponent):
 	hit_random_audio_player_component.play_random()

@@ -2,6 +2,9 @@ extends Node
 
 @export var max_speed: int = 40
 @export var acceleration: float = 5.0
+@export var disabled: bool = false
+@export var facing_node: Node2D
+@export var facing_flip: bool = false
 
 var velocity = Vector2.ZERO
 var is_dashing = false
@@ -32,6 +35,19 @@ func decelerate():
 
 
 func move(character_body: CharacterBody2D):
+	if disabled:
+		return
+	
 	character_body.velocity = velocity
 	character_body.move_and_slide()
 	velocity = character_body.velocity
+	
+	if !facing_node:
+		return
+	
+	var move_sign = sign(velocity.x)
+	if move_sign != 0:
+		if facing_flip:
+			facing_node.scale = Vector2(-move_sign, 1)
+		else:
+			facing_node.scale = Vector2(move_sign, 1)

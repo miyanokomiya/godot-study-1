@@ -74,7 +74,7 @@ func on_damage_interval_timer_timeout():
 	check_deal_damage()
 
 
-func on_health_decreased():
+func on_health_decreased(diff: float):
 	GameEvents.emit_player_damaged()
 	hit_random_stream_player.play_random()
 

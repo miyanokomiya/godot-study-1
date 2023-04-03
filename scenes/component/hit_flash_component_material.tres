@@ -1,8 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bhrj8b0hoau3q"]
 
-[ext_resource type="Shader" path="res://scenes/component/hit_flash_component.gdshader" id="1_fa23w"]
+[ext_resource type="Shader" path="res://scenes/vfx/whiten/whiten.gdshader" id="1_jiecy"]
 
 [resource]
 resource_local_to_scene = true
-shader = ExtResource("1_fa23w")
-shader_parameter/lerp_percent = 0.0
+shader = ExtResource("1_jiecy")
+shader_parameter/whiten = true
+shader_parameter/mix_weight = 0.0
+shader_parameter/alpha = 1.0

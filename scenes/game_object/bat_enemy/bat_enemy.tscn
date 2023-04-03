@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bw4wna6pvviqs" path="res://scenes/component/velocity_component.tscn" id="3_nndf6"]
 [ext_resource type="PackedScene" uid="uid://bhp76acdvk38j" path="res://scenes/component/vial_drop_component.tscn" id="4_dmqft"]
 [ext_resource type="PackedScene" uid="uid://cpwyeh6ioddx6" path="res://scenes/component/hit_flash_component.tscn" id="5_jn4ow"]
-[ext_resource type="Shader" path="res://scenes/component/hit_flash_component.gdshader" id="6_kbf4l"]
+[ext_resource type="Shader" path="res://scenes/vfx/whiten/whiten.gdshader" id="6_hyesv"]
 [ext_resource type="PackedScene" uid="uid://gaalh2lv6ndo" path="res://scenes/component/devil_trigger_component.tscn" id="7_0o3p4"]
 [ext_resource type="PackedScene" uid="uid://cfhadqn07yn62" path="res://scenes/component/death_component.tscn" id="7_72qpa"]
 [ext_resource type="Texture2D" uid="uid://cvmgmnvsicc2i" path="res://scenes/game_object/bat_enemy/bat.png" id="8_eui02"]
@@ -80,10 +80,12 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndsq0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2dv8"]
 resource_local_to_scene = true
-shader = ExtResource("6_kbf4l")
-shader_parameter/lerp_percent = 0.0
+shader = ExtResource("6_hyesv")
+shader_parameter/whiten = true
+shader_parameter/mix_weight = 0.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gajic"]
 radius = 8.0
@@ -105,9 +107,10 @@ libraries = {
 [node name="HealthComponent" parent="." instance=ExtResource("2_tqjh8")]
 max_health = 20.0
 
-[node name="VelocityComponent" parent="." instance=ExtResource("3_nndf6")]
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("facing_node") instance=ExtResource("3_nndf6")]
 max_speed = 100
 acceleration = 0.75
+facing_node = NodePath("../Visuals")
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_dmqft")]
 drop_percent = 0.4
@@ -116,7 +119,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_jn4ow")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_ndsq0")
+hit_flash_material = SubResource("ShaderMaterial_s2dv8")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_0o3p4")]
 velocity_component = NodePath("../VelocityComponent")
