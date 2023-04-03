@@ -10,7 +10,7 @@ anvil_ability_scene = ExtResource("2_m7nhl")
 icon = ExtResource("3_3vkuj")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 2.5
 autostart = true
 
 [node name="DecoratorContainer" type="Node" parent="."]
