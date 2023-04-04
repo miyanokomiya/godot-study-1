@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0wwhj8v78j2t"]
+[gd_scene load_steps=25 format=3 uid="uid://d0wwhj8v78j2t"]
 
 [ext_resource type="Texture2D" uid="uid://q3ikd4nvkjt1" path="res://scenes/game_object/wizard_enemy/wizard_enemy.png" id="1_5yyaf"]
 [ext_resource type="Script" path="res://scenes/game_object/wizard_enemy/wizard_enemy.gd" id="1_6dqv1"]
 [ext_resource type="PackedScene" uid="uid://b107ymbechs3d" path="res://scenes/component/health_component.tscn" id="2_cbnkm"]
 [ext_resource type="PackedScene" uid="uid://cfhadqn07yn62" path="res://scenes/component/death_component.tscn" id="2_eyhfl"]
 [ext_resource type="PackedScene" uid="uid://bw4wna6pvviqs" path="res://scenes/component/velocity_component.tscn" id="2_ilhv8"]
+[ext_resource type="PackedScene" uid="uid://dc3iq11ql08qr" path="res://scenes/component/status_effect_component.tscn" id="2_o7wo8"]
 [ext_resource type="PackedScene" uid="uid://d32oj4so0hfj6" path="res://scenes/component/hurtbox_component.tscn" id="4_h5jnq"]
 [ext_resource type="PackedScene" uid="uid://bhp76acdvk38j" path="res://scenes/component/vial_drop_component.tscn" id="4_po52p"]
 [ext_resource type="PackedScene" uid="uid://cpwyeh6ioddx6" path="res://scenes/component/hit_flash_component.tscn" id="5_i3ftd"]
@@ -122,7 +123,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0qm1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rc28g"]
 resource_local_to_scene = true
 shader = ExtResource("6_1x6ne")
 shader_parameter/whiten = true
@@ -146,6 +147,8 @@ libraries = {
 "": SubResource("AnimationLibrary_apcyk")
 }
 
+[node name="StatusEffectComponent" parent="." instance=ExtResource("2_o7wo8")]
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_cbnkm")]
 max_health = 30.0
 
@@ -160,7 +163,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_i3ftd")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_h0qm1")
+hit_flash_material = SubResource("ShaderMaterial_rc28g")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_srfrg")]
 velocity_component = NodePath("../VelocityComponent")
@@ -173,19 +176,20 @@ health_component = NodePath("../HealthComponent")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "status_effect_component") instance=ExtResource("4_h5jnq")]
+visible = false
+position = Vector2(0, -7)
+health_component = NodePath("../HealthComponent")
+status_effect_component = NodePath("../StatusEffectComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_ymdcq")
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("1_5yyaf")
 offset = Vector2(0, -8)
-
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_h5jnq")]
-visible = false
-position = Vector2(0, -7)
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_ymdcq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

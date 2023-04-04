@@ -1,4 +1,4 @@
-extends Node2D
+extends SpellAbility
 
 const MAX_RANGE = 100
 

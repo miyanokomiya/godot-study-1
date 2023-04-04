@@ -1,4 +1,4 @@
-extends Node2D
+extends SpellAbility
 
 @onready var hitbox_component = $HitboxComponent
 @onready var particles = $Particles

@@ -1,4 +1,4 @@
-extends Node2D
+extends SpellAbility
 
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer

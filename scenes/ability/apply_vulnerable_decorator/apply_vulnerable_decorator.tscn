@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0copbaqjb64r"]
+
+[ext_resource type="Script" path="res://scenes/ability/apply_vulnerable_decorator/apply_vulnerable_decorator.gd" id="1_6sos5"]
+[ext_resource type="Resource" uid="uid://bbdsptyvsdth0" path="res://resources/status_effects/status_vulnerable.tres" id="2_mocjb"]
+
+[node name="ApplyVulnerableDecorator" type="Node"]
+script = ExtResource("1_6sos5")
+status_effect = ExtResource("2_mocjb")

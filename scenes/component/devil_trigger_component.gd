@@ -12,5 +12,5 @@ func _ready():
 
 
 func on_trigger_timer_timeout():
-	velocity_component.max_speed *= 4
-	velocity_component.acceleration *= 2
+	velocity_component.max_speed *= 3
+	velocity_component.acceleration *= 1.5

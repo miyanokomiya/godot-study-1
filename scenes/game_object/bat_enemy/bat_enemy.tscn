@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dd21gkjeo7erh"]
+[gd_scene load_steps=25 format=3 uid="uid://dd21gkjeo7erh"]
 
 [ext_resource type="Script" path="res://scenes/game_object/bat_enemy/bat_enemy.gd" id="1_om20a"]
+[ext_resource type="PackedScene" uid="uid://dc3iq11ql08qr" path="res://scenes/component/status_effect_component.tscn" id="2_3ajmf"]
 [ext_resource type="PackedScene" uid="uid://b107ymbechs3d" path="res://scenes/component/health_component.tscn" id="2_tqjh8"]
 [ext_resource type="PackedScene" uid="uid://bw4wna6pvviqs" path="res://scenes/component/velocity_component.tscn" id="3_nndf6"]
 [ext_resource type="PackedScene" uid="uid://bhp76acdvk38j" path="res://scenes/component/vial_drop_component.tscn" id="4_dmqft"]
@@ -81,7 +82,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnalx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imvlv"]
 resource_local_to_scene = true
 shader = ExtResource("6_hyesv")
 shader_parameter/whiten = true
@@ -105,6 +106,8 @@ libraries = {
 "": SubResource("AnimationLibrary_apcyk")
 }
 
+[node name="StatusEffectComponent" parent="." instance=ExtResource("2_3ajmf")]
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_tqjh8")]
 max_health = 20.0
 
@@ -120,7 +123,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_jn4ow")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_nnalx")
+hit_flash_material = SubResource("ShaderMaterial_imvlv")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_0o3p4")]
 velocity_component = NodePath("../VelocityComponent")
@@ -132,19 +135,20 @@ health_component = NodePath("../HealthComponent")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "status_effect_component") instance=ExtResource("9_g6ees")]
+position = Vector2(0, -7)
+health_component = NodePath("../HealthComponent")
+status_effect_component = NodePath("../StatusEffectComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_gajic")
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 scale = Vector2(0.997106, 1.00115)
 texture = ExtResource("8_eui02")
 offset = Vector2(0, -7)
-
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_g6ees")]
-position = Vector2(0, -7)
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_gajic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)

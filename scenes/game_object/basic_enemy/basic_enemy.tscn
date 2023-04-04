@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://b824tlvujt62n"]
+[gd_scene load_steps=25 format=3 uid="uid://b824tlvujt62n"]
 
 [ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_2xybb"]
 [ext_resource type="Texture2D" uid="uid://8ohf3lwkkr5t" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="2_cnyek"]
+[ext_resource type="PackedScene" uid="uid://dc3iq11ql08qr" path="res://scenes/component/status_effect_component.tscn" id="2_qbvqr"]
 [ext_resource type="PackedScene" uid="uid://b107ymbechs3d" path="res://scenes/component/health_component.tscn" id="2_u7bgj"]
 [ext_resource type="PackedScene" uid="uid://bhp76acdvk38j" path="res://scenes/component/vial_drop_component.tscn" id="3_ftsfn"]
 [ext_resource type="PackedScene" uid="uid://cfhadqn07yn62" path="res://scenes/component/death_component.tscn" id="4_6u8ov"]
@@ -80,7 +81,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dhjih"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxi3n"]
 resource_local_to_scene = true
 shader = ExtResource("6_i5qkx")
 shader_parameter/whiten = true
@@ -105,6 +106,8 @@ libraries = {
 "": SubResource("AnimationLibrary_8ddy8")
 }
 
+[node name="StatusEffectComponent" parent="." instance=ExtResource("2_qbvqr")]
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_u7bgj")]
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_ftsfn")]
@@ -118,7 +121,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_11lom")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_dhjih")
+hit_flash_material = SubResource("ShaderMaterial_xxi3n")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_uy76v")]
 velocity_component = NodePath("../VelocityComponent")
@@ -131,8 +134,9 @@ health_component = NodePath("../HealthComponent")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_f647i")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "status_effect_component") instance=ExtResource("4_f647i")]
 health_component = NodePath("../HealthComponent")
+status_effect_component = NodePath("../StatusEffectComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -5)

@@ -1,7 +1,7 @@
 extends Node
 
 @export var damage_threshould: float = 1.0
-@export var knockback_power: float = 100.0
+@export var knockback_power: float = 60.0
 @export var health_component: Node
 
 @onready var stagger_timer = $StaggerTimer
@@ -29,7 +29,7 @@ func play_stagger(hitbox: HitboxComponent):
 
 	accumulated = 0
 	var direction = get_stagger_direction(hitbox.global_position)
-	var power = knockback_power * min((1 + beyond_damage * 0.05), 1.5)
+	var power = knockback_power
 	var tween = create_tween()
 	tween.tween_method(on_tween, direction * power, Vector2(0, 0), 0.5)
 	is_staggering = true

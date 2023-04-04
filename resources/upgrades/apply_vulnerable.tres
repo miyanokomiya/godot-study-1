@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityDecorator" load_steps=3 format=3 uid="uid://pv0g7iryissi"]
+
+[ext_resource type="PackedScene" uid="uid://c0copbaqjb64r" path="res://scenes/ability/apply_vulnerable_decorator/apply_vulnerable_decorator.tscn" id="1_uverh"]
+[ext_resource type="Script" path="res://resources/upgrades/ability_decorator.gd" id="2_beqe8"]
+
+[resource]
+script = ExtResource("2_beqe8")
+decorator_controller = ExtResource("1_uverh")
+id = "apply_vulnerable"
+max_quantity = 0
+name = "Apply Vulnerable"
+description = "Applies vulnerable via chosen spell."

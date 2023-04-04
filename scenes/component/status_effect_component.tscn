@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc3iq11ql08qr"]
+
+[ext_resource type="Script" path="res://scenes/component/status_effect_component.gd" id="1_svph5"]
+
+[node name="StatusEffectComponent" type="Node"]
+script = ExtResource("1_svph5")
