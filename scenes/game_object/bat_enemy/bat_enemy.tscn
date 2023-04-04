@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dd21gkjeo7erh"]
+[gd_scene load_steps=26 format=3 uid="uid://dd21gkjeo7erh"]
 
 [ext_resource type="Script" path="res://scenes/game_object/bat_enemy/bat_enemy.gd" id="1_om20a"]
 [ext_resource type="PackedScene" uid="uid://dc3iq11ql08qr" path="res://scenes/component/status_effect_component.tscn" id="2_3ajmf"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://clo8bvlg7kpnl" path="res://assets/audio/footstep_carpet_002.ogg" id="13_rf422"]
 [ext_resource type="AudioStream" uid="uid://bltn38p3lootv" path="res://assets/audio/footstep_carpet_003.ogg" id="14_h8pgf"]
 [ext_resource type="AudioStream" uid="uid://cs75t7p2whxe4" path="res://assets/audio/footstep_carpet_004.ogg" id="15_lg30u"]
+[ext_resource type="PackedScene" uid="uid://bupu5dd5xxdoo" path="res://scenes/ui/status_container.tscn" id="19_lxnkp"]
 
 [sub_resource type="Animation" id="Animation_gfq0d"]
 length = 0.001
@@ -82,7 +83,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_imvlv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0a64"]
 resource_local_to_scene = true
 shader = ExtResource("6_hyesv")
 shader_parameter/whiten = true
@@ -106,7 +107,8 @@ libraries = {
 "": SubResource("AnimationLibrary_apcyk")
 }
 
-[node name="StatusEffectComponent" parent="." instance=ExtResource("2_3ajmf")]
+[node name="StatusEffectComponent" parent="." node_paths=PackedStringArray("status_container") instance=ExtResource("2_3ajmf")]
+status_container = NodePath("../StatusContainer")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_tqjh8")]
 max_health = 20.0
@@ -123,7 +125,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_jn4ow")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_imvlv")
+hit_flash_material = SubResource("ShaderMaterial_s0a64")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_0o3p4")]
 velocity_component = NodePath("../VelocityComponent")
@@ -156,3 +158,9 @@ shape = SubResource("CircleShape2D_5oovg")
 
 [node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("10_pdcur")]
 streams = Array[AudioStream]([ExtResource("11_0lv5q"), ExtResource("12_muysi"), ExtResource("13_rf422"), ExtResource("14_h8pgf"), ExtResource("15_lg30u")])
+
+[node name="StatusContainer" parent="." instance=ExtResource("19_lxnkp")]
+offset_left = 0.0
+offset_top = -14.0
+offset_right = 0.0
+offset_bottom = -14.0

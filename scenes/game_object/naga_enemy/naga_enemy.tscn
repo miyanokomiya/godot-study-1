@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c57rwoxvhi15g"]
+[gd_scene load_steps=27 format=3 uid="uid://c57rwoxvhi15g"]
 
 [ext_resource type="Script" path="res://scenes/game_object/naga_enemy/naga_enemy.gd" id="1_muntl"]
 [ext_resource type="PackedScene" uid="uid://bb11gm0umuuvj" path="res://scenes/component/random_audio_stream_player_2d_component.tscn" id="2_xdxjv"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ca5bd24uu40af" path="res://scenes/component/stagger_component.tscn" id="14_a2sfn"]
 [ext_resource type="PackedScene" uid="uid://d32oj4so0hfj6" path="res://scenes/component/hurtbox_component.tscn" id="15_c26ij"]
 [ext_resource type="Texture2D" uid="uid://dy64fg3f6uaw0" path="res://assets/externals/naga-female-sheet-black/spritesheet.png" id="16_i6vd2"]
+[ext_resource type="PackedScene" uid="uid://bupu5dd5xxdoo" path="res://scenes/ui/status_container.tscn" id="18_jf7b5"]
 
 [sub_resource type="Animation" id="Animation_fk36s"]
 length = 0.001
@@ -178,7 +179,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql3ay"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43684"]
 resource_local_to_scene = true
 shader = ExtResource("12_rawv7")
 shader_parameter/whiten = true
@@ -206,7 +207,8 @@ libraries = {
 "": SubResource("AnimationLibrary_8ddy8")
 }
 
-[node name="StatusEffectComponent" parent="." instance=ExtResource("8_gx80k")]
+[node name="StatusEffectComponent" parent="." node_paths=PackedStringArray("status_container") instance=ExtResource("8_gx80k")]
+status_container = NodePath("../StatusContainer")
 
 [node name="HealthComponent" parent="." instance=ExtResource("8_xyopv")]
 max_health = 60.0
@@ -225,7 +227,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("11_u3qmc")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_ql3ay")
+hit_flash_material = SubResource("ShaderMaterial_43684")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("13_wujbv")]
 velocity_component = NodePath("../VelocityComponent")
@@ -253,3 +255,9 @@ vframes = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_8rhn6")
+
+[node name="StatusContainer" parent="." instance=ExtResource("18_jf7b5")]
+offset_left = 0.0
+offset_top = -33.0
+offset_right = 0.0
+offset_bottom = -33.0

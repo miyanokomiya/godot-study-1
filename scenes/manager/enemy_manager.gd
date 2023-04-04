@@ -70,4 +70,8 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 	elif arena_dificulty == 18:
 		enemy_table.add_item(bat_enemy_scene, 8)
 	elif arena_dificulty == 48:
-		enemy_table.add_item(naga_enemy_scene, 10)
+		enemy_table.add_item(naga_enemy_scene, 5)
+	elif arena_dificulty == 72:
+		enemy_table.add_item(naga_enemy_scene, 5)
+	elif arena_dificulty == 120:
+		enemy_table.add_item(naga_enemy_scene, 20)

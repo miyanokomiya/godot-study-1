@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bupu5dd5xxdoo"]
+
+[ext_resource type="Script" path="res://scenes/ui/status_container.gd" id="1_g5i4b"]
+[ext_resource type="PackedScene" uid="uid://6mcsjf1vq050" path="res://scenes/ui/status_effect_icon.tscn" id="1_iddyi"]
+
+[node name="StatusContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -360.0
+offset_right = -320.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_g5i4b")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -16.0
+offset_right = 13.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = -1
+columns = 4
+
+[node name="StatusEffectIcon" parent="GridContainer" instance=ExtResource("1_iddyi")]
+layout_mode = 2

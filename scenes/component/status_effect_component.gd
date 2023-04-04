@@ -2,13 +2,14 @@ extends Node
 class_name StatusEffectComponent
 
 @export var status_effects: Array[StatusEffect] = []
+@export var status_container: StatusContainer
 
 
 func affect_taken_damage(damage: float) -> float:
 	for effect in status_effects:
 		if effect.id == "vulnerable":
 			damage *= 1.5
-			effect.quantity -= 1
+			effect.set_quantity(effect.quantity - 1)
 			break
 	
 	clean_effects()
@@ -29,9 +30,13 @@ func update_status_effect(target: StatusEffect) -> void:
 			index += 1
 	
 	if index < status_effects.size():
-		status_effects[index].quantity += target.quantity
+		var current = status_effects[index]
+		current.set_quantity(current.quantity + target.quantity)
 	else:
-		status_effects.push_back(target)
+		var target_uniqued = target.duplicate()
+		status_effects.push_back(target_uniqued)
+		if status_container:
+			status_container.set_status_effect(target_uniqued)
 
 
 func clean_effects():

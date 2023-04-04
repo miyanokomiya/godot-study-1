@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://bbdsptyvsdth0"]
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=3 format=3 uid="uid://bbdsptyvsdth0"]
 
+[ext_resource type="Texture2D" uid="uid://cx7pmehftueom" path="res://resources/status_effects/icon_vulnerable.png" id="1_1ufdn"]
 [ext_resource type="Script" path="res://resources/status_effects/status_effect.gd" id="1_y3mur"]
 
 [resource]
@@ -9,4 +10,5 @@ id = "vulnerable"
 name = "Vulnerable"
 description = "Takes 50% more damage by the next attack."
 type = 1
+icon = ExtResource("1_1ufdn")
 quantity = 1
