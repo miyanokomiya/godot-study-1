@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6l381xk0ho1j"]
+
+[ext_resource type="Script" path="res://scenes/ui/ability_decorator_progress_bar.gd" id="1_h3shj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ii0kc"]
+
+[node name="AbilityDecoratorProgressBar" type="HBoxContainer"]
+offset_right = 30.0
+offset_bottom = 4.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_h3shj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(15, 3)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_ii0kc")
+max_value = 1.0
+value = 0.5
+show_percentage = false

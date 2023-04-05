@@ -101,7 +101,7 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, upgrade_manager: 
 		var target_ids = upgrade_manager.current_upgrades[ability_upgrade.id]["decorate_targets"].keys()
 		for target_id in target_ids:
 			if abilities.has_node(target_id):
-				var decorator = (ability_upgrade as AbilityDecorator).decorator_controller.instantiate()
+				var decorator = (ability_upgrade as AbilityDecorator).decorator_controller.instantiate() as AbilityControllerDecorator
 				abilities.get_node(target_id).add_decorator(decorator)
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * upgrade_manager.get_upgrade_quantity("player_speed") * 0.1)

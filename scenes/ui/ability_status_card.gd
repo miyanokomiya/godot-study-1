@@ -1,11 +1,19 @@
 extends Control
 
+var ability_decorator_progress_bar = preload("res://scenes/ui/ability_decorator_progress_bar.tscn")
+
 @onready var name_label = %NameLabel
 @onready var quantity_label = %QuantityLabel
 @onready var cooldown_progress_bar = %CooldownProgressBar
 @onready var icon_sprite_2d = %IconSprite2D
+@onready var timeout_container = %TimeoutContainer
 
 var ability_controller: AbilityController
+
+
+func _ready():
+	for c in timeout_container.get_children():
+		c.queue_free()
 
 
 func _process(delta):
@@ -15,6 +23,7 @@ func _process(delta):
 func set_ability_controller(controller: AbilityController):
 	ability_controller = controller
 	controller.upgraded.connect(on_ability_upgraded)
+	controller.decorator_added.connect(on_decorator_added)
 	update_view()
 
 
@@ -47,10 +56,21 @@ func update_cooldown_progress():
 	
 	cooldown_progress_bar.value = 1.0 - clamp(ability_controller.get_current_cooldown_time() / ability_controller.get_cooldown_time(), 0.0, 1.0)
 	if cooldown_progress_bar.value == 1.0:
-		cooldown_progress_bar.get("theme_override_styles/fill").set_border_color(Color.html("#75e3ff"))
+		cooldown_progress_bar.get("theme_override_styles/fill").set_bg_color(Color.html("#75e3ff"))
 	else:
-		cooldown_progress_bar.get("theme_override_styles/fill").set_border_color(Color.html("#8b9bb4"))
+		cooldown_progress_bar.get("theme_override_styles/fill").set_bg_color(Color.html("#8b9bb4"))
 
 
 func on_ability_upgraded():
 	update_view()
+
+
+func on_decorator_added(decorator_controller: AbilityControllerDecorator):
+	var timeout = decorator_controller.get_timeout()
+	if timeout == 0:
+		return
+	
+	var progress_bar = ability_decorator_progress_bar.instantiate()
+	timeout_container.add_child(progress_bar)
+	progress_bar.set_timeout(timeout)
+	progress_bar.set_fill(decorator_controller.get_color())

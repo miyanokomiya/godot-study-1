@@ -2,6 +2,7 @@ extends Node
 class_name AbilityController
 
 signal upgraded
+signal decorator_added(decorator_controller: AbilityControllerDecorator)
 
 @export var executable = false
 @export var item_pickable = false
@@ -44,11 +45,12 @@ func proc_ability():
 	pass
 
 
-func add_decorator(decorator: Node):
+func add_decorator(decorator_controller: AbilityControllerDecorator):
 	if !self.has_node("DecoratorContainer"):
 		return
 	
-	self.get_node("DecoratorContainer").add_child(decorator)
+	self.get_node("DecoratorContainer").add_child(decorator_controller)
+	decorator_added.emit(decorator_controller)
 
 
 func decorate_ability(ability: Node2D):
