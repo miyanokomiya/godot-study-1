@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpellAbilityResource" load_steps=3 format=3 uid="uid://bcy6os77wspho"]
+
+[ext_resource type="Texture2D" uid="uid://cdwxukmwymavh" path="res://assets/externals/raven_fantasy_icons/32/5300.png" id="1_21rd7"]
+[ext_resource type="Script" path="res://resources/spell_ability/spell_ability.gd" id="2_5n34f"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_5n34f")
+id = "dash"
+name = "Dash"
+description = "Procs short dash by dash button."
+icon = ExtResource("1_21rd7")

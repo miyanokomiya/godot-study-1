@@ -2,10 +2,9 @@ extends Control
 
 var ability_decorator_progress_bar = preload("res://scenes/ui/ability_decorator_progress_bar.tscn")
 
-@onready var name_label = %NameLabel
 @onready var quantity_label = %QuantityLabel
 @onready var cooldown_progress_bar = %CooldownProgressBar
-@onready var icon_sprite_2d = %IconSprite2D
+@onready var icon_sprite = %IconSprite
 @onready var timeout_container = %TimeoutContainer
 
 var ability_controller: AbilityController
@@ -31,13 +30,7 @@ func update_view():
 	if !ability_controller:
 		return
 	
-	if ability_controller.icon:
-		name_label.text = ""
-		icon_sprite_2d.texture = ability_controller.icon
-		icon_sprite_2d.show()
-	else:
-		name_label.text = ability_controller.get_ability_name()
-		icon_sprite_2d.hide()
+	icon_sprite.texture = ability_controller.spell_ability_resource.icon
 	
 	if ability_controller.quantity > 1:
 		quantity_label.text = "x%d" % ability_controller.quantity

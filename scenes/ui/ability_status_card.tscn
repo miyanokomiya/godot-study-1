@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2n7q563aih3c"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_status_card.gd" id="1_e45l5"]
-[ext_resource type="Texture2D" uid="uid://jkymkljshti7" path="res://scenes/ability/axe_ability/axe.png" id="2_2fb66"]
+[ext_resource type="Texture2D" uid="uid://dowqpflj6i8ed" path="res://assets/externals/raven_fantasy_icons/32/2215.png" id="2_4s4ii"]
 [ext_resource type="PackedScene" uid="uid://c6l381xk0ho1j" path="res://scenes/ui/ability_decorator_progress_bar.tscn" id="3_5kp2k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oknrg"]
@@ -9,8 +9,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n602w"]
 
 [node name="AbilityStatusCard" type="PanelContainer"]
-offset_right = 24.0
-offset_bottom = 18.0
+custom_minimum_size = Vector2(32, 17)
+offset_right = 32.0
+offset_bottom = 17.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_oknrg")
 script = ExtResource("1_e45l5")
 
@@ -24,42 +25,31 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_n602w")
 max_value = 1.0
-value = 0.5
+value = 0.3
 show_percentage = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="hBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(20, 15)
 layout_mode = 2
 
-[node name="IconSprite2D" type="Sprite2D" parent="MarginContainer/hBoxContainer"]
+[node name="IconSprite" type="TextureRect" parent="MarginContainer/hBoxContainer"]
 unique_name_in_owner = true
-position = Vector2(10, 6)
-texture = ExtResource("2_2fb66")
-
-[node name="NameLabel" type="Label" parent="MarginContainer/hBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-size_flags_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 16
-text = "Name"
+size_flags_horizontal = 6
+texture = ExtResource("2_4s4ii")
+expand_mode = 3
 
 [node name="QuantityLabel" type="Label" parent="MarginContainer/hBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 16
 text = "x1"
 

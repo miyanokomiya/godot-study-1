@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://saihuo78lomf"]
+[gd_scene load_steps=5 format=3 uid="uid://saihuo78lomf"]
 
 [ext_resource type="Script" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.gd" id="1_p0cc7"]
 [ext_resource type="PackedScene" uid="uid://cscfihxxuc6aj" path="res://scenes/ability/axe_ability/axe_ability.tscn" id="2_p8eh4"]
 [ext_resource type="Texture2D" uid="uid://jkymkljshti7" path="res://scenes/ability/axe_ability/axe.png" id="3_wibtd"]
+[ext_resource type="Resource" uid="uid://dbhoyq4bmaqmf" path="res://resources/spell_ability/spell_axe.tres" id="3_ydjob"]
 
 [node name="AxeAbilityController" type="Node"]
 script = ExtResource("1_p0cc7")
 axe_ability_scene = ExtResource("2_p8eh4")
+spell_ability_resource = ExtResource("3_ydjob")
 icon = ExtResource("3_wibtd")
 
 [node name="Timer" type="Timer" parent="."]

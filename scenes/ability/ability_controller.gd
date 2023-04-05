@@ -4,9 +4,9 @@ class_name AbilityController
 signal upgraded
 signal decorator_added(decorator_controller: AbilityControllerDecorator)
 
+@export var spell_ability_resource: SpellAbilityResource
 @export var executable = false
 @export var item_pickable = false
-@export var icon: Texture
 
 var quantity = 1
 var additional_damage = 0

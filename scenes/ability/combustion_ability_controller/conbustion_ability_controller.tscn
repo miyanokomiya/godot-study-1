@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcrrnupbp6ad"]
+[gd_scene load_steps=4 format=3 uid="uid://dcrrnupbp6ad"]
 
 [ext_resource type="Script" path="res://scenes/ability/combustion_ability_controller/conbustion_ability_controller.gd" id="1_nt8vy"]
 [ext_resource type="PackedScene" uid="uid://b4h8kg81ybkwc" path="res://scenes/ability/combustion_ability/combustion_ability.tscn" id="2_0r4ih"]
+[ext_resource type="Resource" uid="uid://c2an62ov5tybl" path="res://resources/spell_ability/spell_combustion.tres" id="3_8t5mx"]
 
 [node name="ConbustionAbilityController" type="Node2D"]
 script = ExtResource("1_nt8vy")
 ability_scene = ExtResource("2_0r4ih")
+spell_ability_resource = ExtResource("3_8t5mx")
+icon = null
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

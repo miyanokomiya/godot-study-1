@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp24tmqi8ytfb"]
+[gd_scene load_steps=9 format=3 uid="uid://bp24tmqi8ytfb"]
 
 [ext_resource type="Script" path="res://scenes/ability/sword_ability/sword_ability.gd" id="1_dbtro"]
 [ext_resource type="Texture2D" uid="uid://blkdll8pan7xj" path="res://scenes/ability/sword_ability/sword.png" id="1_jt58v"]
 [ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="1_s0r80"]
+[ext_resource type="Resource" uid="uid://b3yyec04rx55r" path="res://resources/spell_ability/spell_sword.tres" id="2_4m2mb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dsfx"]
 size = Vector2(21, 30)
@@ -109,6 +110,7 @@ _data = {
 
 [node name="SwordAbility" type="Node2D"]
 script = ExtResource("1_dbtro")
+spell_ability_resource = ExtResource("2_4m2mb")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("1_s0r80")]
 
