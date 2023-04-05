@@ -38,9 +38,9 @@ func _ready():
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_dash, 5)
 	upgrade_pool.add_item(upgrade_catch_vial, 5)
-	upgrade_pool.add_item(upgrade_boost_damage, 5)
+	upgrade_pool.add_item(upgrade_boost_damage, 5000)
 	upgrade_pool.add_item(upgrade_double_tap, 5)
-	upgrade_pool.add_item(upgrade_apply_vulnerable, 5)
+	upgrade_pool.add_item(upgrade_apply_vulnerable, 500)
 	
 	experience_manager.level_up.connect(on_level_up)
 

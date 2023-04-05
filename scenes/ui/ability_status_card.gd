@@ -5,13 +5,13 @@ var ability_decorator_progress_bar = preload("res://scenes/ui/ability_decorator_
 @onready var quantity_label = %QuantityLabel
 @onready var cooldown_progress_bar = %CooldownProgressBar
 @onready var icon_sprite = %IconSprite
-@onready var timeout_container = %TimeoutContainer
+@onready var decorator_container = %DecoratorContainer
 
 var ability_controller: AbilityController
 
 
 func _ready():
-	for c in timeout_container.get_children():
+	for c in decorator_container.get_children():
 		c.queue_free()
 
 
@@ -59,11 +59,14 @@ func on_ability_upgraded():
 
 
 func on_decorator_added(decorator_controller: AbilityControllerDecorator):
-	var timeout = decorator_controller.get_timeout()
-	if timeout == 0:
-		return
+	# Insert new node to the top
+	var children = decorator_container.get_children()
+	for c in children:
+		decorator_container.remove_child(c)
 	
 	var progress_bar = ability_decorator_progress_bar.instantiate()
-	timeout_container.add_child(progress_bar)
-	progress_bar.set_timeout(timeout)
-	progress_bar.set_fill(decorator_controller.get_color())
+	decorator_container.add_child(progress_bar)
+	progress_bar.set_resource(decorator_controller.spell_decorator_resource)
+	
+	for c in children:
+		decorator_container.add_child(c)

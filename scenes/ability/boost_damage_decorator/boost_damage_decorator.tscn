@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg1yoijbji8pf"]
+[gd_scene load_steps=3 format=3 uid="uid://dg1yoijbji8pf"]
 
 [ext_resource type="Script" path="res://scenes/ability/boost_damage_decorator/boost_damage_decorator.gd" id="1_da5en"]
+[ext_resource type="Resource" uid="uid://cjt3px30folbm" path="res://resources/spell_decorator/spell_decorator_boost_damage.tres" id="2_ubdlb"]
 
 [node name="BoostDamageDecorator" type="Node"]
 script = ExtResource("1_da5en")
+spell_decorator_resource = ExtResource("2_ubdlb")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0

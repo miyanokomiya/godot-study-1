@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdb1ls5kc74xt"]
+
+[ext_resource type="Script" path="res://scenes/ui/spell_decorator_icon.gd" id="1_vsgkp"]
+[ext_resource type="Texture2D" uid="uid://cwflse68ur14e" path="res://assets/externals/raven_fantasy_icons/32/17.png" id="2_c5u7s"]
+
+[node name="SpellDecoratorIcon" type="BoxContainer"]
+mouse_filter = 2
+script = ExtResource("1_vsgkp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = -2
+
+[node name="IconTextureRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_c5u7s")
+expand_mode = 2

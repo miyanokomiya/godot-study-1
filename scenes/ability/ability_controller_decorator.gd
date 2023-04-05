@@ -1,9 +1,11 @@
 extends Node
 class_name AbilityControllerDecorator
 
+@export var spell_decorator_resource: SpellDecoratorResource
 
-func get_timeout() -> float:
-	return 0
+
+func get_status_effect() -> StatusEffect:
+	return null
 
 
 func get_color() -> Color:

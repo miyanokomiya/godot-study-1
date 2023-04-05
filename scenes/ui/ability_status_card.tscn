@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2n7q563aih3c"]
+[gd_scene load_steps=7 format=3 uid="uid://d2n7q563aih3c"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_status_card.gd" id="1_e45l5"]
 [ext_resource type="Texture2D" uid="uid://dowqpflj6i8ed" path="res://assets/externals/raven_fantasy_icons/32/2215.png" id="2_4s4ii"]
 [ext_resource type="PackedScene" uid="uid://c6l381xk0ho1j" path="res://scenes/ui/ability_decorator_progress_bar.tscn" id="3_5kp2k"]
+[ext_resource type="PackedScene" uid="uid://6mcsjf1vq050" path="res://scenes/ui/status_effect_icon.tscn" id="4_3f0ai"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oknrg"]
 
@@ -10,19 +11,24 @@
 
 [node name="AbilityStatusCard" type="PanelContainer"]
 custom_minimum_size = Vector2(32, 17)
-offset_right = 32.0
-offset_bottom = 17.0
+offset_left = 38.0
+offset_top = 37.0
+offset_right = 70.0
+offset_bottom = 54.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_oknrg")
 script = ExtResource("1_e45l5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.247059, 0.14902, 0.192157, 0.392157)
 
 [node name="CooldownProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_n602w")
 max_value = 1.0
 value = 0.3
@@ -30,6 +36,7 @@ show_percentage = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -37,11 +44,13 @@ theme_override_constants/margin_bottom = 1
 
 [node name="hBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="IconSprite" type="TextureRect" parent="MarginContainer/hBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 2
 texture = ExtResource("2_4s4ii")
 expand_mode = 3
 
@@ -56,19 +65,22 @@ text = "x1"
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="TimeoutContainer" type="VBoxContainer" parent="Panel"]
+[node name="DecoratorContainer" type="VBoxContainer" parent="Panel"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 2
 offset_top = -3.0
+offset_right = 32.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_constants/separation = 1
 
-[node name="AbilityDecoratorProgressBar" parent="Panel/TimeoutContainer" instance=ExtResource("3_5kp2k")]
+[node name="AbilityDecoratorProgressBar" parent="Panel/DecoratorContainer" instance=ExtResource("3_5kp2k")]
 layout_mode = 2
 size_flags_horizontal = 1
+mouse_filter = 2
+
+[node name="StatusEffectIcon" parent="Panel/DecoratorContainer" instance=ExtResource("4_3f0ai")]
+layout_mode = 2

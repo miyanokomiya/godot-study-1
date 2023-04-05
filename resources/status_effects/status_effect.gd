@@ -4,6 +4,7 @@ class_name StatusEffect
 enum StatusEffectType { BUFF, DEBUFF }
 
 signal quantity_changed
+signal emptied
 
 @export var id: String
 @export var name: String
@@ -16,3 +17,5 @@ signal quantity_changed
 func set_quantity(value: int):
 	quantity = value
 	quantity_changed.emit()
+	if quantity == 0:
+		emptied.emit()

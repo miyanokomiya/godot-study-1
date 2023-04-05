@@ -7,7 +7,7 @@ class_name StatusEffectComponent
 
 func affect_taken_damage(damage: float) -> float:
 	for effect in status_effects:
-		if effect.id == "vulnerable":
+		if effect.id == "vulnerable" && effect.quantity > 0:
 			damage *= 1.5
 			effect.set_quantity(effect.quantity - 1)
 			break
@@ -22,14 +22,13 @@ func on_taken_damage(damage: float, taken_status_effects: Array[StatusEffect]):
 
 
 func update_status_effect(target: StatusEffect) -> void:
-	var index = 0
+	var index = -1
 	for effect in status_effects:
+		index += 1
 		if effect.id == target.id:
 			break
-		else:
-			index += 1
 	
-	if index < status_effects.size():
+	if -1 < index && index < status_effects.size():
 		var current = status_effects[index]
 		current.set_quantity(current.quantity + target.quantity)
 	else:

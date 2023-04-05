@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6mcsjf1vq050"]
 
 [ext_resource type="Script" path="res://scenes/ui/status_effect_icon.gd" id="1_p8mv1"]
-[ext_resource type="Texture2D" uid="uid://cx7pmehftueom" path="res://resources/status_effects/icon_vulnerable.png" id="2_irwel"]
+[ext_resource type="Texture2D" uid="uid://cwflse68ur14e" path="res://assets/externals/raven_fantasy_icons/32/17.png" id="2_kiakj"]
 
 [node name="StatusEffectIcon" type="BoxContainer"]
 mouse_filter = 2
@@ -15,9 +15,11 @@ theme_override_constants/separation = -2
 
 [node name="IconTextureRect" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("2_irwel")
+texture = ExtResource("2_kiakj")
+expand_mode = 2
 
 [node name="QuantityLabel" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true

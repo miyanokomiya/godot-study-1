@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpellDecoratorResource" load_steps=3 format=3 uid="uid://clle0nhlvaesq"]
+
+[ext_resource type="Script" path="res://resources/spell_decorator/spell_decorator.gd" id="1_0e0tq"]
+[ext_resource type="Texture2D" uid="uid://cwflse68ur14e" path="res://assets/externals/raven_fantasy_icons/32/17.png" id="1_2ycoi"]
+
+[resource]
+script = ExtResource("1_0e0tq")
+id = "apply_vunerable"
+name = "Apply Vunerable"
+description = "Applies vulnerable via the spell."
+icon = ExtResource("1_2ycoi")

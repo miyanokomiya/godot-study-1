@@ -37,6 +37,5 @@ func on_area_entered(other_area: Area2D):
 	
 	if status_effect_component:
 		status_effect_component.on_taken_damage(damage, hitbox_component.get_status_effects())
-		hitbox_component.get_status_effects()
 	
 	hit.emit(hitbox_component)

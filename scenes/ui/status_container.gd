@@ -12,24 +12,17 @@ func _ready():
 
 
 func set_status_effect(effect: StatusEffect):
-	for c in grid_container.get_children():
-		if c.name == effect.id:
-			return
-	
 	var status_effect_icon = status_effect_icon_scene.instantiate()
 	grid_container.add_child(status_effect_icon)
+	effect.quantity_changed.connect(on_quantity_changed.bind(status_effect_icon, effect))
+	effect.emptied.connect(on_effect_emptied.bind(status_effect_icon))
 	status_effect_icon.set_status_effect(effect)
-	status_effect_icon.name = effect.id
-	effect.quantity_changed.connect(on_quantity_changed.bind(effect))
 
 
-func on_quantity_changed(effect: StatusEffect):
-	for c in grid_container.get_children():
-		if c.name == effect.id:
-			if effect.quantity > 0:
-				c.set_status_effect(effect)
-			else:
-				c.queue_free()
-			
-			break
-		
+func on_effect_emptied(node: Node):
+	node.queue_free()
+
+
+func on_quantity_changed(node: Node, effect: StatusEffect):
+	print("on_quantity_changed")
+	node.set_status_effect(effect)

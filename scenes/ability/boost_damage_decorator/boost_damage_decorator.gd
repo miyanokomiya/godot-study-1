@@ -5,10 +5,7 @@ extends AbilityControllerDecorator
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
-
-
-func get_timeout() -> float:
-	return 30.0
+	timer.wait_time = spell_decorator_resource.timeout
 
 
 func get_color() -> Color:
