@@ -9,5 +9,5 @@ id = "boost_damage"
 name = "Boost Damage"
 description = "Doubles damage for 30 seconds."
 icon = ExtResource("1_7jqyc")
-color = Color(0.909804, 0.270588, 0.215686, 1)
+color = Color(0.909804, 0.270588, 0.215686, 0.733333)
 timeout = 30.0

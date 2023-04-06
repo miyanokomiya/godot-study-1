@@ -179,7 +179,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_43684"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf352"]
 resource_local_to_scene = true
 shader = ExtResource("12_rawv7")
 shader_parameter/whiten = true
@@ -219,7 +219,7 @@ drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("facing_node") instance=ExtResource("10_8vugj")]
-max_speed = 50
+max_speed = 45
 acceleration = 15.0
 facing_node = NodePath("../Visuals")
 facing_flip = true
@@ -227,13 +227,13 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("11_u3qmc")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_43684")
+hit_flash_material = SubResource("ShaderMaterial_jf352")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("13_wujbv")]
 velocity_component = NodePath("../VelocityComponent")
 
 [node name="StaggerComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("14_a2sfn")]
-damage_threshould = 5.0
+damage_threshould = 20.0
 health_component = NodePath("../HealthComponent")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "status_effect_component") instance=ExtResource("15_c26ij")]

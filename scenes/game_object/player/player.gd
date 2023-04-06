@@ -36,7 +36,7 @@ func _process(delta):
 	if movement_vector.x != 0 || movement_vector.y != 0:
 		animation_player.play("walk")
 	else:
-		animation_player.play("RESET")
+		animation_player.play("idle")
 	
 	var move_sign = sign(movement_vector.x)
 	if move_sign != 0:

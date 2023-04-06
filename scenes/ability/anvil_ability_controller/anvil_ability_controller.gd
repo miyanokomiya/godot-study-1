@@ -1,4 +1,4 @@
-extends 
+extends AbilityController
 
 const BASE_RANGE = 100
 const BASE_DAMAGE = 14

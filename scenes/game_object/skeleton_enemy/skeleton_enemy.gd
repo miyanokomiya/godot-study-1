@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @onready var velocity_component = $VelocityComponent
 @onready var visuals = $Visuals
-@onready var hurtbox_component = $HurtboxComponent
 @onready var hit_random_audio_player_component = $HitRandomAudioPlayerComponent
+@onready var hurtbox_component = $HurtboxComponent
 @onready var stagger_component = $StaggerComponent
 @onready var health_component = $HealthComponent
 @onready var animation_player = $AnimationPlayer

@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6wh7rl2246gr"]
+[gd_scene load_steps=6 format=3 uid="uid://wutphhlsj0hb"]
 
 [ext_resource type="Script" path="res://scenes/manager/enemy_manager.gd" id="1_lf5ed"]
 [ext_resource type="PackedScene" uid="uid://b824tlvujt62n" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_xfgfn"]
-[ext_resource type="PackedScene" uid="uid://d0wwhj8v78j2t" path="res://scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="3_pokmy"]
+[ext_resource type="PackedScene" uid="uid://bnkvxjh785apq" path="res://scenes/game_object/skeleton_enemy/skeleton_enemy.tscn" id="3_2f1f7"]
 [ext_resource type="PackedScene" uid="uid://dd21gkjeo7erh" path="res://scenes/game_object/bat_enemy/bat_enemy.tscn" id="4_jhs38"]
 [ext_resource type="PackedScene" uid="uid://c57rwoxvhi15g" path="res://scenes/game_object/naga_enemy/naga_enemy.tscn" id="5_uiwix"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_lf5ed")
 basic_enemy_scene = ExtResource("2_xfgfn")
-wizard_enemy_scene = ExtResource("3_pokmy")
+skeleton_enemy_scene = ExtResource("3_2f1f7")
 bat_enemy_scene = ExtResource("4_jhs38")
 naga_enemy_scene = ExtResource("5_uiwix")
 

@@ -1,0 +1,346 @@
+[gd_scene load_steps=28 format=3 uid="uid://bnkvxjh785apq"]
+
+[ext_resource type="Script" path="res://scenes/game_object/skeleton_enemy/skeleton_enemy.gd" id="1_g0cuh"]
+[ext_resource type="PackedScene" uid="uid://dc3iq11ql08qr" path="res://scenes/component/status_effect_component.tscn" id="2_yw5uh"]
+[ext_resource type="PackedScene" uid="uid://b107ymbechs3d" path="res://scenes/component/health_component.tscn" id="3_0xw3f"]
+[ext_resource type="PackedScene" uid="uid://bw4wna6pvviqs" path="res://scenes/component/velocity_component.tscn" id="4_isxk4"]
+[ext_resource type="PackedScene" uid="uid://bhp76acdvk38j" path="res://scenes/component/vial_drop_component.tscn" id="5_iupqc"]
+[ext_resource type="PackedScene" uid="uid://cpwyeh6ioddx6" path="res://scenes/component/hit_flash_component.tscn" id="6_jesjq"]
+[ext_resource type="Shader" path="res://scenes/vfx/whiten/whiten.gdshader" id="7_3d1sb"]
+[ext_resource type="PackedScene" uid="uid://gaalh2lv6ndo" path="res://scenes/component/devil_trigger_component.tscn" id="8_iyhnj"]
+[ext_resource type="PackedScene" uid="uid://ca5bd24uu40af" path="res://scenes/component/stagger_component.tscn" id="9_pjq5k"]
+[ext_resource type="PackedScene" uid="uid://d32oj4so0hfj6" path="res://scenes/component/hurtbox_component.tscn" id="11_lxpho"]
+[ext_resource type="Texture2D" uid="uid://dddm8jm7wvm3e" path="res://assets/externals/Monster_Creatures_Fantasy/Skeleton/Idle.png" id="12_p3q6l"]
+[ext_resource type="PackedScene" uid="uid://bb11gm0umuuvj" path="res://scenes/component/random_audio_stream_player_2d_component.tscn" id="13_2jajm"]
+[ext_resource type="Texture2D" uid="uid://xpatee2df4f8" path="res://assets/externals/Monster_Creatures_Fantasy/Skeleton/Walk.png" id="13_tbwex"]
+[ext_resource type="AudioStream" uid="uid://daqsipcptp7fe" path="res://assets/audio/footstep_carpet_000.ogg" id="14_0jejg"]
+[ext_resource type="Texture2D" uid="uid://duexhugl6ktod" path="res://assets/externals/Monster_Creatures_Fantasy/Skeleton/Death.png" id="14_5jyvu"]
+[ext_resource type="AudioStream" uid="uid://3dy4pxyobqa8" path="res://assets/audio/footstep_carpet_001.ogg" id="15_yev28"]
+[ext_resource type="AudioStream" uid="uid://clo8bvlg7kpnl" path="res://assets/audio/footstep_carpet_002.ogg" id="16_v5eej"]
+[ext_resource type="AudioStream" uid="uid://bltn38p3lootv" path="res://assets/audio/footstep_carpet_003.ogg" id="17_ulcuq"]
+[ext_resource type="AudioStream" uid="uid://cs75t7p2whxe4" path="res://assets/audio/footstep_carpet_004.ogg" id="18_wmiq8"]
+[ext_resource type="PackedScene" uid="uid://bupu5dd5xxdoo" path="res://scenes/ui/status_container.tscn" id="19_6w8a5"]
+
+[sub_resource type="Animation" id="Animation_gfq0d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/IdleSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/walkSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/deathSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtboxComponent/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hfsjf"]
+resource_name = "die"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/deathSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/walkSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/IdleSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/deathSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HurtboxComponent/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nkvcf"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/IdleSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/walkSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/walkSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/deathSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apcyk"]
+_data = {
+"RESET": SubResource("Animation_gfq0d"),
+"die": SubResource("Animation_hfsjf"),
+"walk": SubResource("Animation_nkvcf")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccjwa"]
+resource_local_to_scene = true
+shader = ExtResource("7_3d1sb")
+shader_parameter/whiten = true
+shader_parameter/mix_weight = 0.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5acc"]
+radius = 12.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moexe"]
+radius = 8.0
+
+[node name="SkeletonEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_g0cuh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walk"
+libraries = {
+"": SubResource("AnimationLibrary_apcyk")
+}
+
+[node name="StatusEffectComponent" parent="." node_paths=PackedStringArray("status_container") instance=ExtResource("2_yw5uh")]
+status_container = NodePath("../StatusContainer")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_0xw3f")]
+max_health = 30.0
+prevent_queue_free = true
+
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("facing_node") instance=ExtResource("4_isxk4")]
+max_speed = 35
+acceleration = 20.0
+facing_node = NodePath("../Visuals")
+
+[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_iupqc")]
+health_component = NodePath("../HealthComponent")
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_jesjq")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/walkSprite")
+hit_flash_material = SubResource("ShaderMaterial_ccjwa")
+
+[node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("8_iyhnj")]
+velocity_component = NodePath("../VelocityComponent")
+
+[node name="StaggerComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_pjq5k")]
+damage_threshould = 12.0
+health_component = NodePath("../HealthComponent")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "status_effect_component") instance=ExtResource("11_lxpho")]
+position = Vector2(0, -7)
+health_component = NodePath("../HealthComponent")
+status_effect_component = NodePath("../StatusEffectComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_n5acc")
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(-5, -26)
+
+[node name="IdleSprite" type="Sprite2D" parent="Visuals"]
+position = Vector2(2, 10)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_p3q6l")
+hframes = 4
+
+[node name="walkSprite" type="Sprite2D" parent="Visuals"]
+visible = false
+position = Vector2(2, 10)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_tbwex")
+hframes = 4
+
+[node name="deathSprite" type="Sprite2D" parent="Visuals"]
+visible = false
+position = Vector2(2, 10)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_5jyvu")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_moexe")
+
+[node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("13_2jajm")]
+streams = Array[AudioStream]([ExtResource("14_0jejg"), ExtResource("15_yev28"), ExtResource("16_v5eej"), ExtResource("17_ulcuq"), ExtResource("18_wmiq8")])
+
+[node name="StatusContainer" parent="." instance=ExtResource("19_6w8a5")]
+offset_left = 0.0
+offset_top = -52.0
+offset_right = 0.0
+offset_bottom = -52.0
