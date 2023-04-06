@@ -6,6 +6,8 @@ const SPAWN_RADIUS = 370
 @export var skeleton_enemy_scene: PackedScene
 @export var flying_eye_enemy_scene: PackedScene
 @export var naga_enemy_scene: PackedScene
+@export var naga_blue_enemy_scene: PackedScene
+@export var naga_magma_enemy_scene: PackedScene
 @export var arena_time_manager: Node
 @export var disabled: bool = false
 
@@ -65,9 +67,11 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 	time_off = min(time_off, 0.95)
 	timer.wait_time = base_spawn_time - time_off
 	
+	printt("arena_dificulty:", arena_dificulty)
 	if arena_dificulty == 6:
-		enemy_table.add_item(skeleton_enemy_scene, 15)
+		enemy_table.add_item(skeleton_enemy_scene, 10)
 	elif arena_dificulty == 18:
+		enemy_table.add_item(skeleton_enemy_scene, 10)
 		enemy_table.add_item(flying_eye_enemy_scene, 8)
 	elif arena_dificulty == 48:
 		enemy_table.add_item(naga_enemy_scene, 5)
@@ -75,3 +79,9 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 		enemy_table.add_item(naga_enemy_scene, 5)
 	elif arena_dificulty == 120:
 		enemy_table.add_item(naga_enemy_scene, 20)
+		enemy_table.add_item(naga_blue_enemy_scene, 5)
+	elif arena_dificulty == 140:
+		enemy_table.add_item(naga_blue_enemy_scene, 30)
+		enemy_table.add_item(naga_magma_enemy_scene, 5)
+	elif arena_dificulty == 160:
+		enemy_table.add_item(naga_magma_enemy_scene, 40)

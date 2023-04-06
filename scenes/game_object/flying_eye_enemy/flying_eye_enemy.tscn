@@ -211,7 +211,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yypwg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r06ei"]
 resource_local_to_scene = true
 shader = ExtResource("7_xc7f1")
 shader_parameter/whiten = true
@@ -227,6 +227,7 @@ radius = 8.0
 [node name="FlyingEyeEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_80rrn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -253,7 +254,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_7wcie")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/walkSprite")
-hit_flash_material = SubResource("ShaderMaterial_yypwg")
+hit_flash_material = SubResource("ShaderMaterial_r06ei")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("8_wqnpl")]
 velocity_component = NodePath("../VelocityComponent")

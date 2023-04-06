@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NagaDeviation" load_steps=3 format=3 uid="uid://x230tos57h4e"]
+
+[ext_resource type="Script" path="res://resources/enemies/naga/naga_deviation.gd" id="1_e8yfs"]
+[ext_resource type="Texture2D" uid="uid://c0do0uafdgxem" path="res://assets/externals/naga-female-sheet-black/naga-female-sheet-blue.png" id="2_qgs13"]
+
+[resource]
+script = ExtResource("1_e8yfs")
+texture = ExtResource("2_qgs13")
+max_health = 150
+stagger_threshold = 100

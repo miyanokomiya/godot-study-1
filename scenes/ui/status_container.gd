@@ -24,5 +24,4 @@ func on_effect_emptied(node: Node):
 
 
 func on_quantity_changed(node: Node, effect: StatusEffect):
-	print("on_quantity_changed")
 	node.set_status_effect(effect)
