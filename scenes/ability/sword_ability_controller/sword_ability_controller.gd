@@ -58,4 +58,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeM
 	elif upgrade.id == "sword_damage":
 		self.increase_damage(1)
 	elif upgrade.id == "double_sword":
-		self.increase_quantity(self.quantity * 2)
+		self.increase_quantity(self.quantity)

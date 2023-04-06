@@ -1,7 +1,7 @@
 extends AbilityController
 
 const MAX_RANGE = 150
-const BASE_FIRE_DURATION = 1
+const BASE_FIRE_DURATION = 2
 
 @export var ability_scene: PackedScene
 

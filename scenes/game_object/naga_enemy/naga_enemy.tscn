@@ -179,7 +179,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf352"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0vak"]
 resource_local_to_scene = true
 shader = ExtResource("12_rawv7")
 shader_parameter/whiten = true
@@ -189,8 +189,9 @@ shader_parameter/alpha = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6erg"]
 radius = 16.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8rhn6"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h46w0"]
+radius = 6.0
+height = 20.0
 
 [node name="NagaEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
@@ -227,7 +228,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("11_u3qmc")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_jf352")
+hit_flash_material = SubResource("ShaderMaterial_s0vak")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("13_wujbv")]
 velocity_component = NodePath("../VelocityComponent")
@@ -253,8 +254,8 @@ hframes = 8
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_8rhn6")
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_h46w0")
 
 [node name="StatusContainer" parent="." instance=ExtResource("18_jf7b5")]
 offset_left = 0.0

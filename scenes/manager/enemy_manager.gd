@@ -4,7 +4,7 @@ const SPAWN_RADIUS = 370
 
 @export var basic_enemy_scene: PackedScene
 @export var skeleton_enemy_scene: PackedScene
-@export var bat_enemy_scene: PackedScene
+@export var flying_eye_enemy_scene: PackedScene
 @export var naga_enemy_scene: PackedScene
 @export var arena_time_manager: Node
 @export var disabled: bool = false
@@ -68,7 +68,7 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 	if arena_dificulty == 6:
 		enemy_table.add_item(skeleton_enemy_scene, 15)
 	elif arena_dificulty == 18:
-		enemy_table.add_item(bat_enemy_scene, 8)
+		enemy_table.add_item(flying_eye_enemy_scene, 8)
 	elif arena_dificulty == 48:
 		enemy_table.add_item(naga_enemy_scene, 5)
 	elif arena_dificulty == 72:

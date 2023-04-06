@@ -248,7 +248,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccjwa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b58eo"]
 resource_local_to_scene = true
 shader = ExtResource("7_3d1sb")
 shader_parameter/whiten = true
@@ -260,7 +260,8 @@ radius = 12.0
 height = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moexe"]
-radius = 8.0
+radius = 5.0
+height = 20.0
 
 [node name="SkeletonEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
@@ -291,7 +292,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_jesjq")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/walkSprite")
-hit_flash_material = SubResource("ShaderMaterial_ccjwa")
+hit_flash_material = SubResource("ShaderMaterial_b58eo")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("8_iyhnj")]
 velocity_component = NodePath("../VelocityComponent")
@@ -306,34 +307,34 @@ health_component = NodePath("../HealthComponent")
 status_effect_component = NodePath("../StatusEffectComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -13)
+position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_n5acc")
 
 [node name="Visuals" type="Node2D" parent="."]
 position = Vector2(-5, -26)
 
 [node name="IdleSprite" type="Sprite2D" parent="Visuals"]
-position = Vector2(2, 10)
-scale = Vector2(0.6, 0.6)
+position = Vector2(2, 8)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_p3q6l")
 hframes = 4
 
 [node name="walkSprite" type="Sprite2D" parent="Visuals"]
 visible = false
-position = Vector2(2, 10)
-scale = Vector2(0.6, 0.6)
+position = Vector2(2, 8)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_tbwex")
 hframes = 4
 
 [node name="deathSprite" type="Sprite2D" parent="Visuals"]
 visible = false
-position = Vector2(2, 10)
-scale = Vector2(0.6, 0.6)
+position = Vector2(2, 8)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("14_5jyvu")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_moexe")
 
 [node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("13_2jajm")]

@@ -8,7 +8,6 @@
 script = ExtResource("1_nt8vy")
 ability_scene = ExtResource("2_0r4ih")
 spell_ability_resource = ExtResource("3_8t5mx")
-icon = null
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
