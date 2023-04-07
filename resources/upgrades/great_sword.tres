@@ -10,3 +10,4 @@ id = "great_sword"
 max_quantity = 2
 name = "G. Sword"
 description = "Attacks foreward by a great sword."
+rarity = 1

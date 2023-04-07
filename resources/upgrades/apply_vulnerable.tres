@@ -10,3 +10,4 @@ id = "apply_vulnerable"
 max_quantity = 0
 name = "Apply Vulnerable"
 description = "Applies vulnerable via chosen spell."
+rarity = 2

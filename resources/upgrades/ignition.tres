@@ -10,3 +10,4 @@ id = "ignition"
 max_quantity = 0
 name = "Ignition"
 description = "Spawns combustion at the first enemy hit by the spell."
+rarity = 2

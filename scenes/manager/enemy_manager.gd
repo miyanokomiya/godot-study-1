@@ -46,7 +46,6 @@ func get_spawn_position() -> Vector2:
 
 
 func proc_spawn(src: PackedScene, count = 1):
-	var enemy_scene = enemy_table.pick_item()
 	var entities_layer = self.get_tree().get_first_node_in_group("entities_layer")
 	var base_position = get_spawn_position()
 	

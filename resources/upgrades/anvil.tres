@@ -10,3 +10,4 @@ id = "anvil"
 max_quantity = 0
 name = "Anvil"
 description = "Drops anvils randomly on enemies."
+rarity = 0

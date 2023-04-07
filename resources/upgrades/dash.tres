@@ -11,3 +11,4 @@ max_quantity = 1
 name = "Dash"
 description = "Proc short dash by dash button.
 3 seconds cooltime."
+rarity = 1

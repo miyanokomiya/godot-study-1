@@ -10,3 +10,4 @@ id = "boost_damage"
 max_quantity = 0
 name = "Boost Damage"
 description = "Doubles damage for 30 seconds."
+rarity = 1

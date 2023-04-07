@@ -6,12 +6,11 @@ class_name UpgradeManager
 @export var spell_screen_scene: PackedScene
 
 var current_upgrades = {}
-var upgrade_pool: WeightedTable = WeightedTable.new()
+var upgrade_pool: RarityTable = RarityTable.new()
 
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
-var upgrade_double_sword = preload("res://resources/upgrades/double_sword.tres")
 var upgrade_great_sword = preload("res://resources/upgrades/great_sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
@@ -31,20 +30,20 @@ var upgrade_apply_vulnerable = preload("res://resources/upgrades/apply_vulnerabl
 var upgrade_ignition = preload("res://resources/upgrades/ignition.tres")
 
 func _ready():
-	upgrade_pool.add_item(upgrade_sword, 15)
-	upgrade_pool.add_item(upgrade_axe, 15)
-	upgrade_pool.add_item(upgrade_anvil, 15)
-	upgrade_pool.add_item(upgrade_dagger, 15)
-	upgrade_pool.add_item(upgrade_combustion, 15)
-	upgrade_pool.add_item(upgrade_player_speed, 5)
-	upgrade_pool.add_item(upgrade_dash, 5)
-	upgrade_pool.add_item(upgrade_catch_vial, 5)
-	upgrade_pool.add_item(upgrade_boost_damage, 5)
-	upgrade_pool.add_item(upgrade_double_tap, 5)
-	upgrade_pool.add_item(upgrade_apply_vulnerable, 5)
-	upgrade_pool.add_item(upgrade_ignition, 5)
+	var items: Array[AbilityUpgrade] = [
+		upgrade_sword, upgrade_axe, upgrade_anvil, upgrade_dagger,
+		upgrade_combustion, upgrade_player_speed, upgrade_dash, upgrade_catch_vial,
+		upgrade_boost_damage, upgrade_boost_damage, upgrade_double_tap, upgrade_apply_vulnerable,
+		upgrade_ignition]
+	
+	for item in items:
+		add_upgrade_item(item)
 	
 	experience_manager.level_up.connect(on_level_up)
+
+
+func add_upgrade_item(item: AbilityUpgrade):
+	upgrade_pool.add_item(item, item.rarity)
 
 
 func apply_upgrade(upgrade: AbilityUpgrade):
@@ -96,18 +95,17 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		return
 	
 	if chosen_upgrade.id == upgrade_axe.id:
-		upgrade_pool.add_item(upgrade_axe_damage, 10)
+		add_upgrade_item(upgrade_axe_damage)
 	elif chosen_upgrade.id == upgrade_dagger.id:
-		upgrade_pool.add_item(upgrade_dagger_rate, 10)
-		upgrade_pool.add_item(upgrade_dagger_damage, 10)
+		add_upgrade_item(upgrade_dagger_rate)
+		add_upgrade_item(upgrade_dagger_damage)
 	elif chosen_upgrade.id == upgrade_sword.id:
-		upgrade_pool.add_item(upgrade_sword_damage, 10)
-		upgrade_pool.add_item(upgrade_sword_rate, 10)
-		# upgrade_pool.add_item(upgrade_double_sword, 5)
-		upgrade_pool.add_item(upgrade_great_sword, 5)
+		add_upgrade_item(upgrade_sword_damage)
+		add_upgrade_item(upgrade_sword_rate)
+		add_upgrade_item(upgrade_great_sword)
 	elif chosen_upgrade.id == upgrade_combustion.id:
-		upgrade_pool.add_item(upgrade_combustion_duration, 10)
-		upgrade_pool.add_item(upgrade_combustion_damage, 10)
+		add_upgrade_item(upgrade_combustion_duration)
+		add_upgrade_item(upgrade_combustion_damage)
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:

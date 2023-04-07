@@ -10,3 +10,4 @@ id = "double_tap"
 max_quantity = 1
 name = "Double Tap"
 description = "Casts chosen spell twice. Decreases damage by 40%."
+rarity = 2

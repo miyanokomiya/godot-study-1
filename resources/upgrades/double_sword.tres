@@ -8,3 +8,4 @@ id = "double_sword"
 max_quantity = 1
 name = "Double Sword"
 description = "Doubles current sword quantity."
+rarity = 2

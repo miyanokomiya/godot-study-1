@@ -10,4 +10,4 @@ spell_ability_resource = ExtResource("2_p436q")
 executable = true
 
 [node name="DashComponent" parent="." instance=ExtResource("2_2balv")]
-cooldown_time = 5.0
+cooldown_time = 8.0

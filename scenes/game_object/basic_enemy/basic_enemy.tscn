@@ -82,7 +82,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yrx1m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kijs"]
 resource_local_to_scene = true
 shader = ExtResource("6_i5qkx")
 shader_parameter/whiten = true
@@ -99,6 +99,7 @@ radius = 5.0
 collision_layer = 8
 collision_mask = 9
 motion_mode = 1
+platform_floor_layers = 4294967281
 script = ExtResource("1_2xybb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -124,7 +125,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_11lom")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_yrx1m")
+hit_flash_material = SubResource("ShaderMaterial_5kijs")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_uy76v")]
 velocity_component = NodePath("../VelocityComponent")

@@ -10,3 +10,4 @@ id = "catch_vial"
 max_quantity = 1
 name = "Catch Vial"
 description = "Catches vials via chosen spell."
+rarity = 2
