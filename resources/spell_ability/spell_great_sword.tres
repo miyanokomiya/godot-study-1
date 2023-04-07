@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://resources/spell_ability/spell_ability.gd" id="2_euyg3"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("2_euyg3")
 id = "great_sword"
 name = "Great Sword"
 description = "Attacks foreward by a great sword."
 icon = ExtResource("1_8mweq")
+damage = 0.0

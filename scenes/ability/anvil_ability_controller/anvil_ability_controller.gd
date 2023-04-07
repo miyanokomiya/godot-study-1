@@ -16,10 +16,10 @@ func proc_ability():
 	if player == null:
 		return
 
-	var range = BASE_RANGE * (1 + self.quantity * 0.1)
+	var ability_range = BASE_RANGE * (1 + self.quantity * 0.1)
 	for i in self.quantity:	
 		var direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-		var spawn_position = player.global_position + direction * randf_range(0, range)
+		var spawn_position = player.global_position + direction * randf_range(0, ability_range)
 		
 		var query_paramters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1)
 		var result = self.get_tree().root.world_2d.direct_space_state.intersect_ray(query_paramters)

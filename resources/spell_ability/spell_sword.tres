@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://resources/spell_ability/spell_ability.gd" id="1_872is"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_872is")
 id = "sword"
 name = "Sword"
 description = "Attacks closer enemy."
 icon = ExtResource("1_2rm75")
+damage = 0.0

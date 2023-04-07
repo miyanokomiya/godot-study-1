@@ -201,7 +201,7 @@ _data = {
 seamless = true
 noise = SubResource("FastNoiseLite_afyxv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jo1qt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1l63"]
 resource_local_to_scene = true
 shader = ExtResource("3_ikc2u")
 shader_parameter/radius = 0.45
@@ -226,7 +226,7 @@ libraries = {
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="VfxFire2" parent="Visuals" instance=ExtResource("1_hiax1")]
-material = SubResource("ShaderMaterial_jo1qt")
+material = SubResource("ShaderMaterial_x1l63")
 offset_top = -50.0
 offset_bottom = 14.0
 scale = Vector2(0.6, 0.6)

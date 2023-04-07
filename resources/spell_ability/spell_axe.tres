@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://resources/spell_ability/spell_ability.gd" id="2_kly2o"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("2_kly2o")
 id = "axe"
 name = "Axe"
 description = "Periodically sends out a spinning axe."
 icon = ExtResource("1_1kblw")
+damage = 0.0

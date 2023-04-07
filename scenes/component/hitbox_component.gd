@@ -1,6 +1,8 @@
 extends Area2D
 class_name HitboxComponent
 
+signal hit
+
 @export var status_effects: Array[StatusEffect] = []
 
 var damage = 0

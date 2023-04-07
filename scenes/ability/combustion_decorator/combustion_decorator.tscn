@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://een1h3uen7wo"]
+
+[ext_resource type="Script" path="res://scenes/ability/combustion_decorator/combustion_decorator.gd" id="1_uwqem"]
+[ext_resource type="PackedScene" uid="uid://b4h8kg81ybkwc" path="res://scenes/ability/combustion_ability/combustion_ability.tscn" id="2_ah5j1"]
+[ext_resource type="Resource" uid="uid://bh2vnwt6501f3" path="res://resources/spell_decorator/spell_decorator_combustion.tres" id="3_wh4jj"]
+
+[node name="CombustionDecorator" type="Node"]
+script = ExtResource("1_uwqem")
+ability_scene = ExtResource("2_ah5j1")
+spell_decorator_resource = ExtResource("3_wh4jj")

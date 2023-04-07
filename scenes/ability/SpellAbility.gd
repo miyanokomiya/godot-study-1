@@ -1,6 +1,8 @@
 extends Node2D
 class_name SpellAbility
 
+signal hit
+
 
 func set_status_effect(value: StatusEffect):
 	var hitbox_component = get_hitbox_component()

@@ -17,7 +17,7 @@ func _ready():
 
 func tween_method(rate: float):
 	var rotations = base_rotation_range * rate
-	var current_radius = rate * MAX_RADIUS + 10
+	var current_radius = rate * MAX_RADIUS + 5
 	var current_direction = base_rotation.rotated(rotations)
 	
 	var player = self.get_tree().get_first_node_in_group("player") as Node2D

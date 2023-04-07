@@ -4,9 +4,10 @@
 [ext_resource type="Script" path="res://resources/spell_ability/spell_ability.gd" id="2_qctjk"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("2_qctjk")
 id = "combustion"
 name = "Combustion"
 description = "Spawns small fire at closer enemy."
 icon = ExtResource("1_1limb")
+damage = 5.0
+life_time = 2.0
