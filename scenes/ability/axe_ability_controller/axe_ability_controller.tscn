@@ -11,6 +11,5 @@ spell_ability_resource = ExtResource("3_ydjob")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="DecoratorContainer" type="Node" parent="."]

@@ -211,7 +211,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r06ei"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_muclh"]
 resource_local_to_scene = true
 shader = ExtResource("7_xc7f1")
 shader_parameter/whiten = true
@@ -219,10 +219,10 @@ shader_parameter/mix_weight = 0.0
 shader_parameter/alpha = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdlca"]
-radius = 16.0
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ha0hn"]
-radius = 8.0
+radius = 5.0
 
 [node name="FlyingEyeEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
@@ -254,7 +254,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_7wcie")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/walkSprite")
-hit_flash_material = SubResource("ShaderMaterial_r06ei")
+hit_flash_material = SubResource("ShaderMaterial_muclh")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("8_wqnpl")]
 velocity_component = NodePath("../VelocityComponent")
@@ -281,7 +281,6 @@ position = Vector2(2, 10)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("11_ni4q7")
 hframes = 8
-frame = 1
 
 [node name="deathSprite" type="Sprite2D" parent="Visuals"]
 visible = false
@@ -289,7 +288,6 @@ position = Vector2(2, 10)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("12_u33o1")
 hframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -300,6 +298,6 @@ streams = Array[AudioStream]([ExtResource("15_fxsg4"), ExtResource("16_p8fdo"), 
 
 [node name="StatusContainer" parent="." instance=ExtResource("20_8atfo")]
 offset_left = 0.0
-offset_top = -52.0
+offset_top = -27.0
 offset_right = 0.0
-offset_bottom = -52.0
+offset_bottom = -27.0

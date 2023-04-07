@@ -2,11 +2,16 @@ extends AbilityController
 
 @export var axe_ability_scene: PackedScene
 
-var base_damage = 9
+@onready var timer = $Timer
+
+var base_damage = 9.0
+var wait_time = 3.0
 
 
 func _ready():
-	$Timer.timeout.connect(on_timer_timeout)
+	timer.timeout.connect(on_timer_timeout)
+	timer.wait_time = wait_time
+	timer.start()
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
@@ -24,6 +29,7 @@ func proc_ability():
 		var axe_ability_scene_instance = axe_ability_scene.instantiate() as Node2D
 		foreground.add_child(axe_ability_scene_instance)
 		axe_ability_scene_instance.base_rotation = base_rotation.rotated(TAU / self.quantity * i)
+		axe_ability_scene_instance.base_rotation_range = TAU / ceil(self.quantity / 2.0)
 		axe_ability_scene_instance.global_position = player.global_position
 		axe_ability_scene_instance.hitbox_component.damage = self.base_damage + self.additional_damage
 		self.decorate_ability(axe_ability_scene_instance)

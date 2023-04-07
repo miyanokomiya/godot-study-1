@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cscfihxxuc6aj"]
 
 [ext_resource type="Script" path="res://scenes/ability/axe_ability/axe_ability.gd" id="1_dwvde"]
-[ext_resource type="Texture2D" uid="uid://jkymkljshti7" path="res://scenes/ability/axe_ability/axe.png" id="1_jqqiw"]
+[ext_resource type="Texture2D" uid="uid://c5lyqaio5x18h" path="res://assets/externals/raven_fantasy_icons/16/2235.png" id="2_21j15"]
 [ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="3_mywre"]
 
 [sub_resource type="Animation" id="Animation_1lm3u"]
@@ -53,10 +53,10 @@ libraries = {
 "": SubResource("AnimationLibrary_stnqw")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jqqiw")
-
 [node name="HitboxComponent" parent="." instance=ExtResource("3_mywre")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_f5d32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_21j15")

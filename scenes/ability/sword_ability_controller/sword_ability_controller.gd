@@ -1,6 +1,6 @@
 extends AbilityController
 
-const MAX_RANGE = 150
+const MAX_RANGE = 180
 
 @export var ability_scene: PackedScene
 @onready var decorator_container = $DecoratorContainer
