@@ -103,7 +103,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	elif chosen_upgrade.id == upgrade_sword.id:
 		upgrade_pool.add_item(upgrade_sword_damage, 10)
 		upgrade_pool.add_item(upgrade_sword_rate, 10)
-		upgrade_pool.add_item(upgrade_double_sword, 5)
+		# upgrade_pool.add_item(upgrade_double_sword, 5)
 		upgrade_pool.add_item(upgrade_great_sword, 5)
 	elif chosen_upgrade.id == upgrade_combustion.id:
 		upgrade_pool.add_item(upgrade_combustion_duration, 10)

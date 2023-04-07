@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpellDecoratorResource" load_steps=3 format=3 uid="uid://ecmkbqsavvlj"]
 
-[ext_resource type="Texture2D" uid="uid://dge6odvs0ssom" path="res://assets/externals/raven_fantasy_icons/32/2145.png" id="1_2nsjf"]
+[ext_resource type="Texture2D" uid="uid://dc5wkcrbys2cy" path="res://assets/externals/raven_fantasy_icons/32/2146.png" id="1_le3jo"]
 [ext_resource type="Script" path="res://resources/spell_decorator/spell_decorator.gd" id="2_1iior"]
 
 [resource]
@@ -8,4 +8,6 @@ script = ExtResource("2_1iior")
 id = "catch_vial"
 name = "Catch Vial"
 description = "Catches vials via chosen spell."
-icon = ExtResource("1_2nsjf")
+icon = ExtResource("1_le3jo")
+color = Color(0, 0, 0, 1)
+timeout = 0.0

@@ -15,7 +15,7 @@ func _process(delta):
 			return
 		
 		player.velocity_component.is_dashing = true
-		dash_component.start_dash(player, player.sprite_2d, 0.2)
+		dash_component.start_dash(player, player.sprite_2d, 1.5)
 
 
 func get_ability_name() -> String:

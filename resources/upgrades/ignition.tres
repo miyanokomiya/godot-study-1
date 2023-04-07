@@ -9,4 +9,4 @@ decorator_controller = ExtResource("1_flh2g")
 id = "ignition"
 max_quantity = 0
 name = "Ignition"
-description = "Spreads small combustion at the first the spell hit an enemy."
+description = "Spawns combustion at the first enemy hit by the spell."

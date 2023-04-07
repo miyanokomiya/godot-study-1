@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_7fhum")
 texture = ExtResource("2_i7mtn")
-max_health = 300
+max_health = 3
 stagger_threshold = 250

@@ -7,7 +7,7 @@
 script = ExtResource("2_4a2a1")
 id = "combustion"
 name = "Combustion"
-description = "Spreads small combustion at the first the spell hit an enemy."
+description = "Spreads combustion at the first time hit by the spell."
 icon = ExtResource("1_mgxec")
 color = Color(0, 0, 0, 1)
 timeout = 0.0

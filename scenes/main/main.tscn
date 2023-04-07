@@ -39,7 +39,7 @@ experience_manager = NodePath("../ExperienceManager")
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="GameCamera" parent="." instance=ExtResource("1_c44i3")]
-position = Vector2(345, 189)
+position = Vector2(416, 316)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_uw8xk")
@@ -53,7 +53,7 @@ y_sort_enabled = true
 
 [node name="Player" parent="Entities" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_kb5px")]
 unique_name_in_owner = true
-position = Vector2(345, 196)
+position = Vector2(415, 323)
 arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
