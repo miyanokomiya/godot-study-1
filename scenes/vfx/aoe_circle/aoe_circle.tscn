@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjdwlxxs26scw"]
+
+[ext_resource type="Script" path="res://scenes/vfx/aoe_circle/aoe_circle.gd" id="1_btt7g"]
+[ext_resource type="Shader" path="res://scenes/vfx/aoe_circle/aoe_circle.gdshader" id="1_mhk5d"]
+[ext_resource type="Texture2D" uid="uid://bcvim1kwwxa7a" path="res://assets/externals/kenney_particle_pack/circle_01.png" id="2_4adrp"]
+[ext_resource type="Texture2D" uid="uid://co46ei0je6vf5" path="res://assets/externals/kenney_particle_pack/circle_05.png" id="3_dqhul"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a66uw"]
+resource_local_to_scene = true
+shader = ExtResource("1_mhk5d")
+shader_parameter/base_color = Color(255, 0, 0, 1)
+shader_parameter/alpha = 0.3
+
+[sub_resource type="Gradient" id="Gradient_167d3"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.66055, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ll10u"]
+gradient = SubResource("Gradient_167d3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4hrd4"]
+emission_shape = 2
+emission_sphere_radius = 176.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_ll10u")
+
+[sub_resource type="Gradient" id="Gradient_q5snr"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.270642, 0.775229, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gdkyk"]
+gradient = SubResource("Gradient_q5snr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xtseo"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 184.0
+emission_ring_radius = 184.0
+emission_ring_inner_radius = 184.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+tangential_accel_min = 30.0
+tangential_accel_max = 60.0
+scale_min = 0.01
+scale_max = 0.02
+color_ramp = SubResource("GradientTexture1D_gdkyk")
+
+[node name="AoiCircle" type="Node2D"]
+script = ExtResource("1_btt7g")
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a66uw")
+texture = ExtResource("2_4adrp")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_4hrd4")
+lifetime = 1.4
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_xtseo")
+texture = ExtResource("3_dqhul")
+lifetime = 2.0

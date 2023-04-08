@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var arena_time_manager: Node
 
@@ -14,6 +15,7 @@ extends CharacterBody2D
 
 var number_colliding_bodies = 0
 var base_speed = 0
+var experience_boost = 1.0
 
 func _ready():
 	arena_time_manager.arena_dificulty_increased.connect(on_arena_dificulty_increased)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk4670o4jq5pg"]
+[gd_scene load_steps=15 format=3 uid="uid://cay6pbhb3myi5"]
 
 [ext_resource type="PackedScene" uid="uid://chturg7na6t1" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_c44i3"]
 [ext_resource type="PackedScene" uid="uid://cfwfiuqjot6d5" path="res://scenes/game_object/player/player.tscn" id="1_kb5px"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://btx641dnm7b6o" path="res://scenes/ui/vignette.tscn" id="3_q0qrq"]
 [ext_resource type="PackedScene" uid="uid://dumuef2klncfr" path="res://scenes/manager/upgrade_manager.tscn" id="5_aahpx"]
 [ext_resource type="PackedScene" uid="uid://ifk7pcnv3ept" path="res://scenes/ui/ability_status_screen.tscn" id="13_n63f7"]
+[ext_resource type="PackedScene" uid="uid://biby6jk6a3hpl" path="res://scenes/game_object/field_effects/blessing_field_effect.tscn" id="14_743sa"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_kupse")
@@ -57,3 +58,6 @@ position = Vector2(415, 323)
 arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
+
+[node name="BlessingFIeldEffect" parent="." instance=ExtResource("14_743sa")]
+position = Vector2(417, 314)

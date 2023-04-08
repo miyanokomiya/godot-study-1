@@ -16,6 +16,10 @@ func on_died():
 	if experience_gain_upgrade_count > 0:
 		adjusted_drop_percent += 0.1 * experience_gain_upgrade_count
 	
+	var player = get_tree().get_first_node_in_group("player") as Player
+	if player:
+		adjusted_drop_percent *= player.experience_boost
+	
 	if randf() > adjusted_drop_percent:
 		return
 	

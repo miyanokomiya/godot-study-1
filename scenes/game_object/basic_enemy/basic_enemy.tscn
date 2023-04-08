@@ -82,7 +82,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kijs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4chf"]
 resource_local_to_scene = true
 shader = ExtResource("6_i5qkx")
 shader_parameter/whiten = true
@@ -114,7 +114,7 @@ status_container = NodePath("../StatusContainer")
 [node name="HealthComponent" parent="." instance=ExtResource("2_u7bgj")]
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_ftsfn")]
-drop_percent = 1.0
+drop_percent = 0.8
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("facing_node") instance=ExtResource("4_bcx05")]
@@ -125,7 +125,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_11lom")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_5kijs")
+hit_flash_material = SubResource("ShaderMaterial_c4chf")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_uy76v")]
 velocity_component = NodePath("../VelocityComponent")
