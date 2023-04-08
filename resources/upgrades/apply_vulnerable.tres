@@ -8,6 +8,6 @@ script = ExtResource("2_beqe8")
 decorator_controller = ExtResource("1_uverh")
 id = "apply_vulnerable"
 max_quantity = 0
-name = "Apply Vulnerable"
+name = "Aftershock"
 description = "Applies vulnerable via chosen spell."
 rarity = 2

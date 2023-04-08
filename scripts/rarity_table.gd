@@ -49,7 +49,7 @@ func pick_item(exclude: Array = []):
 	var chosen_rarity = chosen["rarity"]
 	if chosen_rarity == Rarity.COMMON:
 		offset += 1
-	else:
+	elif chosen_rarity == Rarity.RARE:
 		offset = -5
 	
 	return chosen["item"]

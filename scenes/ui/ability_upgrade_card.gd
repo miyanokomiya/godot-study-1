@@ -6,6 +6,9 @@ signal selected
 @onready var description_label = %DescriptionLabel
 @onready var animation_player = $AnimationPlayer
 @onready var hover_animation_player = $HoverAnimationPlayer
+@onready var ribbon_back = $RibbonBack
+@onready var ribbon_front = $Frame/RibbonFront
+@onready var crown = $Frame/Crown
 
 var disabled = false
 
@@ -28,6 +31,12 @@ func play_discard():
 func set_ability_upgrade(upgrade: AbilityUpgrade):
 	name_label.text = upgrade.name
 	description_label.text = upgrade.description
+	
+	if upgrade.rarity != 2:
+		crown.hide()
+	if upgrade.rarity == 0:
+		ribbon_front.hide()
+		ribbon_back.hide()
 
 
 func select_card():

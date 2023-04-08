@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://3fhg4gnn0lih"]
+[gd_scene load_steps=22 format=3 uid="uid://3fhg4gnn0lih"]
 
 [ext_resource type="Script" path="res://scenes/ui/spell_card.gd" id="1_2vwav"]
+[ext_resource type="Texture2D" uid="uid://cixbyyycsf4xj" path="res://assets/externals/epic_ui/Button2.png" id="2_ko82x"]
 [ext_resource type="PackedScene" uid="uid://lu1l16uqnx61" path="res://scenes/component/random_stream_player_component.tscn" id="2_vfg5s"]
 [ext_resource type="AudioStream" uid="uid://dgt0qed76mmhl" path="res://assets/audio/switch1.ogg" id="3_3e0rc"]
 [ext_resource type="AudioStream" uid="uid://0xk8q5uk7lpr" path="res://assets/audio/switch2.ogg" id="4_i4jq3"]
@@ -12,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://cfwq80xubws4u" path="res://assets/audio/switch8.ogg" id="10_d6yvu"]
 [ext_resource type="AudioStream" uid="uid://c6cjv00y5s5k" path="res://assets/audio/switch9.ogg" id="11_k2v08"]
 [ext_resource type="AudioStream" uid="uid://b5clmuuryh1fe" path="res://assets/audio/switch10.ogg" id="12_yfv32"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl001"]
 
 [sub_resource type="Animation" id="Animation_mkgvw"]
 length = 0.001
@@ -184,16 +187,23 @@ _data = {
 }
 
 [node name="SpellCard" type="PanelContainer"]
-custom_minimum_size = Vector2(150, 70)
+custom_minimum_size = Vector2(230, 80)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -490.0
-offset_bottom = -281.0
+offset_right = -410.0
+offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(75, 40)
+pivot_offset = Vector2(115, 40)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sl001")
 script = ExtResource("1_2vwav")
+
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_ko82x")
+expand_mode = 3
 
 [node name="ClickPlayerComponent" parent="." instance=ExtResource("2_vfg5s")]
 streams = Array[AudioStream]([ExtResource("3_3e0rc"), ExtResource("4_i4jq3"), ExtResource("5_vsi3o"), ExtResource("6_as4un"), ExtResource("7_4c1s8"), ExtResource("8_eniyy"), ExtResource("9_mol58"), ExtResource("10_d6yvu"), ExtResource("11_k2v08"), ExtResource("12_yfv32")])
@@ -220,17 +230,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 16
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_type_variation = &"AlternatePanelContainer"
-
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
@@ -241,7 +241,3 @@ theme_override_font_sizes/font_size = 32
 text = "Test name"
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="DecoratorContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2

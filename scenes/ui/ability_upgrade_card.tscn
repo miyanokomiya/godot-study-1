@@ -1,10 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmqsugmlnxk1o"]
+[gd_scene load_steps=28 format=3 uid="uid://bmqsugmlnxk1o"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_upgrade_card.gd" id="1_rsvd7"]
+[ext_resource type="Texture2D" uid="uid://clqftq7h0vqtg" path="res://assets/externals/epic_ui/panel5 frame.png" id="2_7wbe0"]
 [ext_resource type="PackedScene" uid="uid://lu1l16uqnx61" path="res://scenes/component/random_stream_player_component.tscn" id="2_h1rwe"]
+[ext_resource type="Texture2D" uid="uid://cgbxkfn7kihgp" path="res://assets/externals/epic_ui/ribbon left.png" id="2_m8tin"]
 [ext_resource type="AudioStream" uid="uid://dgt0qed76mmhl" path="res://assets/audio/switch1.ogg" id="3_4jxse"]
+[ext_resource type="Texture2D" uid="uid://ca3n21ja4mwhs" path="res://assets/externals/epic_ui/ribbon right.png" id="3_f0tau"]
 [ext_resource type="AudioStream" uid="uid://0xk8q5uk7lpr" path="res://assets/audio/switch2.ogg" id="4_gouo6"]
+[ext_resource type="Texture2D" uid="uid://4br08o5o2abo" path="res://assets/externals/epic_ui/crown.png" id="5_1entq"]
 [ext_resource type="AudioStream" uid="uid://clmqakqkqdalr" path="res://assets/audio/switch3.ogg" id="5_io3nb"]
+[ext_resource type="Texture2D" uid="uid://do7716e28rmij" path="res://assets/externals/epic_ui/ribbon.png" id="6_1ddxc"]
 [ext_resource type="AudioStream" uid="uid://b7c2fr0fkurtw" path="res://assets/audio/switch4.ogg" id="6_t5n2g"]
 [ext_resource type="AudioStream" uid="uid://bji88gvrv0y61" path="res://assets/audio/switch5.ogg" id="7_2yn0k"]
 [ext_resource type="AudioStream" uid="uid://blwnncjo5onjx" path="res://assets/audio/switch6.ogg" id="8_vhc8o"]
@@ -12,6 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://cfwq80xubws4u" path="res://assets/audio/switch8.ogg" id="10_vdeny"]
 [ext_resource type="AudioStream" uid="uid://c6cjv00y5s5k" path="res://assets/audio/switch9.ogg" id="11_0o1cy"]
 [ext_resource type="AudioStream" uid="uid://b5clmuuryh1fe" path="res://assets/audio/switch10.ogg" id="12_055ae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8x5bx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n70gv"]
 
 [sub_resource type="Animation" id="Animation_mkgvw"]
 length = 0.001
@@ -201,11 +210,60 @@ _data = {
 }
 
 [node name="AbilityUpgradeCard" type="PanelContainer" groups=["upgrade_card"]]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(130, 150)
 offset_right = 120.0
 offset_bottom = 150.0
 pivot_offset = Vector2(75, 75)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8x5bx")
 script = ExtResource("1_rsvd7")
+
+[node name="RibbonBack" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n70gv")
+
+[node name="TextureRect" type="TextureRect" parent="RibbonBack"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 38.0
+offset_right = 24.0
+offset_bottom = 78.0
+scale = Vector2(0.82, 0.9)
+texture = ExtResource("2_m8tin")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="RibbonBack"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 38.0
+offset_right = 153.0
+offset_bottom = 78.0
+scale = Vector2(0.82, 0.9)
+texture = ExtResource("3_f0tau")
+expand_mode = 3
+
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_7wbe0")
+expand_mode = 3
+
+[node name="Crown" type="TextureRect" parent="Frame"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -24.0
+offset_right = 87.9483
+offset_bottom = 16.0
+texture = ExtResource("5_1entq")
+expand_mode = 3
+
+[node name="RibbonFront" type="TextureRect" parent="Frame"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 8.0
+offset_right = 175.656
+offset_bottom = 48.0
+scale = Vector2(0.76, 1.1)
+texture = ExtResource("6_1ddxc")
+expand_mode = 3
 
 [node name="HoverPlayerComponent" parent="." instance=ExtResource("2_h1rwe")]
 volume_db = -8.0
@@ -227,29 +285,26 @@ libraries = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_type_variation = &"AlternatePanelContainer"
-
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
 theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 32
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
 text = "Test name"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -260,6 +315,7 @@ layout_mode = 2
 theme_type_variation = &"BlueOutlineLabel"
 theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
 theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
 text = "Write some description here"
 autowrap_mode = 2

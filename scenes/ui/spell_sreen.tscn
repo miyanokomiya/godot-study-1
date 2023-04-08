@@ -95,7 +95,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-columns = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 16
+columns = 2
 
 [node name="SpellCard" parent="ScrollContainer/MarginContainer/CardContainer" instance=ExtResource("1_rfxgm")]
 layout_mode = 2
