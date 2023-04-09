@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu45b6p2uc1ev"]
+
+[ext_resource type="PackedScene" uid="uid://j3wh4fxmfp84" path="res://scenes/game_object/reptile_enemy/reptile_enemy.tscn" id="1_5lik7"]
+[ext_resource type="Resource" uid="uid://b2ba8nx28uiv" path="res://resources/enemies/reptile/reptile_red.tres" id="2_upbf4"]
+[ext_resource type="Shader" path="res://scenes/vfx/whiten/whiten.gdshader" id="2_venr2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tmn07"]
+resource_local_to_scene = true
+shader = ExtResource("2_venr2")
+shader_parameter/whiten = true
+shader_parameter/mix_weight = 0.0
+shader_parameter/alpha = 1.0
+
+[node name="ReptileRedEnemy" instance=ExtResource("1_5lik7")]
+deviation = ExtResource("2_upbf4")
+
+[node name="HitFlashComponent" parent="." index="5"]
+hit_flash_material = SubResource("ShaderMaterial_tmn07")

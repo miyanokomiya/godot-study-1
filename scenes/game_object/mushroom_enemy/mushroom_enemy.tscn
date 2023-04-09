@@ -242,7 +242,7 @@ _data = {
 "walk": SubResource("Animation_nkvcf")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_738ye"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooadx"]
 resource_local_to_scene = true
 shader = ExtResource("7_k78tc")
 shader_parameter/whiten = true
@@ -280,13 +280,13 @@ acceleration = 3.0
 facing_node = NodePath("../Visuals")
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_yhe14")]
-drop_percent = 0.8
+drop_percent = 0.9
 health_component = NodePath("../HealthComponent")
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_cume1")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/walkSprite")
-hit_flash_material = SubResource("ShaderMaterial_738ye")
+hit_flash_material = SubResource("ShaderMaterial_ooadx")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("8_djgq7")]
 velocity_component = NodePath("../VelocityComponent")

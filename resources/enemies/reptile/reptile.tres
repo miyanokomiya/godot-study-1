@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NagaDeviation" load_steps=3 format=3 uid="uid://cc3ult0lbqmt4"]
+
+[ext_resource type="Script" path="res://resources/enemies/reptile/reptile_deviation.gd" id="1_k2bkq"]
+[ext_resource type="Texture2D" uid="uid://clm3yfgqmxrcb" path="res://assets/externals/reptile/reptile-sheet-brown.png" id="2_lsq00"]
+
+[resource]
+script = ExtResource("1_k2bkq")
+texture = ExtResource("2_lsq00")
+max_health = 250
+stagger_threshold = 100

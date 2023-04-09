@@ -9,6 +9,8 @@ const SPAWN_RADIUS = 370
 @export var naga_enemy_scene: PackedScene
 @export var naga_blue_enemy_scene: PackedScene
 @export var naga_magma_enemy_scene: PackedScene
+@export var reptile_enemy_scene: PackedScene
+@export var reptile_red_enemy_scene: PackedScene
 @export var arena_time_manager: Node
 @export var disabled: bool = false
 
@@ -93,13 +95,22 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 		enemy_table.add_item(naga_enemy_scene, 5)
 		enemy_table.add_item(flying_eye_enemy_scene, 10)
 		enemy_table.add_item(naga_blue_enemy_scene, 2)
-	elif arena_dificulty == 120:
+	elif arena_dificulty == 100:
 		enemy_table.add_item(naga_enemy_scene, 20)
 		enemy_table.add_item(naga_blue_enemy_scene, 5)
+	elif arena_dificulty == 120:
+		enemy_table.add_item(naga_blue_enemy_scene, 30)
+		enemy_table.add_item(reptile_enemy_scene, 5)
 		proc_spawn(naga_magma_enemy_scene, 2)
 		proc_spawn(naga_magma_enemy_scene, 2)
 	elif arena_dificulty == 140:
-		enemy_table.add_item(naga_blue_enemy_scene, 30)
+		enemy_table.add_item(reptile_enemy_scene, 40)
 		enemy_table.add_item(naga_magma_enemy_scene, 5)
+		enemy_table.add_item(reptile_enemy_scene, 30)
+		proc_spawn(reptile_red_enemy_scene, 2)
+		proc_spawn(reptile_red_enemy_scene, 2)
 	elif arena_dificulty == 160:
-		enemy_table.add_item(naga_magma_enemy_scene, 40)
+		enemy_table.add_item(naga_magma_enemy_scene, 50)
+		enemy_table.add_item(reptile_red_enemy_scene, 5)
+	elif arena_dificulty == 180:
+		enemy_table.add_item(reptile_red_enemy_scene, 100)
