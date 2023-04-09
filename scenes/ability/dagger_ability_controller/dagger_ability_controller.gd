@@ -4,8 +4,6 @@ const MAX_RANGE = 180
 
 @export var dagger_ability: PackedScene
 
-var base_damage = 4
-
 
 func _ready():
 	$Timer.timeout.connect(on_timer_timeout)
@@ -33,11 +31,12 @@ func proc_ability():
 	
 	var enemy = enemies[0]
 	var enemy_direction = enemy.global_position - player.global_position
+	var damage = get_damage()
 	for i in self.quantity:
 		var dagger_instance = dagger_ability.instantiate() as Node2D
 		var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(dagger_instance)
-		dagger_instance.hitbox_component.damage = self.base_damage + self.additional_damage
+		dagger_instance.hitbox_component.damage = damage
 		var additional_angle = ceil(i / 2.0) * deg_to_rad(28.0) * sign((i % 2) * 2 - 1)
 		dagger_instance.play_throw(player.global_position, enemy_direction.angle() + additional_angle)
 		self.decorate_ability(dagger_instance)

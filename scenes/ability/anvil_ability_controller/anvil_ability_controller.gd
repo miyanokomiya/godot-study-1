@@ -1,7 +1,6 @@
 extends AbilityController
 
 const BASE_RANGE = 100
-const BASE_DAMAGE = 15
 
 @export var anvil_ability_scene: PackedScene
 @onready var timer = $Timer
@@ -19,6 +18,7 @@ func proc_ability():
 		return
 
 	var ability_range = BASE_RANGE * (1 + self.quantity * 0.1)
+	var damage = get_damage()
 	for i in self.quantity:	
 		var direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 		var spawn_position = player.global_position + direction * randf_range(0, ability_range)
@@ -32,7 +32,7 @@ func proc_ability():
 		self.get_tree().get_first_node_in_group("foreground_layer").add_child(anvil_ability)
 		self.decorate_ability(anvil_ability)
 		anvil_ability.global_position = spawn_position
-		anvil_ability.hitbox_component.damage = BASE_DAMAGE
+		anvil_ability.hitbox_component.damage = damage
 
 
 func on_timer_timeout():

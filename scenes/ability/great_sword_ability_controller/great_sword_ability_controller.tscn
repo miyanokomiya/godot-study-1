@@ -9,6 +9,7 @@ script = ExtResource("1_1wtd5")
 ability_scene = ExtResource("2_eyunj")
 spell_ability_resource = ExtResource("3_4f6wn")
 base_cooldown_time = 5.0
+base_damage = 20.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

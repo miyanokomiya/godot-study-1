@@ -9,17 +9,12 @@ var current_upgrades = {}
 var upgrade_pool: RarityTable = RarityTable.new()
 
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
-var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_great_sword = preload("res://resources/upgrades/great_sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
-var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
-var upgrade_dagger_damage = preload("res://resources/upgrades/dagger_damage.tres")
 var upgrade_combustion = preload("res://resources/upgrades/combustion.tres")
-var upgrade_combustion_duration = preload("res://resources/upgrades/combustion_duration.tres")
-var upgrade_combustion_damage = preload("res://resources/upgrades/combustion_damage.tres")
 var upgrade_dash = preload("res://resources/upgrades/dash.tres")
 var upgrade_catch_vial = preload("res://resources/upgrades/catch_vial.tres")
 var upgrade_boost_damage = preload("res://resources/upgrades/boost_damage.tres")
@@ -28,13 +23,15 @@ var upgrade_apply_vulnerable = preload("res://resources/upgrades/apply_vulnerabl
 var upgrade_ignition = preload("res://resources/upgrades/ignition.tres")
 var upgrade_critical_shot = preload("res://resources/upgrades/critical_shot.tres")
 var upgrade_expertise = preload("res://resources/upgrades/expertise.tres")
+var upgrade_smith = preload("res://resources/upgrades/smith.tres")
 
 func _ready():
 	var items: Array[AbilityUpgrade] = [
 		upgrade_sword, upgrade_axe, upgrade_anvil, upgrade_dagger,
 		upgrade_combustion, upgrade_player_speed, upgrade_dash, upgrade_catch_vial,
 		upgrade_boost_damage, upgrade_boost_damage, upgrade_double_tap, upgrade_apply_vulnerable,
-		upgrade_ignition, upgrade_critical_shot, upgrade_expertise, upgrade_great_sword]
+		upgrade_ignition, upgrade_critical_shot, upgrade_expertise, upgrade_great_sword,
+		upgrade_smith]
 	
 	for item in items:
 		add_upgrade_item(item)
@@ -103,7 +100,7 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades) as AbilityUpgrade
 		chosen_upgrades.append(chosen_upgrade)
 	
-	chosen_upgrades.append(upgrade_expertise)
+	# chosen_upgrades.append(upgrade_smith)
 	return chosen_upgrades
 
 

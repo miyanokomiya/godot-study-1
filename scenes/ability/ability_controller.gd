@@ -8,26 +8,29 @@ signal decorator_added(decorator_controller: AbilityControllerDecorator)
 @export var executable = false
 @export var item_pickable = false
 @export var base_cooldown_time: float = 1
+@export var base_damage: float = 1
 
 var quantity = 1
-var additional_damage = 0
 
 func increase_quantity(count: int):
 	quantity += count
 	upgraded.emit()
 
 
-func increase_damage(damage: float):
-	additional_damage += damage
-	upgraded.emit()
-
-
-func increase_quickness(percent: float):
-	pass
-
-
 func get_ability_name() -> String:
 	return ""
+
+
+func get_damage() -> float:
+	var damage = base_damage
+	if !self.has_node("DecoratorContainer"):
+		return damage
+	
+	var decorator_container = self.get_node("DecoratorContainer")
+	for child in decorator_container.get_children():
+		damage = (child as AbilityControllerDecorator).decorate_damage(damage)
+	
+	return damage
 
 
 func get_cooldown_time() -> float:
@@ -44,10 +47,6 @@ func get_cooldown_time() -> float:
 
 func get_current_cooldown_time() -> float:
 	return 0.0
-
-
-func apply_current_upgrades(upgrade_manager: UpgradeManager):
-	pass
 
 
 func proc_ability():

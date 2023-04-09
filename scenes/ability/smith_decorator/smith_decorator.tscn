@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://djjsrpayqfcey"]
+
+[ext_resource type="Script" path="res://scenes/ability/smith_decorator/smith_decorator.gd" id="1_82bne"]
+[ext_resource type="Resource" uid="uid://7u4qi3uvrdrk" path="res://resources/spell_decorator/spell_decorator_smith.tres" id="2_8o8n2"]
+
+[node name="SmithDecorator" type="Node"]
+script = ExtResource("1_82bne")
+spell_decorator_resource = ExtResource("2_8o8n2")

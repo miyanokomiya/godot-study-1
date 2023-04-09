@@ -13,7 +13,7 @@ func on_body_entered(other_body: Node2D):
 	if !player:
 		return
 	
-	player.experience_boost = 1.25
+	player.experience_boost = 1.5
 
 
 func on_body_exited(other_body: Node2D):

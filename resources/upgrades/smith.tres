@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityDecorator" load_steps=3 format=3 uid="uid://bbvjns5jwf7l"]
+
+[ext_resource type="PackedScene" uid="uid://djjsrpayqfcey" path="res://scenes/ability/smith_decorator/smith_decorator.tscn" id="1_b4r8p"]
+[ext_resource type="Script" path="res://resources/upgrades/ability_decorator.gd" id="2_fi80l"]
+
+[resource]
+script = ExtResource("2_fi80l")
+decorator_controller = ExtResource("1_b4r8p")
+id = "smith"
+max_quantity = 0
+name = "Smith"
+description = "Increases the spell damage by 2."
+rarity = 1

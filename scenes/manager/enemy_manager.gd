@@ -90,8 +90,7 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 		enemy_table.add_item(naga_enemy_scene, 5)
 		enemy_table.add_item(flying_eye_enemy_scene, 10)
 		proc_spawn(naga_blue_enemy_scene, 2)
-		proc_spawn(naga_blue_enemy_scene, 2)
-	elif arena_dificulty == 72:
+	elif arena_dificulty == 80:
 		enemy_table.add_item(naga_enemy_scene, 5)
 		enemy_table.add_item(flying_eye_enemy_scene, 10)
 		enemy_table.add_item(naga_blue_enemy_scene, 2)
