@@ -7,7 +7,7 @@
 script = ExtResource("2_44xtx")
 id = "smith"
 name = "Smith"
-description = "Increases the spell damage by 2."
+description = "Increases the spell damage by 3."
 icon = ExtResource("1_nsu0o")
 color = Color(0, 0, 0, 1)
 timeout = 0.0

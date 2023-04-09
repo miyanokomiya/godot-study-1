@@ -1,6 +1,6 @@
 extends AbilityControllerDecorator
 
-var chance = 0.1
+var chance = 0.15
 
 
 func decorate_ability(ability_scene_instance: SpellAbility):

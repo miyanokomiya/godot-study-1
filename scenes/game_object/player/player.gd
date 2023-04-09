@@ -22,6 +22,8 @@ func _ready():
 	base_speed = velocity_component.max_speed
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
+	$CollisionArea2D.area_entered.connect(on_area_entered)
+	$CollisionArea2D.area_exited.connect(on_area_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
 	health_component.health_decreased.connect(on_health_decreased)
 	health_component.health_changed.connect(on_health_changed)
@@ -69,6 +71,15 @@ func on_body_entered(other_body: Node2D):
 
 
 func on_body_exited(other_body: Node2D):
+	number_colliding_bodies -= 1
+
+
+func on_area_entered(area: Area2D):
+	number_colliding_bodies += 1
+	check_deal_damage()
+
+
+func on_area_exited(area: Area2D):
 	number_colliding_bodies -= 1
 
 

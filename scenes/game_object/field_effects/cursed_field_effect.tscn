@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c16ax7mtbqrxx"]
+
+[ext_resource type="Script" path="res://scenes/game_object/field_effects/cursed_field_effect.gd" id="1_flea8"]
+[ext_resource type="PackedScene" uid="uid://cjdwlxxs26scw" path="res://scenes/vfx/aoe_circle/aoe_circle.tscn" id="2_5s0ue"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cl0dh"]
+radius = 120.0
+
+[node name="CursedFIeldEffect" type="Node2D"]
+script = ExtResource("1_flea8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cl0dh")
+
+[node name="AoiCircle" parent="." instance=ExtResource("2_5s0ue")]
+scale = Vector2(0.65, 0.65)
+color = Color(0.176471, 0.0980392, 0.0235294, 1)

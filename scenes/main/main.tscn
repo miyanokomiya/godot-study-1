@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cay6pbhb3myi5"]
+[gd_scene load_steps=16 format=3 uid="uid://cay6pbhb3myi5"]
 
 [ext_resource type="PackedScene" uid="uid://chturg7na6t1" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_c44i3"]
 [ext_resource type="PackedScene" uid="uid://cfwfiuqjot6d5" path="res://scenes/game_object/player/player.tscn" id="1_kb5px"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dumuef2klncfr" path="res://scenes/manager/upgrade_manager.tscn" id="5_aahpx"]
 [ext_resource type="PackedScene" uid="uid://ifk7pcnv3ept" path="res://scenes/ui/ability_status_screen.tscn" id="13_n63f7"]
 [ext_resource type="PackedScene" uid="uid://biby6jk6a3hpl" path="res://scenes/game_object/field_effects/blessing_field_effect.tscn" id="14_743sa"]
+[ext_resource type="PackedScene" uid="uid://c16ax7mtbqrxx" path="res://scenes/game_object/field_effects/cursed_field_effect.tscn" id="15_p8lqh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_kupse")
@@ -61,3 +62,15 @@ arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="BlessingFIeldEffect" parent="." instance=ExtResource("14_743sa")]
 position = Vector2(417, 314)
+
+[node name="CursedFIeldEffect" parent="." instance=ExtResource("15_p8lqh")]
+position = Vector2(-17, 1)
+
+[node name="CursedFIeldEffect2" parent="." instance=ExtResource("15_p8lqh")]
+position = Vector2(864, 0)
+
+[node name="CursedFIeldEffect3" parent="." instance=ExtResource("15_p8lqh")]
+position = Vector2(864, 624)
+
+[node name="CursedFIeldEffect4" parent="." instance=ExtResource("15_p8lqh")]
+position = Vector2(-16, 625)

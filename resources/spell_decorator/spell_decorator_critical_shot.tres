@@ -7,7 +7,7 @@
 script = ExtResource("2_vim24")
 id = "critical_shot"
 name = "Critical Shot"
-description = "Lets the spell have 10% chance of making a critical hit."
+description = "Lets the spell have 15% chance of making a critical hit."
 icon = ExtResource("1_kk4kw")
 color = Color(0, 0, 0, 1)
 timeout = 0.0

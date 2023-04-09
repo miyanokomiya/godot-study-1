@@ -9,5 +9,5 @@ decorator_controller = ExtResource("1_61f1b")
 id = "critical_shot"
 max_quantity = 0
 name = "Critical Shot"
-description = "Lets the spell have 10% chance of making a critical hit."
+description = "Lets the spell have 15% chance of making a critical hit."
 rarity = 1

@@ -9,5 +9,5 @@ decorator_controller = ExtResource("1_b4r8p")
 id = "smith"
 max_quantity = 0
 name = "Smith"
-description = "Increases the spell damage by 2."
+description = "Increases the spell damage by 3."
 rarity = 1
