@@ -8,10 +8,9 @@
 script = ExtResource("1_1wtd5")
 ability_scene = ExtResource("2_eyunj")
 spell_ability_resource = ExtResource("3_4f6wn")
-icon = null
+base_cooldown_time = 5.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+one_shot = true
 
 [node name="DecoratorContainer" type="Node" parent="."]

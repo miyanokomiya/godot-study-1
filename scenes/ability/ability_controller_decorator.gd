@@ -18,3 +18,11 @@ func decorate_ability(ability_scene_instance: SpellAbility):
 
 func decorate_on_timeout(controller: AbilityController):
 	pass
+
+
+func decorate_damage(damage: float) -> float:
+	return damage
+
+
+func decorate_cooldown_time(cooldown: float) -> float:
+	return cooldown

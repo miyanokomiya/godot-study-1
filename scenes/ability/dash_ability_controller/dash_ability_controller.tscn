@@ -8,6 +8,7 @@
 script = ExtResource("1_8cv1f")
 spell_ability_resource = ExtResource("2_p436q")
 executable = true
+base_cooldown_time = 8.0
 
 [node name="DashComponent" parent="." instance=ExtResource("2_2balv")]
 cooldown_time = 8.0

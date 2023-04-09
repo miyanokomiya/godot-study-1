@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellDecoratorResource" load_steps=3 format=3 uid="uid://3dwo8asipd6w"]
+
+[ext_resource type="Texture2D" uid="uid://bbkg68ic315hv" path="res://assets/externals/raven_fantasy_icons/16/91.png" id="1_8eer0"]
+[ext_resource type="Script" path="res://resources/spell_decorator/spell_decorator.gd" id="2_ejll7"]
+
+[resource]
+script = ExtResource("2_ejll7")
+id = "expertise"
+name = "Expertise"
+description = "Decreses the spell cooldown time by 10%."
+icon = ExtResource("1_8eer0")
+color = Color(0, 0, 0, 1)
+timeout = 0.0

@@ -9,7 +9,6 @@ var current_upgrades = {}
 var upgrade_pool: RarityTable = RarityTable.new()
 
 var upgrade_sword = preload("res://resources/upgrades/sword.tres")
-var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_great_sword = preload("res://resources/upgrades/great_sword.tres")
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
@@ -17,7 +16,6 @@ var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_dagger = preload("res://resources/upgrades/dagger.tres")
-var upgrade_dagger_rate = preload("res://resources/upgrades/dagger_rate.tres")
 var upgrade_dagger_damage = preload("res://resources/upgrades/dagger_damage.tres")
 var upgrade_combustion = preload("res://resources/upgrades/combustion.tres")
 var upgrade_combustion_duration = preload("res://resources/upgrades/combustion_duration.tres")
@@ -29,13 +27,14 @@ var upgrade_double_tap = preload("res://resources/upgrades/double_tap.tres")
 var upgrade_apply_vulnerable = preload("res://resources/upgrades/apply_vulnerable.tres")
 var upgrade_ignition = preload("res://resources/upgrades/ignition.tres")
 var upgrade_critical_shot = preload("res://resources/upgrades/critical_shot.tres")
+var upgrade_expertise = preload("res://resources/upgrades/expertise.tres")
 
 func _ready():
 	var items: Array[AbilityUpgrade] = [
 		upgrade_sword, upgrade_axe, upgrade_anvil, upgrade_dagger,
 		upgrade_combustion, upgrade_player_speed, upgrade_dash, upgrade_catch_vial,
 		upgrade_boost_damage, upgrade_boost_damage, upgrade_double_tap, upgrade_apply_vulnerable,
-		upgrade_ignition, upgrade_critical_shot]
+		upgrade_ignition, upgrade_critical_shot, upgrade_expertise, upgrade_great_sword]
 	
 	for item in items:
 		add_upgrade_item(item)
@@ -92,21 +91,7 @@ func apply_upgrade_decorator(target_ability: Ability, decorator_ability: Ability
 
 
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
-	if get_upgrade_quantity(chosen_upgrade.id) != 1:
-		return
-	
-	if chosen_upgrade.id == upgrade_axe.id:
-		add_upgrade_item(upgrade_axe_damage)
-	elif chosen_upgrade.id == upgrade_dagger.id:
-		add_upgrade_item(upgrade_dagger_rate)
-		add_upgrade_item(upgrade_dagger_damage)
-	elif chosen_upgrade.id == upgrade_sword.id:
-		add_upgrade_item(upgrade_sword_damage)
-		add_upgrade_item(upgrade_sword_rate)
-		add_upgrade_item(upgrade_great_sword)
-	elif chosen_upgrade.id == upgrade_combustion.id:
-		add_upgrade_item(upgrade_combustion_duration)
-		add_upgrade_item(upgrade_combustion_damage)
+	pass
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:
@@ -118,7 +103,7 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades) as AbilityUpgrade
 		chosen_upgrades.append(chosen_upgrade)
 	
-	# chosen_upgrades.append(upgrade_critical_shot)
+	chosen_upgrades.append(upgrade_expertise)
 	return chosen_upgrades
 
 

@@ -9,6 +9,8 @@ const BASE_DAMAGE = 15
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()
 
 
 func proc_ability():
@@ -36,3 +38,5 @@ func proc_ability():
 func on_timer_timeout():
 	proc_ability()
 	self.decorate_on_timeout()
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()

@@ -8,8 +8,9 @@
 script = ExtResource("1_p0cc7")
 axe_ability_scene = ExtResource("2_p8eh4")
 spell_ability_resource = ExtResource("3_ydjob")
+base_cooldown_time = 3.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+one_shot = true
 
 [node name="DecoratorContainer" type="Node" parent="."]

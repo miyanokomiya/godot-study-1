@@ -20,8 +20,6 @@ func _ready():
 	duration_timer.timeout.connect(on_duration_timer_timeout)
 	ghost_timer.timeout.connect(on_ghost_timer_timeout)
 	cooldown_timer.timeout.connect(on_cooldown_timer)
-	
-	cooldown_timer.wait_time = cooldown_time
 
 
 func can_dash() -> bool:
@@ -44,6 +42,7 @@ func end_dash():
 	dash_flag = false
 	ghost_timer.stop()
 	cooldown_flag = true
+	cooldown_timer.wait_time = cooldown_time
 	cooldown_timer.start()
 	finished.emit()
 
@@ -68,6 +67,10 @@ func get_current_cooldown_time() -> float:
 		return cooldown_time
 	else:
 		return cooldown_timer.time_left
+
+
+func set_cooldown_time(time: float):
+	cooldown_time = time
 
 
 func on_duration_timer_timeout():

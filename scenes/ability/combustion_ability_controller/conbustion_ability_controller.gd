@@ -6,15 +6,15 @@ const BASE_FIRE_DURATION = 2
 @export var ability_scene: PackedScene
 
 var base_damage = 5
-var base_wait_time
 var extra_fire_duration = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	base_wait_time = $Timer.wait_time
 	$Timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()
 
 
 func get_ability_name() -> String:
@@ -53,6 +53,8 @@ func proc_ability():
 func on_timer_timeout():
 	proc_ability()
 	self.decorate_on_timeout()
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):

@@ -6,6 +6,7 @@ extends AbilityController
 func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	dash_component.finished.connect(on_dash_finished)
+	dash_component.set_cooldown_time(get_cooldown_time())
 
 
 func _process(delta):
@@ -41,3 +42,4 @@ func on_dash_finished():
 		return
 	
 	player.velocity_component.is_dashing = false
+	dash_component.set_cooldown_time(get_cooldown_time())

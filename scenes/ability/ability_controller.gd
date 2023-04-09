@@ -7,6 +7,7 @@ signal decorator_added(decorator_controller: AbilityControllerDecorator)
 @export var spell_ability_resource: SpellAbilityResource
 @export var executable = false
 @export var item_pickable = false
+@export var base_cooldown_time: float = 1
 
 var quantity = 1
 var additional_damage = 0
@@ -30,7 +31,15 @@ func get_ability_name() -> String:
 
 
 func get_cooldown_time() -> float:
-	return 0.0
+	var cooldown_time = base_cooldown_time
+	if !self.has_node("DecoratorContainer"):
+		return cooldown_time
+	
+	var decorator_container = self.get_node("DecoratorContainer")
+	for child in decorator_container.get_children():
+		cooldown_time = (child as AbilityControllerDecorator).decorate_cooldown_time(cooldown_time)
+	
+	return cooldown_time
 
 
 func get_current_cooldown_time() -> float:
@@ -59,7 +68,7 @@ func decorate_ability(ability: Node2D):
 	
 	var decorator_container = self.get_node("DecoratorContainer")
 	for child in decorator_container.get_children():
-		child.decorate_ability(ability)
+		(child as AbilityControllerDecorator).decorate_ability(ability)
 
 
 func decorate_on_timeout():
@@ -68,4 +77,4 @@ func decorate_on_timeout():
 	
 	var decorator_container = self.get_node("DecoratorContainer")
 	for child in decorator_container.get_children():
-		child.decorate_on_timeout(self)
+		(child as AbilityControllerDecorator).decorate_on_timeout(self)

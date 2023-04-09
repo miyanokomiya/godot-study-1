@@ -6,13 +6,12 @@ const MAX_RANGE = 180
 @onready var decorator_container = $DecoratorContainer
 
 var base_damage = 5
-var base_wait_time
 
 
 func _ready():
-	base_wait_time = $Timer.wait_time
 	$Timer.timeout.connect(on_timer_timeout)
-	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()
 
 
 func proc_ability():
@@ -48,14 +47,5 @@ func proc_ability():
 func on_timer_timeout():
 	proc_ability()
 	self.decorate_on_timeout()
-
-
-func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
-	if upgrade.id == "sword_rate":
-		var reduction = pow(0.9, upgrade_manager.get_upgrade_quantity("sword_rate"))
-		$Timer.wait_time = base_wait_time * reduction
-		$Timer.start()
-	elif upgrade.id == "sword_damage":
-		self.increase_damage(1)
-	elif upgrade.id == "double_sword":
-		self.increase_quantity(self.quantity)
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()

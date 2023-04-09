@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityDecorator" load_steps=3 format=3 uid="uid://brcyhux12rtbt"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_decorator.gd" id="1_0gx3o"]
+[ext_resource type="PackedScene" uid="uid://c7nsvul7i4f8l" path="res://scenes/ability/expertise_decorator/expertise_decorator.tscn" id="1_otlnl"]
+
+[resource]
+script = ExtResource("1_0gx3o")
+decorator_controller = ExtResource("1_otlnl")
+id = "expertise"
+max_quantity = 0
+name = "Expertise"
+description = "Decreses the spell cooldown time by 10%."
+rarity = 1

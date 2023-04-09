@@ -5,14 +5,13 @@ extends AbilityController
 @onready var timer = $Timer
 
 var base_damage = 9.0
-var wait_time = 3.0
 
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
-	timer.wait_time = wait_time
-	timer.start()
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()
 
 
 func proc_ability():
@@ -38,6 +37,8 @@ func proc_ability():
 func on_timer_timeout():
 	proc_ability()
 	self.decorate_on_timeout()
+	$Timer.wait_time = get_cooldown_time()
+	$Timer.start()
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, upgrade_manager: UpgradeManager):
