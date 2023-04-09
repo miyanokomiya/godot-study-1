@@ -1,13 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://c57rwoxvhi15g"]
+[gd_scene load_steps=22 format=3 uid="uid://c57rwoxvhi15g"]
 
 [ext_resource type="Script" path="res://scenes/game_object/naga_enemy/naga_enemy.gd" id="1_muntl"]
 [ext_resource type="Resource" uid="uid://bou0vm26ctnkp" path="res://resources/enemies/naga/naga_black.tres" id="2_jewsc"]
-[ext_resource type="PackedScene" uid="uid://bb11gm0umuuvj" path="res://scenes/component/random_audio_stream_player_2d_component.tscn" id="2_xdxjv"]
-[ext_resource type="AudioStream" uid="uid://daqsipcptp7fe" path="res://assets/audio/footstep_carpet_000.ogg" id="3_e67s4"]
-[ext_resource type="AudioStream" uid="uid://3dy4pxyobqa8" path="res://assets/audio/footstep_carpet_001.ogg" id="4_mkll0"]
-[ext_resource type="AudioStream" uid="uid://clo8bvlg7kpnl" path="res://assets/audio/footstep_carpet_002.ogg" id="5_0ttqe"]
-[ext_resource type="AudioStream" uid="uid://bltn38p3lootv" path="res://assets/audio/footstep_carpet_003.ogg" id="6_esqb3"]
-[ext_resource type="AudioStream" uid="uid://cs75t7p2whxe4" path="res://assets/audio/footstep_carpet_004.ogg" id="7_73ati"]
 [ext_resource type="PackedScene" uid="uid://dc3iq11ql08qr" path="res://scenes/component/status_effect_component.tscn" id="8_gx80k"]
 [ext_resource type="PackedScene" uid="uid://b107ymbechs3d" path="res://scenes/component/health_component.tscn" id="8_xyopv"]
 [ext_resource type="PackedScene" uid="uid://bhp76acdvk38j" path="res://scenes/component/vial_drop_component.tscn" id="9_2mrpx"]
@@ -180,7 +174,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5h54"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cofbp"]
 resource_local_to_scene = true
 shader = ExtResource("12_rawv7")
 shader_parameter/whiten = true
@@ -199,9 +193,6 @@ collision_mask = 9
 platform_floor_layers = 4294967281
 script = ExtResource("1_muntl")
 deviation = ExtResource("2_jewsc")
-
-[node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("2_xdxjv")]
-streams = Array[AudioStream]([ExtResource("3_e67s4"), ExtResource("4_mkll0"), ExtResource("5_0ttqe"), ExtResource("6_esqb3"), ExtResource("7_73ati")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "walk"
@@ -229,7 +220,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("11_u3qmc")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_d5h54")
+hit_flash_material = SubResource("ShaderMaterial_cofbp")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("13_wujbv")]
 velocity_component = NodePath("../VelocityComponent")

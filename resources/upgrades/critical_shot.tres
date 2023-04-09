@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityDecorator" load_steps=3 format=3 uid="uid://bwagc5gn4kvm6"]
+
+[ext_resource type="PackedScene" uid="uid://ybjuiiuxda71" path="res://scenes/ability/critical_shot_decorator/critical_shot_decorator.tscn" id="1_61f1b"]
+[ext_resource type="Script" path="res://resources/upgrades/ability_decorator.gd" id="2_fjtrq"]
+
+[resource]
+script = ExtResource("2_fjtrq")
+decorator_controller = ExtResource("1_61f1b")
+id = "critical_shot"
+max_quantity = 0
+name = "Critical Shot"
+description = "Lets the spell have 10% chance of making a critical hit."
+rarity = 1

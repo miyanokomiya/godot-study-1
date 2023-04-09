@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var velocity_component = $VelocityComponent
 @onready var visuals = $Visuals
-@onready var hit_random_audio_player_component = $HitRandomAudioPlayerComponent
 @onready var hurtbox_component = $HurtboxComponent
 @onready var stagger_component = $StaggerComponent
 @onready var health_component = $HealthComponent
@@ -23,7 +22,6 @@ func _process(delta):
 
 
 func on_hit(hitbox: HitboxComponent):
-	hit_random_audio_player_component.play_random()
 	stagger_component.play_stagger(hitbox)
 
 

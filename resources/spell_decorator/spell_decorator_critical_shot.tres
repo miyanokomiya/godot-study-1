@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellDecoratorResource" load_steps=3 format=3 uid="uid://dos15b4y8lsxr"]
+
+[ext_resource type="Texture2D" uid="uid://cg0q52kgt1ff2" path="res://assets/externals/raven_fantasy_icons/32/599.png" id="1_kk4kw"]
+[ext_resource type="Script" path="res://resources/spell_decorator/spell_decorator.gd" id="2_vim24"]
+
+[resource]
+script = ExtResource("2_vim24")
+id = "critical_shot"
+name = "Critical Shot"
+description = "Lets the spell have 10% chance of making a critical hit."
+icon = ExtResource("1_kk4kw")
+color = Color(0, 0, 0, 1)
+timeout = 0.0

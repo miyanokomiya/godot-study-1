@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://wutphhlsj0hb"]
+[gd_scene load_steps=9 format=3 uid="uid://wutphhlsj0hb"]
 
 [ext_resource type="Script" path="res://scenes/manager/enemy_manager.gd" id="1_lf5ed"]
 [ext_resource type="PackedScene" uid="uid://b824tlvujt62n" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_xfgfn"]
 [ext_resource type="PackedScene" uid="uid://bnkvxjh785apq" path="res://scenes/game_object/skeleton_enemy/skeleton_enemy.tscn" id="3_2f1f7"]
+[ext_resource type="PackedScene" uid="uid://dncxcr3l1rkyy" path="res://scenes/game_object/mushroom_enemy/mushroom_enemy.tscn" id="3_5nc0p"]
 [ext_resource type="PackedScene" uid="uid://dsneha4rw23w5" path="res://scenes/game_object/flying_eye_enemy/flying_eye_enemy.tscn" id="4_74pmj"]
 [ext_resource type="PackedScene" uid="uid://c57rwoxvhi15g" path="res://scenes/game_object/naga_enemy/naga_enemy.tscn" id="5_uiwix"]
 [ext_resource type="PackedScene" uid="uid://bt3vi347l4j2v" path="res://scenes/game_object/naga_enemy/naga_blue_enemy.tscn" id="6_2ph16"]
@@ -11,6 +12,7 @@
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_lf5ed")
 basic_enemy_scene = ExtResource("2_xfgfn")
+mushroom_enemy_scene = ExtResource("3_5nc0p")
 skeleton_enemy_scene = ExtResource("3_2f1f7")
 flying_eye_enemy_scene = ExtResource("4_74pmj")
 naga_enemy_scene = ExtResource("5_uiwix")

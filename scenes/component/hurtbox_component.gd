@@ -6,6 +6,9 @@ signal hit(hitbox: HitboxComponent)
 @export var health_component: HealthComponent
 @export var status_effect_component: StatusEffectComponent
 
+@onready var critical_hit_audio_component = $CriticalHitAudioComponent
+@onready var hit_audio_component = $HitAudioComponent
+
 var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
 
 
@@ -21,7 +24,8 @@ func on_area_entered(other_area: Area2D):
 		return
 	
 	var hitbox_component = other_area as HitboxComponent
-	var damage = hitbox_component.damage
+	var is_critical = hitbox_component.rand_critical()
+	var damage = hitbox_component.get_final_damage(is_critical)
 	if status_effect_component:
 		damage = status_effect_component.affect_taken_damage(damage)
 	
@@ -33,6 +37,14 @@ func on_area_entered(other_area: Area2D):
 	var format_string = "%0.1f"
 	if round(damage) == damage:
 		format_string = "%0.0f"
+	
+	if is_critical:
+		floating_text.scale *= 1.8
+		critical_hit_audio_component.play_random()
+	else:
+		hit_audio_component.play_random()
+		pass
+	
 	floating_text.start(format_string % damage)
 	
 	if status_effect_component:

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybjuiiuxda71"]
+
+[ext_resource type="Script" path="res://scenes/ability/critical_shot_decorator/critical_shot_decorator.gd" id="1_4jv2e"]
+[ext_resource type="Resource" uid="uid://dos15b4y8lsxr" path="res://resources/spell_decorator/spell_decorator_critical_shot.tres" id="2_8md88"]
+
+[node name="BoostDamageDecorator" type="Node"]
+script = ExtResource("1_4jv2e")
+spell_decorator_resource = ExtResource("2_8md88")

@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://d32oj4so0hfj6"]
+[gd_scene load_steps=10 format=3 uid="uid://d32oj4so0hfj6"]
 
 [ext_resource type="Script" path="res://scenes/component/hurtbox_component.gd" id="1_11xt2"]
+[ext_resource type="PackedScene" uid="uid://bb11gm0umuuvj" path="res://scenes/component/random_audio_stream_player_2d_component.tscn" id="3_mswxe"]
+[ext_resource type="AudioStream" uid="uid://cl6hxgajpmrih" path="res://assets/externals/game_master_audio/punch_general_body_impact_01.wav" id="3_y8x4v"]
+[ext_resource type="AudioStream" uid="uid://3qfq2e8womxo" path="res://assets/externals/game_master_audio/punch_general_body_impact_02.wav" id="4_yg8id"]
+[ext_resource type="AudioStream" uid="uid://fdeu5jdyc5s3" path="res://assets/externals/game_master_audio/punch_general_body_impact_03.wav" id="5_a0p40"]
+[ext_resource type="AudioStream" uid="uid://cwyc3hcws60lm" path="res://assets/externals/game_master_audio/punch_general_body_impact_04.wav" id="6_ewgot"]
+[ext_resource type="AudioStream" uid="uid://c48drke7qhmve" path="res://assets/externals/game_master_audio/punch_heavy_huge_distorted_01.wav" id="7_a7hu0"]
+[ext_resource type="AudioStream" uid="uid://bl3wbm6pnx3k2" path="res://assets/externals/game_master_audio/punch_heavy_huge_distorted_03.wav" id="8_ff7e5"]
+[ext_resource type="AudioStream" uid="uid://g7tde0kkxmuu" path="res://assets/externals/game_master_audio/punch_heavy_huge_distorted_04.wav" id="9_xlrk3"]
 
 [node name="HurtboxComponent" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_11xt2")
+
+[node name="HitAudioComponent" parent="." instance=ExtResource("3_mswxe")]
+volume_db = -16.0
+streams = Array[AudioStream]([ExtResource("3_y8x4v"), ExtResource("4_yg8id"), ExtResource("5_a0p40"), ExtResource("6_ewgot")])
+
+[node name="CriticalHitAudioComponent" parent="." instance=ExtResource("3_mswxe")]
+volume_db = -16.0
+streams = Array[AudioStream]([ExtResource("7_a7hu0"), ExtResource("8_ff7e5"), ExtResource("9_xlrk3")])
