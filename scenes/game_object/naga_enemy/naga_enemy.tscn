@@ -174,7 +174,7 @@ _data = {
 "walk": SubResource("Animation_7k04w")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cofbp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1u2g4"]
 resource_local_to_scene = true
 shader = ExtResource("12_rawv7")
 shader_parameter/whiten = true
@@ -190,7 +190,7 @@ radius = 7.0
 [node name="NagaEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
 collision_mask = 9
-platform_floor_layers = 4294967281
+platform_floor_layers = 4294967041
 script = ExtResource("1_muntl")
 deviation = ExtResource("2_jewsc")
 
@@ -220,7 +220,7 @@ facing_flip = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("11_u3qmc")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_cofbp")
+hit_flash_material = SubResource("ShaderMaterial_1u2g4")
 
 [node name="DevilTriggerComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("13_wujbv")]
 velocity_component = NodePath("../VelocityComponent")

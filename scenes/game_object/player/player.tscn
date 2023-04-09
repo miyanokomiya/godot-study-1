@@ -88,6 +88,7 @@ radius = 5.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 motion_mode = 1
+platform_floor_layers = 4294967041
 script = ExtResource("1_4o8x7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

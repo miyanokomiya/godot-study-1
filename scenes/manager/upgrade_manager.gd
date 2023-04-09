@@ -118,7 +118,7 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades) as AbilityUpgrade
 		chosen_upgrades.append(chosen_upgrade)
 	
-	chosen_upgrades.append(upgrade_critical_shot)
+	# chosen_upgrades.append(upgrade_critical_shot)
 	return chosen_upgrades
 
 
