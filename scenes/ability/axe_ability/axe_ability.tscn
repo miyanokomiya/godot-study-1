@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cscfihxxuc6aj"]
+[gd_scene load_steps=9 format=3 uid="uid://cscfihxxuc6aj"]
 
 [ext_resource type="Script" path="res://scenes/ability/axe_ability/axe_ability.gd" id="1_dwvde"]
 [ext_resource type="Texture2D" uid="uid://c5lyqaio5x18h" path="res://assets/externals/raven_fantasy_icons/16/2235.png" id="2_21j15"]
 [ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="3_mywre"]
+[ext_resource type="PackedScene" uid="uid://bq4epatv2oxtw" path="res://scenes/component/orbit_component.tscn" id="4_8hg8e"]
 
 [sub_resource type="Animation" id="Animation_1lm3u"]
 length = 0.001
@@ -60,3 +61,6 @@ shape = SubResource("CircleShape2D_f5d32")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_21j15")
+
+[node name="OrbitComponent" parent="." instance=ExtResource("4_8hg8e")]
+attraction = -1.0

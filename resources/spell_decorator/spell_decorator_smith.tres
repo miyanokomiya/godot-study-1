@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpellDecoratorResource" load_steps=3 format=3 uid="uid://7u4qi3uvrdrk"]
 
-[ext_resource type="Texture2D" uid="uid://cmxplcqjsujj1" path="res://assets/externals/raven_fantasy_icons/16/89.png" id="1_nsu0o"]
+[ext_resource type="Texture2D" uid="uid://cj4ejl5qxt8w4" path="res://assets/externals/raven_fantasy_icons/16/a2337.png" id="1_h068w"]
 [ext_resource type="Script" path="res://resources/spell_decorator/spell_decorator.gd" id="2_44xtx"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("2_44xtx")
 id = "smith"
 name = "Smith"
 description = "Increases the spell damage by 3."
-icon = ExtResource("1_nsu0o")
+icon = ExtResource("1_h068w")
 color = Color(0, 0, 0, 1)
 timeout = 0.0

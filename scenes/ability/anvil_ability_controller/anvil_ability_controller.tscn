@@ -1,15 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://kgkglbypq276"]
 
 [ext_resource type="Script" path="res://scenes/ability/anvil_ability_controller/anvil_ability_controller.gd" id="1_676k3"]
-[ext_resource type="PackedScene" path="res://scenes/ability/anvil_ability/anvil_ability.tscn" id="2_m7nhl"]
+[ext_resource type="PackedScene" uid="uid://bdu4rt8qa1qpm" path="res://scenes/ability/anvil_ability/anvil_ability.tscn" id="2_m7nhl"]
 [ext_resource type="Resource" uid="uid://cq7vrw21ee053" path="res://resources/spell_ability/spell_anvil.tres" id="3_fxjqm"]
 
 [node name="AnvilAbilityController" type="Node"]
 script = ExtResource("1_676k3")
 anvil_ability_scene = ExtResource("2_m7nhl")
 spell_ability_resource = ExtResource("3_fxjqm")
-executable = null
-item_pickable = null
 base_cooldown_time = 2.5
 base_damage = 15.0
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq4epatv2oxtw"]
+
+[ext_resource type="Script" path="res://scenes/component/orbit_component.gd" id="1_kp3wd"]
+
+[node name="OrbitComponent" type="Node2D"]
+script = ExtResource("1_kp3wd")

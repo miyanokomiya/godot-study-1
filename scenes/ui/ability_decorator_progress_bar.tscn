@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6l381xk0ho1j"]
+[gd_scene load_steps=5 format=3 uid="uid://c6l381xk0ho1j"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_decorator_progress_bar.gd" id="1_h3shj"]
 [ext_resource type="Texture2D" uid="uid://cwflse68ur14e" path="res://assets/externals/raven_fantasy_icons/32/17.png" id="2_j3mef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lsm1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ii0kc"]
 
@@ -15,26 +17,36 @@ script = ExtResource("1_h3shj")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = -1
 
-[node name="IconTextureRect" type="TextureRect" parent="VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(16, 16)
+[node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-mouse_filter = 2
-texture = ExtResource("2_j3mef")
-expand_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2lsm1")
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/Panel"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(15, 3)
-layout_mode = 2
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_ii0kc")
 max_value = 1.0
 value = 0.5
 show_percentage = false
+
+[node name="IconTextureRect" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("2_j3mef")
+expand_mode = 2

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpellAbilityResource" load_steps=3 format=3 uid="uid://d1kr1fuio0db5"]
 
-[ext_resource type="Texture2D" uid="uid://4aiw2jju28w3" path="res://assets/externals/raven_fantasy_icons/32/2217.png" id="1_8mweq"]
+[ext_resource type="Texture2D" uid="uid://cgvt245uw73jj" path="res://assets/externals/raven_fantasy_icons/32/c5016.png" id="1_f1ldu"]
 [ext_resource type="Script" path="res://resources/spell_ability/spell_ability.gd" id="2_euyg3"]
 
 [resource]
@@ -8,5 +8,4 @@ script = ExtResource("2_euyg3")
 id = "great_sword"
 name = "Great Sword"
 description = "Attacks foreward by a great sword."
-icon = ExtResource("1_8mweq")
-damage = 0.0
+icon = ExtResource("1_f1ldu")

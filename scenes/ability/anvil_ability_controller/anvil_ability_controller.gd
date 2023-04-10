@@ -17,7 +17,7 @@ func proc_ability():
 	if player == null:
 		return
 
-	var ability_range = BASE_RANGE * (1 + self.quantity * 0.1)
+	var ability_range = BASE_RANGE + (self.quantity - 1) * 5
 	var damage = get_damage()
 	for i in self.quantity:	
 		var direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
@@ -30,9 +30,9 @@ func proc_ability():
 		
 		var anvil_ability = anvil_ability_scene.instantiate()
 		self.get_tree().get_first_node_in_group("foreground_layer").add_child(anvil_ability)
-		self.decorate_ability(anvil_ability)
 		anvil_ability.global_position = spawn_position
 		anvil_ability.hitbox_component.damage = damage
+		self.decorate_ability(anvil_ability)
 
 
 func on_timer_timeout():

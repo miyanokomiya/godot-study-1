@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0glmp2lsb0w2"]
+
+[ext_resource type="Script" path="res://scenes/ability/orbit_decorator/orbit_decorator.gd" id="1_omf3l"]
+[ext_resource type="Resource" uid="uid://cbuehnidkh82w" path="res://resources/spell_decorator/spell_decorator_orbit.tres" id="2_by2r4"]
+
+[node name="OrbitDecorator" type="Node"]
+script = ExtResource("1_omf3l")
+spell_decorator_resource = ExtResource("2_by2r4")

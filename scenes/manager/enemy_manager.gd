@@ -111,5 +111,5 @@ func on_arena_dificulty_increased(arena_dificulty: int):
 	elif arena_dificulty == 160:
 		enemy_table.add_item(naga_magma_enemy_scene, 50)
 		enemy_table.add_item(reptile_red_enemy_scene, 5)
-	elif arena_dificulty == 180:
+	elif arena_dificulty == 174:
 		enemy_table.add_item(reptile_red_enemy_scene, 100)

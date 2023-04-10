@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityDecorator" load_steps=3 format=3 uid="uid://1j04qskoef4e"]
+
+[ext_resource type="PackedScene" uid="uid://d0glmp2lsb0w2" path="res://scenes/ability/orbit_decorator/orbit_decorator.tscn" id="1_d34sa"]
+[ext_resource type="Script" path="res://resources/upgrades/ability_decorator.gd" id="2_dt7qe"]
+
+[resource]
+script = ExtResource("2_dt7qe")
+decorator_controller = ExtResource("1_d34sa")
+id = "Orbit"
+max_quantity = 0
+name = "Orbit"
+description = "Applies orbital movement around the player."
+rarity = 1

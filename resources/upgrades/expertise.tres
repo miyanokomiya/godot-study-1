@@ -9,5 +9,6 @@ decorator_controller = ExtResource("1_otlnl")
 id = "expertise"
 max_quantity = 0
 name = "Expertise"
-description = "Decreses the spell cooldown time by 10%."
+description = "Decreses cooldown time by 10%.
+Gains 5% chance of critical hit."
 rarity = 1

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpellDecoratorResource" load_steps=3 format=3 uid="uid://cjt3px30folbm"]
 
-[ext_resource type="Texture2D" uid="uid://b3adwm5q0web2" path="res://assets/externals/raven_fantasy_icons/32/494.png" id="1_7jqyc"]
+[ext_resource type="Texture2D" uid="uid://d4kkqtotreppy" path="res://assets/externals/raven_fantasy_icons/16/a2416.png" id="1_7ys15"]
 [ext_resource type="Script" path="res://resources/spell_decorator/spell_decorator.gd" id="2_duo04"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("2_duo04")
 id = "boost_damage"
 name = "Boost Damage"
 description = "Doubles damage for 30 seconds."
-icon = ExtResource("1_7jqyc")
+icon = ExtResource("1_7ys15")
 color = Color(0.909804, 0.270588, 0.215686, 0.733333)
 timeout = 30.0

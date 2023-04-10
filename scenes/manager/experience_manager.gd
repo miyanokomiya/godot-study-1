@@ -18,11 +18,13 @@ func increment_experience(number: float):
 	current_experienct = min(current_experienct + number, target_experience)
 	experience_updated.emit(current_experienct, target_experience)
 	if current_experienct == target_experience:
+		printt(current_experienct, target_experience, current_level)
 		current_level += 1
 		target_experience += TARGET_EXPERIENCE_GROWTH
 		current_experienct = 0
 		experience_updated.emit(current_experienct, target_experience)
 		level_up.emit(current_level)
+
 
 func on_experience_vial_collected(number: float):
 	increment_experience(number)

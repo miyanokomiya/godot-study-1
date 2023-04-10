@@ -1,27 +1,24 @@
 extends SpellAbility
 
-const MAX_RADIUS = 100
-
 @onready var hitbox_component = $HitboxComponent
+@onready var orbit_component = $OrbitComponent
 
 var base_rotation = Vector2.RIGHT
 var base_rotation_range = TAU
-var base_position = Vector2(100, 100)
+var base_position = Vector2(200, 100)
 
 
 func _ready():
-	var tween = create_tween()
-	tween.tween_method(tween_method, 0.0, 1.0, 1.5)
-	tween.tween_callback(self.queue_free)
+	orbit_component.finished.connect(self.queue_free)
 
 
-func tween_method(rate: float):
-	var rotations = base_rotation_range * rate
-	var current_radius = rate * MAX_RADIUS + 5
-	var current_direction = base_rotation.rotated(rotations)
+func start():
+	global_position = base_position + base_rotation * 5
+	orbit_component.duration = 2.0
+	orbit_component.total_rotation_rate = base_rotation_range / TAU
 	
 	var player = self.get_tree().get_first_node_in_group("player") as Node2D
-	if player != null:
-		base_position = player.global_position
-	
-	self.global_position = base_position + (current_direction * current_radius)
+	if player:
+		orbit_component.start(player)
+	else:
+		orbit_component.start(null, base_position)

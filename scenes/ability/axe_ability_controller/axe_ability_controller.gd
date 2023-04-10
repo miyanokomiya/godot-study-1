@@ -27,8 +27,9 @@ func proc_ability():
 		foreground.add_child(axe_ability_scene_instance)
 		axe_ability_scene_instance.base_rotation = base_rotation.rotated(TAU / self.quantity * i)
 		axe_ability_scene_instance.base_rotation_range = TAU / ceil(self.quantity / 2.0)
-		axe_ability_scene_instance.global_position = player.global_position
+		axe_ability_scene_instance.base_position = player.global_position
 		axe_ability_scene_instance.hitbox_component.damage = damage
+		axe_ability_scene_instance.start()
 		self.decorate_ability(axe_ability_scene_instance)
 
 

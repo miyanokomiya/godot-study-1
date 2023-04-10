@@ -24,6 +24,7 @@ var upgrade_ignition = preload("res://resources/upgrades/ignition.tres")
 var upgrade_critical_shot = preload("res://resources/upgrades/critical_shot.tres")
 var upgrade_expertise = preload("res://resources/upgrades/expertise.tres")
 var upgrade_smith = preload("res://resources/upgrades/smith.tres")
+var upgrade_orbit = preload("res://resources/upgrades/orbit.tres")
 
 func _ready():
 	var items: Array[AbilityUpgrade] = [
@@ -31,7 +32,7 @@ func _ready():
 		upgrade_combustion, upgrade_player_speed, upgrade_dash, upgrade_catch_vial,
 		upgrade_boost_damage, upgrade_boost_damage, upgrade_double_tap, upgrade_apply_vulnerable,
 		upgrade_ignition, upgrade_critical_shot, upgrade_expertise, upgrade_great_sword,
-		upgrade_smith]
+		upgrade_smith, upgrade_orbit]
 	
 	for item in items:
 		add_upgrade_item(item)
@@ -100,7 +101,8 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades) as AbilityUpgrade
 		chosen_upgrades.append(chosen_upgrade)
 	
-	# chosen_upgrades.append(upgrade_smith)
+	# chosen_upgrades.append(upgrade_orbit)
+	# chosen_upgrades.append(upgrade_axe)
 	return chosen_upgrades
 
 

@@ -65,12 +65,20 @@ position = Vector2(417, 314)
 
 [node name="CursedFIeldEffect" parent="." instance=ExtResource("15_p8lqh")]
 position = Vector2(-17, 1)
+expand_duration = 540.0
+final_scale = 4.0
 
 [node name="CursedFIeldEffect2" parent="." instance=ExtResource("15_p8lqh")]
 position = Vector2(864, 0)
+expand_duration = 540.0
+final_scale = 4.0
 
 [node name="CursedFIeldEffect3" parent="." instance=ExtResource("15_p8lqh")]
 position = Vector2(864, 624)
+expand_duration = 540.0
+final_scale = 4.0
 
 [node name="CursedFIeldEffect4" parent="." instance=ExtResource("15_p8lqh")]
 position = Vector2(-16, 625)
+expand_duration = 540.0
+final_scale = 4.0

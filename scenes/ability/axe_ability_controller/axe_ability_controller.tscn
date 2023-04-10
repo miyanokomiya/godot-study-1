@@ -8,8 +8,6 @@
 script = ExtResource("1_p0cc7")
 axe_ability_scene = ExtResource("2_p8eh4")
 spell_ability_resource = ExtResource("3_ydjob")
-executable = null
-item_pickable = null
 base_cooldown_time = 3.0
 base_damage = 9.0
 
