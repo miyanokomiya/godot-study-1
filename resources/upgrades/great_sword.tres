@@ -7,7 +7,7 @@
 script = ExtResource("2_m8voc")
 ability_controller_scene = ExtResource("1_4mitw")
 id = "great_sword"
-max_quantity = 2
+max_quantity = 0
 name = "G. Sword"
-description = "Attacks foreward by a great sword."
+description = "Throws a spinning great sword."
 rarity = 1
