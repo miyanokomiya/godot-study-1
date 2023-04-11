@@ -1,5 +1,7 @@
 extends AbilityController
 
+const MAX_RANGE = 180
+
 @export var ability_scene: PackedScene
 
 
@@ -18,29 +20,31 @@ func proc_ability():
 	if player == null:
 		return
 	
-	var direction = Vector2(sign(player.velocity_component.velocity.x), 0)
-	if direction.x == 0:
-		direction.x = 1
+	var enemies = self.get_tree().get_nodes_in_group("enemy")
+	enemies = enemies.filter(func(enemy: Node2D):
+		return enemy.global_position.distance_squared_to(player.global_position) < pow(MAX_RANGE, 2)
+	)
+	if enemies.size() == 0:
+		return
+
+	enemies.sort_custom(func(a: Node2D, b: Node2D):
+		var a_distance = a.global_position.distance_squared_to(player.global_position)
+		var b_distance = b.global_position.distance_squared_to(player.global_position)
+		return a_distance < b_distance
+	)
 	
-	var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
+	var enemy = enemies[0]
+	var enemy_direction = enemy.global_position - player.global_position
 	var damage = get_damage()
-	var sword_instance = ability_scene.instantiate() as SwordAbility
-	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = damage
-	sword_instance.global_position = player.global_position + direction * 30
-	sword_instance.scale = Vector2(4, 4)
-	sword_instance.scale.x *= direction.x
-	self.decorate_ability(sword_instance)
-	
-	if self.quantity >= 2:
-		var step_direction = direction * Vector2(-1, 1)
-		var sword_instance2 = ability_scene.instantiate() as SwordAbility
-		foreground_layer.add_child(sword_instance2)
-		sword_instance2.hitbox_component.damage = damage
-		sword_instance2.global_position = player.global_position + step_direction * 30
-		sword_instance2.scale = Vector2(4, 4)
-		sword_instance2.scale.x *= step_direction.x
-		self.decorate_ability(sword_instance2)
+	var step_rotation = TAU / quantity
+	for i in self.quantity:
+		var ability_instance = ability_scene.instantiate() as Node2D
+		var foreground_layer = self.get_tree().get_first_node_in_group("foreground_layer")
+		foreground_layer.add_child(ability_instance)
+		ability_instance.hitbox_component.damage = damage
+		var additional_angle = step_rotation * i
+		ability_instance.play_throw(player.global_position, enemy_direction.angle() + additional_angle)
+		self.decorate_ability(ability_instance)
 
 
 func on_timer_timeout():

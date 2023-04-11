@@ -8,6 +8,8 @@
 script = ExtResource("1_tfy1y")
 ability_scene = ExtResource("2_jkf2f")
 spell_ability_resource = ExtResource("3_lt7wu")
+executable = null
+item_pickable = null
 base_cooldown_time = 1.5
 base_damage = 5.0
 

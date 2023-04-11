@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://butc7gabptya1"]
+
+[ext_resource type="Script" path="res://scenes/ability/great_sword_ability/great_sword_ability.gd" id="1_e0nau"]
+[ext_resource type="PackedScene" uid="uid://13jymeei0c0j" path="res://scenes/component/hitbox_component.tscn" id="2_0ii82"]
+[ext_resource type="Texture2D" uid="uid://cgvt245uw73jj" path="res://assets/externals/raven_fantasy_icons/32/c5016.png" id="3_67ff8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dsfx"]
+size = Vector2(14, 29)
+
+[node name="SwordAbility" type="Node2D"]
+script = ExtResource("1_e0nau")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_0ii82")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -28.5)
+shape = SubResource("RectangleShape2D_1dsfx")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, -20)
+rotation = 0.785397
+texture = ExtResource("3_67ff8")
+flip_h = true

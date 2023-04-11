@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://u04jkx28cadm"]
 
 [ext_resource type="Script" path="res://scenes/ability/great_sword_ability_controller/great_sword_ability_controller.gd" id="1_1wtd5"]
-[ext_resource type="PackedScene" uid="uid://bp24tmqi8ytfb" path="res://scenes/ability/sword_ability/sword_ability.tscn" id="2_eyunj"]
+[ext_resource type="PackedScene" uid="uid://butc7gabptya1" path="res://scenes/ability/great_sword_ability/great_sword_ability.tscn" id="2_21hvt"]
 [ext_resource type="Resource" uid="uid://d1kr1fuio0db5" path="res://resources/spell_ability/spell_great_sword.tres" id="3_4f6wn"]
 
 [node name="GreatSwordAbilityController" type="Node"]
 script = ExtResource("1_1wtd5")
-ability_scene = ExtResource("2_eyunj")
+ability_scene = ExtResource("2_21hvt")
 spell_ability_resource = ExtResource("3_4f6wn")
 base_cooldown_time = 5.0
 base_damage = 20.0
